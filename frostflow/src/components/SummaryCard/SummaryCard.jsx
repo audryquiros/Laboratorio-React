@@ -1,3 +1,5 @@
+import "./SummaryCard.css";
+
 function SummaryCard({
   etiqueta,
   valor,
@@ -8,7 +10,7 @@ function SummaryCard({
   return (
     <article className={`summary-card summary-card-${tipo}`}>
       <div className="summary-card-top">
-        <span className="summary-card-icon">
+        <span className="summary-card-icon" aria-hidden="true">
           {icono}
         </span>
 

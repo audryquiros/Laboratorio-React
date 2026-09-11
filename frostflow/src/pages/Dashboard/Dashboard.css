@@ -1,0 +1,869 @@
+/* =========================================================
+   FROSTFLOW — DASHBOARD
+========================================================= */
+
+.dashboard-page {
+  width: 100%;
+  max-width: 1480px;
+
+  margin: 0 auto;
+  padding: 32px 36px 50px;
+
+  box-sizing: border-box;
+
+  color: var(--text-primary);   
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.dashboard-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  margin-bottom: 30px;
+}
+
+.dashboard-heading > div {
+  min-width: 0;
+}
+
+.dashboard-eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--accent);
+
+  font-size: 0.72rem;
+  font-weight: 750;
+
+  line-height: 1.2;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.dashboard-heading h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 2rem;
+  line-height: 1.15;
+
+  font-weight: 750;
+
+  letter-spacing: -0.035em;
+}
+
+.dashboard-heading p {
+  max-width: 680px;
+
+  margin: 10px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   BOTÓN ACTUALIZAR
+========================================================= */
+
+.dashboard-refresh {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  padding: 9px 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: var(--bg-surface);
+
+  color: var(--text-secondary);
+
+  font-family: inherit;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dashboard-refresh:first-letter {
+  font-size: 1rem;
+}
+
+.dashboard-refresh:hover {
+  background: var(--bg-surface-soft);
+
+  border-color: var(--accent);
+
+  color: var(--text-primary);
+
+  box-shadow: var(--shadow-card);
+
+  transform: translateY(-1px);
+}
+
+.dashboard-refresh:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.dashboard-error {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-bottom: 20px;
+  padding: 14px 17px;
+
+  border: 1px solid #dec9cc;
+  border-radius: 11px;
+
+  background: var(--danger-bg);
+
+  color: var(--danger);
+}
+
+.dashboard-error strong {
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.dashboard-error span {
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   TARJETAS DE RESUMEN
+========================================================= */
+
+.dashboard-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   SECCIÓN PRINCIPAL
+========================================================= */
+
+.dashboard-main-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(340px, 0.9fr);
+
+  gap: 18px;
+
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   TARJETAS / SECCIONES
+========================================================= */
+
+.dashboard-section {
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  padding: 23px;
+
+  background: var(--bg-surface);
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dashboard-section:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.dashboard-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 21px;
+}
+
+.dashboard-section-header > div {
+  min-width: 0;
+}
+
+.dashboard-section-eyebrow {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--text-muted);
+
+  font-size: 0.65rem;
+  font-weight: 750;
+
+  line-height: 1.2;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-section-header h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 1.02rem;
+  line-height: 1.3;
+
+  font-weight: 750;
+
+  letter-spacing: -0.015em;
+}
+
+
+/* =========================================================
+   ÍNDICE DE CARGA
+========================================================= */
+
+.dashboard-load-content {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.dashboard-load-score {
+  display: flex;
+  align-items: baseline;
+
+  flex-shrink: 0;
+
+  min-width: 115px;
+}
+
+.dashboard-load-score strong {
+  color: var(--text-primary);
+
+  font-size: 3rem;
+  line-height: 1;
+
+  font-weight: 780;
+
+  letter-spacing: -0.055em;
+}
+
+.dashboard-load-score span {
+  margin-left: 5px;
+
+  color: var(--text-muted);
+
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.dashboard-load-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.dashboard-load-track {
+  width: 100%;
+  height: 9px;
+
+  overflow: hidden;
+
+  background: var(--bg-surface-muted);
+
+  border-radius: 999px;
+}
+
+.dashboard-load-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  transition: width 0.5s ease;
+}
+
+.dashboard-load-fill-success {
+  background: var(--success);
+}
+
+.dashboard-load-fill-accent {
+  background: var(--accent);
+}
+
+.dashboard-load-fill-warning {
+  background: #a18c5d;
+}
+
+.dashboard-load-fill-danger {
+  background: var(--danger);
+}
+
+.dashboard-load-info p {
+  margin: 10px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   BADGE DE CARGA
+========================================================= */
+
+.dashboard-load-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 29px;
+
+  padding: 6px 10px;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+.dashboard-load-success {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.dashboard-load-accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.dashboard-load-warning {
+  background: #f1ecdf;
+  color: #927d50;
+}
+
+.dashboard-load-danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+
+/* =========================================================
+   DESGLOSE DE CARGA
+========================================================= */
+
+.dashboard-load-breakdown {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  margin-top: 23px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border-soft);
+}
+
+.dashboard-load-breakdown > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 0 17px;
+
+  border-right: 1px solid var(--border-soft);
+}
+
+.dashboard-load-breakdown > div:first-child {
+  padding-left: 0;
+}
+
+.dashboard-load-breakdown > div:last-child {
+  padding-right: 0;
+
+  border-right: none;
+}
+
+.dashboard-load-breakdown span {
+  color: var(--text-muted);
+
+  font-size: 0.65rem;
+  font-weight: 650;
+}
+
+.dashboard-load-breakdown strong {
+  color: var(--text-primary);
+
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   ESTADO ACADÉMICO
+========================================================= */
+
+.dashboard-alert-count {
+  min-width: 29px;
+  height: 29px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 8px;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  background: var(--bg-surface-muted);
+
+  color: var(--text-secondary);
+
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+.dashboard-temperature-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.dashboard-temperature-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 13px;
+
+  background: var(--bg-surface-soft);
+
+  border: 1px solid var(--border-soft);
+  border-radius: 11px;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dashboard-temperature-item:hover {
+  background: var(--bg-surface-muted);
+
+  border-color: var(--border);
+}
+
+.dashboard-temperature-item > div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.dashboard-temperature-item strong {
+  overflow: hidden;
+
+  color: var(--text-primary);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-temperature-item > div span {
+  overflow: hidden;
+
+  color: var(--text-muted);
+
+  font-size: 0.66rem;
+  line-height: 1.3;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ESTADO VACÍO
+========================================================= */
+
+.dashboard-empty {
+  min-height: 125px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+
+  background: var(--bg-surface-soft);
+
+  border: 1px dashed var(--border);
+  border-radius: 11px;
+}
+
+.dashboard-empty-large {
+  min-height: 150px;
+
+  justify-content: center;
+}
+
+.dashboard-empty-icon {
+  width: 39px;
+  height: 39px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: var(--success-bg);
+  color: var(--success);
+
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.dashboard-empty strong {
+  display: block;
+
+  color: var(--text-primary);
+
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.dashboard-empty p {
+  margin: 5px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   ENTREGAS
+========================================================= */
+
+.dashboard-deliveries {
+  margin-top: 18px;
+}
+
+.dashboard-section-counter {
+  color: var(--text-muted);
+
+  font-size: 0.69rem;
+  font-weight: 650;
+}
+
+.dashboard-delivery-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.dashboard-loading {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  color: var(--text-secondary);
+
+  background: var(--bg-surface);
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: var(--shadow-soft);
+}
+
+.dashboard-loading span {
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.dashboard-loading-spinner {
+  width: 31px;
+  height: 31px;
+
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+
+  border-radius: 50%;
+
+  animation: dashboard-loading-spin 0.8s linear infinite;
+}
+
+@keyframes dashboard-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+html[data-theme="dark"] .dashboard-error {
+  border-color: #4a373b;
+}
+
+html[data-theme="dark"] .dashboard-load-warning {
+  background: #393427;
+  color: #cbb477;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1150px) {
+  .dashboard-summary {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-delivery-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width: 850px) {
+  .dashboard-page {
+    padding: 28px 25px 44px;
+  }
+
+  .dashboard-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .dashboard-heading h2 {
+    font-size: 1.75rem;
+  }
+
+  .dashboard-refresh {
+    align-self: flex-start;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+  .dashboard-page {
+    padding: 23px 16px 38px;
+  }
+
+  .dashboard-heading {
+    margin-bottom: 23px;
+  }
+
+  .dashboard-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-heading p {
+    font-size: 0.78rem;
+  }
+
+  .dashboard-summary {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .dashboard-main-grid {
+    gap: 13px;
+
+    margin-top: 13px;
+  }
+
+  .dashboard-section {
+    padding: 18px;
+  }
+
+  .dashboard-load-content {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .dashboard-load-score {
+    min-width: 0;
+  }
+
+  .dashboard-load-info {
+    width: 100%;
+  }
+
+  .dashboard-load-breakdown {
+    gap: 0;
+  }
+
+  .dashboard-load-breakdown > div {
+    padding: 0 9px;
+  }
+
+  .dashboard-deliveries {
+    margin-top: 13px;
+  }
+
+  .dashboard-delivery-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .dashboard-section-header {
+    align-items: flex-start;
+  }
+
+  .dashboard-temperature-item {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL MUY PEQUEÑO
+========================================================= */
+
+@media (max-width: 400px) {
+  .dashboard-page {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .dashboard-load-breakdown {
+    grid-template-columns: 1fr;
+
+    gap: 13px;
+  }
+
+  .dashboard-load-breakdown > div,
+  .dashboard-load-breakdown > div:first-child,
+  .dashboard-load-breakdown > div:last-child {
+    padding: 0 0 11px;
+
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .dashboard-load-breakdown > div:last-child {
+    padding-bottom: 0;
+
+    border-bottom: none;
+  }
+}

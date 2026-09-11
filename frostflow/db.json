@@ -592,9 +592,9 @@
       "fechaEntrega": "2026-09-13T23:59:00",
       "progreso": 64,
       "temperatura": "urgente",
-      "riesgo": 62,
+      "riesgo": 64,
       "estado": "en_progreso",
-      "ultimaActualizacion": "2026-09-11T08:00:00"
+      "ultimaActualizacion": "2026-09-11T20:23:31.845Z"
     },
     {
       "id": "4",
@@ -604,9 +604,9 @@
       "fechaEntrega": "2026-09-22T18:00:00",
       "progreso": 35,
       "temperatura": "estable",
-      "riesgo": 36,
+      "riesgo": 31,
       "estado": "en_progreso",
-      "ultimaActualizacion": "2026-09-11T08:00:00"
+      "ultimaActualizacion": "2026-09-11T20:23:31.869Z"
     },
     {
       "id": "5",
@@ -628,9 +628,9 @@
       "fechaEntrega": "2026-09-16T18:00:00",
       "progreso": 45,
       "temperatura": "proximo",
-      "riesgo": 48,
+      "riesgo": 49,
       "estado": "en_progreso",
-      "ultimaActualizacion": "2026-09-11T08:00:00"
+      "ultimaActualizacion": "2026-09-11T20:23:31.889Z"
     },
     {
       "id": "7",
@@ -640,9 +640,9 @@
       "fechaEntrega": "2026-09-25T23:59:00",
       "progreso": 20,
       "temperatura": "estable",
-      "riesgo": 28,
+      "riesgo": 35,
       "estado": "en_progreso",
-      "ultimaActualizacion": "2026-09-11T08:00:00"
+      "ultimaActualizacion": "2026-09-11T20:23:31.909Z"
     },
     {
       "id": "8",
@@ -651,10 +651,10 @@
       "descripcion": "Práctica de componentes reutilizables y hooks.",
       "fechaEntrega": "2026-09-30T23:59:00",
       "progreso": 100,
-      "temperatura": "estable",
+      "temperatura": "completada",
       "riesgo": 0,
       "estado": "completada",
-      "ultimaActualizacion": "2026-09-11T08:00:00"
+      "ultimaActualizacion": "2026-09-11T20:23:31.926Z"
     },
     {
       "titulo": "Quiz 3",
@@ -670,7 +670,18 @@
     }
   ],
   "alertas": [],
-  "ejecuciones": [],
+  "ejecuciones": [
+    {
+      "id": "5ARC2cOEQKs",
+      "fechaEjecucion": "2026-09-11T20:23:31.943Z",
+      "estado": "exito",
+      "origen": "manual",
+      "entregasAnalizadas": 9,
+      "entregasActualizadas": 5,
+      "duracion": 120,
+      "mensaje": "Se analizaron 9 entregas y se actualizaron 5."
+    }
+  ],
   "configuracion": [
     {
       "id": "1",

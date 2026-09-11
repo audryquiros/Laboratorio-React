@@ -9,19 +9,13 @@ import Layout from "../components/Layout/Layout";
 import { useAuth } from "../context/AuthContext";
 
 import Login from "../pages/Login/Login";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import Cursos from "../pages/Cursos/Cursos";
 import Entregas from "../pages/Entregas/Entregas";
+import Calendario from "../pages/Calendario/Calendario";
+import Automatizacion from "../pages/Automatizacion/Automatizacion";
 import Perfil from "../pages/Perfil/Perfil";
 import Configuracion from "../pages/Configuracion/Configuracion";
-
-function Placeholder({ titulo }) {
-  return (
-    <div className="placeholder-page">
-      <h2>{titulo}</h2>
-      <p>Esta sección estará disponible próximamente.</p>
-    </div>
-  );
-}
 
 function RutaProtegida({ children }) {
   const { autenticado, cargando } = useAuth();
@@ -41,13 +35,11 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* LOGIN */}
         <Route
           path="/login"
           element={<Login />}
         />
 
-        {/* APLICACIÓN PROTEGIDA */}
         <Route
           path="/*"
           element={
@@ -56,9 +48,7 @@ function AppRouter() {
                 <Routes>
                   <Route
                     path="/dashboard"
-                    element={
-                      <Placeholder titulo="Dashboard" />
-                    }
+                    element={<Dashboard />}
                   />
 
                   <Route
@@ -73,19 +63,15 @@ function AppRouter() {
 
                   <Route
                     path="/calendario"
-                    element={
-                      <Placeholder titulo="Calendario" />
-                    }
+                    element={<Calendario />}
                   />
 
                   <Route
                     path="/automatizacion"
-                    element={
-                      <Placeholder titulo="Automatización" />
-                    }
+                    element={<Automatizacion />}
                   />
 
-                    <Route
+                  <Route
                     path="/configuracion"
                     element={<Configuracion />}
                   />
