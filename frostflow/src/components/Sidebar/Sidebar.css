@@ -1,3 +1,7 @@
+/* =========================================================
+   FROSTFLOW — SIDEBAR
+========================================================= */
+
 .sidebar {
   position: fixed;
   z-index: 60;
@@ -13,14 +17,19 @@
 
   padding: 24px 15px 17px;
 
-  border-right: 1px solid #e7e9ee;
+  border-right: 1px solid var(--border);
 
-  background: #ffffff;
+  background: var(--bg-surface);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    BRAND
-========================= */
+========================================================= */
 
 .sidebar-brand {
   display: flex;
@@ -41,8 +50,12 @@
 
   border-radius: 10px;
 
-  background: #dcd8ea;
-  color: #635b7e;
+  background: var(--accent-soft);
+  color: var(--accent);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .brand-mark span {
@@ -58,26 +71,30 @@
 }
 
 .brand-text strong {
-  color: #383d4a;
+  color: var(--text-primary);
 
   font-size: 0.88rem;
   font-weight: 750;
 
   letter-spacing: -0.01em;
+
+  transition: color 0.25s ease;
 }
 
 .brand-text span {
-  color: #a1a5af;
+  color: var(--text-muted);
 
   font-size: 0.58rem;
   font-weight: 500;
 
   letter-spacing: 0.02em;
+
+  transition: color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    NAVEGACIÓN
-========================= */
+========================================================= */
 
 .sidebar-navigation {
   flex: 1;
@@ -92,13 +109,15 @@
 
   margin: 0 11px 9px;
 
-  color: #b0b3bc;
+  color: var(--text-muted);
 
   font-size: 0.61rem;
   font-weight: 750;
 
   letter-spacing: 0.11em;
   text-transform: uppercase;
+
+  transition: color 0.25s ease;
 }
 
 .sidebar-links {
@@ -119,7 +138,7 @@
 
   border-radius: 9px;
 
-  color: #8d929e;
+  color: var(--text-muted);
 
   font-size: 0.76rem;
   font-weight: 600;
@@ -127,23 +146,23 @@
   text-decoration: none;
 
   transition:
-    background 0.2s ease,
+    background-color 0.2s ease,
     color 0.2s ease;
 }
 
 .sidebar-link:hover {
-  background: #f7f7fa;
-  color: #686e7b;
+  background: var(--bg-surface-soft);
+  color: var(--text-secondary);
 }
 
 .sidebar-link-active {
-  background: #f0eef6;
-  color: #665d82;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .sidebar-link-active:hover {
-  background: #f0eef6;
-  color: #665d82;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .sidebar-icon {
@@ -152,26 +171,34 @@
   display: flex;
   justify-content: center;
 
-  color: #999eaa;
+  color: var(--text-muted);
 
   font-size: 0.95rem;
+
+  transition: color 0.25s ease;
 }
 
 .sidebar-link-active .sidebar-icon {
-  color: #766b94;
+  color: var(--accent);
 }
+
+/* =========================================================
+   DIVISOR
+========================================================= */
 
 .sidebar-divider {
   height: 1px;
 
   margin: 5px 11px 21px;
 
-  background: #eceef2;
+  background: var(--border-soft);
+
+  transition: background-color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    PARTE INFERIOR
-========================= */
+========================================================= */
 
 .sidebar-bottom {
   display: flex;
@@ -186,10 +213,14 @@
 
   padding: 11px;
 
-  border: 1px solid #edf0f2;
+  border: 1px solid var(--border-soft);
   border-radius: 10px;
 
-  background: #fafbfb;
+  background: var(--bg-surface-soft);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .status-dot {
@@ -199,9 +230,11 @@
   height: 6px;
 
   border-radius: 50%;
-  background: #7ca289;
 
-  box-shadow: 0 0 0 3px #e7f0e9;
+  background: var(--success);
+
+  box-shadow:
+    0 0 0 3px var(--success-bg);
 }
 
 .sidebar-status div {
@@ -211,21 +244,25 @@
 }
 
 .sidebar-status strong {
-  color: #69716d;
+  color: var(--text-secondary);
 
   font-size: 0.66rem;
   font-weight: 700;
+
+  transition: color 0.25s ease;
 }
 
 .sidebar-status span:not(.status-dot) {
-  color: #a2a7ae;
+  color: var(--text-muted);
 
   font-size: 0.56rem;
+
+  transition: color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    USUARIO
-========================= */
+========================================================= */
 
 .sidebar-user {
   width: 100%;
@@ -246,11 +283,11 @@
 
   cursor: pointer;
 
-  transition: background 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .sidebar-user:hover {
-  background: #f7f7fa;
+  background: var(--bg-surface-soft);
 }
 
 .user-avatar {
@@ -265,11 +302,15 @@
 
   border-radius: 9px;
 
-  background: #ded9ed;
-  color: #665b84;
+  background: var(--accent-soft);
+  color: var(--accent);
 
   font-size: 0.69rem;
   font-weight: 750;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .user-info {
@@ -285,29 +326,36 @@
 .user-info strong {
   overflow: hidden;
 
-  color: #626875;
+  color: var(--text-secondary);
 
   font-size: 0.68rem;
   font-weight: 700;
 
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  transition: color 0.25s ease;
 }
 
 .user-info span {
-  color: #a4a8b1;
+  color: var(--text-muted);
 
   font-size: 0.56rem;
+
+  transition: color 0.25s ease;
 }
 
 .user-menu {
-  color: #a1a5ae;
+  color: var(--text-muted);
+
   font-size: 0.62rem;
+
+  transition: color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media (max-width: 900px) {
   .sidebar {

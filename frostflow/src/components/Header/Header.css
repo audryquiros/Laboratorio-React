@@ -1,3 +1,7 @@
+/* =========================================================
+   FROSTFLOW — HEADER
+========================================================= */
+
 .header {
   position: fixed;
   z-index: 50;
@@ -14,32 +18,39 @@
 
   padding: 0 34px;
 
-  border-bottom: 1px solid #e7e9ee;
+  border-bottom: 1px solid var(--border);
 
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--bg-surface);
 
   backdrop-filter: blur(12px);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    TÍTULO
-========================= */
+========================================================= */
 
 .header-title h1 {
   margin: 0;
 
-  color: #303440;
+  color: var(--text-primary);
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.55rem;
   font-weight: 500;
 
   letter-spacing: -0.035em;
+
+  transition: color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    ACCIONES
-========================= */
+========================================================= */
 
 .header-actions {
   display: flex;
@@ -52,20 +63,22 @@
   align-items: center;
   gap: 7px;
 
-  color: #999eaa;
+  color: var(--text-muted);
 
   font-size: 0.72rem;
   text-transform: capitalize;
+
+  transition: color 0.25s ease;
 }
 
 .date-icon {
-  color: #8f88a8;
+  color: var(--accent);
   font-size: 0.85rem;
 }
 
-/* =========================
+/* =========================================================
    BOTONES
-========================= */
+========================================================= */
 
 .header-search,
 .header-notifications {
@@ -78,21 +91,25 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid #e8eaf0;
+  border: 1px solid var(--border-soft);
   border-radius: 9px;
 
-  background: #ffffff;
-  color: #777d8b;
+  background: var(--bg-surface);
+  color: var(--text-muted);
 
   cursor: pointer;
 
-  transition: 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .header-search:hover,
 .header-notifications:hover {
-  border-color: #dcdce8;
-  background: #fafafe;
+  border-color: var(--border);
+  background: var(--bg-surface-soft);
+  color: var(--text-secondary);
 }
 
 .header-search span {
@@ -111,22 +128,28 @@
   width: 5px;
   height: 5px;
 
-  border: 2px solid #ffffff;
+  border: 2px solid var(--bg-surface);
   border-radius: 50%;
 
-  background: #9b91b8;
+  background: var(--accent);
 }
+
+/* =========================================================
+   DIVISOR
+========================================================= */
 
 .header-divider {
   width: 1px;
   height: 30px;
 
-  background: #e8eaf0;
+  background: var(--border-soft);
+
+  transition: background-color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    PERFIL
-========================= */
+========================================================= */
 
 .header-profile {
   display: flex;
@@ -136,6 +159,8 @@
   padding: 3px 4px;
 
   border: none;
+  border-radius: 10px;
+
   background: transparent;
 
   font-family: inherit;
@@ -143,13 +168,12 @@
 
   cursor: pointer;
 
-  border-radius: 10px;
-
-  transition: background 0.2s ease;
+  transition:
+    background-color 0.2s ease;
 }
 
 .header-profile:hover {
-  background: #f7f7fa;
+  background: var(--bg-surface-soft);
 }
 
 .header-avatar {
@@ -162,11 +186,15 @@
 
   border-radius: 10px;
 
-  background: #ded9ed;
-  color: #665b84;
+  background: var(--accent-soft);
+  color: var(--accent);
 
   font-size: 0.75rem;
   font-weight: 750;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .header-profile-info {
@@ -176,29 +204,35 @@
 }
 
 .header-profile-info strong {
-  color: #555b69;
+  color: var(--text-secondary);
 
   font-size: 0.73rem;
   font-weight: 700;
+
+  transition: color 0.25s ease;
 }
 
 .header-profile-info span {
-  color: #a0a4ae;
+  color: var(--text-muted);
 
   font-size: 0.62rem;
+
+  transition: color 0.25s ease;
 }
 
 .profile-arrow {
   margin-left: 3px;
 
-  color: #9da1ab;
+  color: var(--text-muted);
 
   font-size: 0.85rem;
+
+  transition: color 0.25s ease;
 }
 
-/* =========================
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media (max-width: 900px) {
   .header {

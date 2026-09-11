@@ -11,7 +11,11 @@ const cursoInicial = {
   estado: "activo",
 };
 
-function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
+function CursosForm({
+  cursoEditar,
+  onGuardar,
+  onCancelar,
+}) {
   const [formulario, setFormulario] = useState(cursoInicial);
 
   useEffect(() => {
@@ -20,7 +24,7 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
         nombre: cursoEditar.nombre || "",
         codigo: cursoEditar.codigo || "",
         profesor: cursoEditar.profesor || "",
-        creditos: cursoEditar.creditos || 4,
+        creditos: cursoEditar.creditos ?? 4,
         semestre: cursoEditar.semestre || "III 2026",
         color: cursoEditar.color || "blue",
         estado: cursoEditar.estado || "activo",
@@ -35,22 +39,27 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
 
     setFormulario((actual) => ({
       ...actual,
-      [name]: name === "creditos" ? Number(value) : value,
+      [name]:
+        name === "creditos"
+          ? Number(value)
+          : value,
     }));
   };
 
   const manejarSubmit = (e) => {
     e.preventDefault();
 
-    if (!formulario.nombre.trim() || !formulario.codigo.trim()) {
+    if (
+      !formulario.nombre.trim() ||
+      !formulario.codigo.trim()
+    ) {
       return;
     }
 
-    onGuardar(formulario);
-
-    if (!cursoEditar) {
-      setFormulario(cursoInicial);
-    }
+    onGuardar({
+      ...formulario,
+      creditos: Number(formulario.creditos),
+    });
   };
 
   return (
@@ -58,15 +67,21 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
       <div className="form-header">
         <div>
           <span className="form-eyebrow">
-            {cursoEditar ? "Editar curso" : "Nuevo registro"}
+            {cursoEditar
+              ? "Editar curso"
+              : "Nuevo curso"}
           </span>
 
           <h2>
-            {cursoEditar ? "Actualizar curso" : "Agregar curso"}
+            {cursoEditar
+              ? "Actualizar información"
+              : "Agregar curso"}
           </h2>
 
           <p>
-            Registra la información académica para organizar tus entregas.
+            {cursoEditar
+              ? "Modifica los datos de esta materia."
+              : "Registra una nueva materia para organizar tus entregas."}
           </p>
         </div>
 
@@ -76,8 +91,10 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
       </div>
 
       <div className="form-grid">
-        <div className="campo campo-grande">
-          <label htmlFor="nombre">Nombre del curso</label>
+        <div className="campo">
+          <label htmlFor="nombre">
+            Nombre del curso
+          </label>
 
           <input
             id="nombre"
@@ -85,13 +102,15 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
             type="text"
             value={formulario.nombre}
             onChange={manejarCambio}
-            placeholder="Ej. Programación Web"
+            placeholder="Ej. Desarrollo Web"
             required
           />
         </div>
 
         <div className="campo">
-          <label htmlFor="codigo">Código</label>
+          <label htmlFor="codigo">
+            Código
+          </label>
 
           <input
             id="codigo"
@@ -99,13 +118,15 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
             type="text"
             value={formulario.codigo}
             onChange={manejarCambio}
-            placeholder="Ej. PW-301"
+            placeholder="Ej. INF-302"
             required
           />
         </div>
 
-        <div className="campo campo-grande">
-          <label htmlFor="profesor">Profesor</label>
+        <div className="campo">
+          <label htmlFor="profesor">
+            Profesor
+          </label>
 
           <input
             id="profesor"
@@ -118,7 +139,9 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
         </div>
 
         <div className="campo">
-          <label htmlFor="creditos">Créditos</label>
+          <label htmlFor="creditos">
+            Créditos
+          </label>
 
           <select
             id="creditos"
@@ -136,20 +159,35 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
         </div>
 
         <div className="campo">
-          <label htmlFor="semestre">Semestre</label>
+          <label htmlFor="semestre">
+            Periodo académico
+          </label>
 
-          <input
+          <select
             id="semestre"
             name="semestre"
-            type="text"
             value={formulario.semestre}
             onChange={manejarCambio}
-            placeholder="Ej. III 2026"
-          />
+          >
+            <option value="I 2026">
+              I 2026
+            </option>
+            <option value="II 2026">
+              II 2026
+            </option>
+            <option value="III 2026">
+              III 2026
+            </option>
+            <option value="I 2027">
+              I 2027
+            </option>
+          </select>
         </div>
 
         <div className="campo">
-          <label htmlFor="estado">Estado</label>
+          <label htmlFor="estado">
+            Estado
+          </label>
 
           <select
             id="estado"
@@ -157,32 +195,46 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
             value={formulario.estado}
             onChange={manejarCambio}
           >
-            <option value="activo">Activo</option>
-            <option value="finalizado">Finalizado</option>
-            <option value="inactivo">Inactivo</option>
+            <option value="activo">
+              Activo
+            </option>
+            <option value="inactivo">
+              Inactivo
+            </option>
           </select>
         </div>
 
-        <div className="campo campo-grande">
-          <label>Identidad visual</label>
+        <div className="campo">
+          <label>
+            Color del curso
+          </label>
 
           <div className="colores-cursos">
-            {["blue", "lavender", "ice", "steel", "slate"].map((color) => (
+            {[
+              ["blue", "Azul"],
+              ["lavender", "Lavanda"],
+              ["ice", "Hielo"],
+              ["steel", "Acero"],
+              ["slate", "Pizarra"],
+            ].map(([valor, nombreColor]) => (
               <button
-                key={color}
+                key={valor}
                 type="button"
-                className={`color-option color-${color} ${
-                  formulario.color === color ? "seleccionado" : ""
+                title={nombreColor}
+                aria-label={`Seleccionar color ${nombreColor}`}
+                className={`color-option color-${valor} ${
+                  formulario.color === valor
+                    ? "seleccionado"
+                    : ""
                 }`}
                 onClick={() =>
                   setFormulario((actual) => ({
                     ...actual,
-                    color,
+                    color: valor,
                   }))
                 }
-                aria-label={`Seleccionar color ${color}`}
               >
-                {formulario.color === color && "✓"}
+                {formulario.color === valor && "✓"}
               </button>
             ))}
           </div>
@@ -190,18 +242,21 @@ function CursosForm({ cursoEditar, onGuardar, onCancelar }) {
       </div>
 
       <div className="form-actions">
-        {cursoEditar && (
-          <button
-            type="button"
-            className="btn-secundario"
-            onClick={onCancelar}
-          >
-            Cancelar
-          </button>
-        )}
+        <button
+          type="button"
+          className="btn-secundario"
+          onClick={onCancelar}
+        >
+          Cancelar
+        </button>
 
-        <button type="submit" className="btn-guardar">
-          {cursoEditar ? "Guardar cambios" : "Agregar curso"}
+        <button
+          type="submit"
+          className="btn-guardar"
+        >
+          {cursoEditar
+            ? "Guardar cambios"
+            : "Guardar curso"}
         </button>
       </div>
     </form>

@@ -1,6 +1,8 @@
 .app-layout {
   min-height: 100vh;
-  background: #f7f8fa;
+  background: var(--bg-page);
+
+  transition: background-color 0.25s ease;
 }
 
 .app-main {
@@ -9,13 +11,24 @@
 }
 
 .app-content {
-  min-height: 100vh;
+  min-height: calc(100vh - 76px);
   box-sizing: border-box;
+
   padding-top: 76px;
+
+  background: var(--bg-page);
+
+  transition: background-color 0.25s ease;
 }
 
 @media (max-width: 850px) {
   .app-main {
     margin-left: 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-main {
+    margin-left: 0;
   }
 }

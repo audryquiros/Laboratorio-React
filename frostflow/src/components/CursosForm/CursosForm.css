@@ -1,10 +1,23 @@
+/* =========================================================
+   FROSTFLOW — FORMULARIO DE CURSOS
+========================================================= */
+
 .curso-form {
-  background: #ffffff;
-  border: 1px solid #e6e9f0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
   border-radius: 24px;
   padding: 30px;
-  box-shadow: 0 12px 35px rgba(52, 62, 84, 0.06);
+  box-shadow: var(--shadow-card);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .form-header {
   display: flex;
@@ -17,39 +30,65 @@
 .form-eyebrow {
   display: block;
   margin-bottom: 7px;
-  color: #8b91a3;
+
+  color: var(--accent);
+
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+
+  transition: color 0.25s ease;
 }
 
 .form-header h2 {
   margin: 0;
-  color: #252a36;
+
+  color: var(--text-primary);
+
   font-size: 1.45rem;
   font-weight: 700;
+
+  transition: color 0.25s ease;
 }
 
 .form-header p {
   margin: 7px 0 0;
-  color: #8b91a3;
+
+  color: var(--text-muted);
+
   font-size: 0.9rem;
   line-height: 1.5;
+
+  transition: color 0.25s ease;
 }
 
 .form-icon {
   width: 44px;
   height: 44px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  flex-shrink: 0;
+
   border-radius: 13px;
-  background: #f1effa;
-  color: #7564a9;
+
+  background: var(--accent-soft);
+  color: var(--accent);
+
   font-size: 1.35rem;
   font-weight: 500;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
+
+/* =========================================================
+   GRID
+========================================================= */
 
 .form-grid {
   display: grid;
@@ -68,57 +107,98 @@
 }
 
 .campo label {
-  color: #4d5363;
+  color: var(--text-secondary);
+
   font-size: 0.8rem;
   font-weight: 650;
+
+  transition: color 0.25s ease;
 }
+
+/* =========================================================
+   INPUTS
+========================================================= */
 
 .campo input,
 .campo select {
   width: 100%;
   box-sizing: border-box;
+
   min-height: 45px;
+
   padding: 0 14px;
-  border: 1px solid #e1e4eb;
+
+  border: 1px solid var(--border-soft);
   border-radius: 11px;
+
   outline: none;
-  background: #fafbfc;
-  color: #303543;
+
+  background: var(--bg-surface-soft);
+  color: var(--text-primary);
+
   font-family: inherit;
   font-size: 0.88rem;
-  transition: 0.2s ease;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .campo input::placeholder {
-  color: #b1b5c0;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.campo input:hover,
+.campo select:hover {
+  border-color: var(--border);
 }
 
 .campo input:focus,
 .campo select:focus {
-  border-color: #9b8bc7;
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(155, 139, 199, 0.1);
+  border-color: var(--accent);
+
+  background: var(--bg-surface);
+
+  box-shadow:
+    0 0 0 3px rgba(129, 119, 164, 0.12);
 }
+
+/* =========================================================
+   OPCIONES DE COLOR
+========================================================= */
 
 .colores-cursos {
   display: flex;
   align-items: center;
   gap: 10px;
+
   min-height: 45px;
 }
 
 .color-option {
   width: 31px;
   height: 31px;
+
   border: 2px solid transparent;
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   cursor: pointer;
+
   color: #ffffff;
+
   font-size: 0.75rem;
-  transition: 0.2s ease;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .color-option:hover {
@@ -126,10 +206,14 @@
 }
 
 .color-option.seleccionado {
-  border-color: #353a47;
-  box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #353a47;
+  border-color: var(--text-primary);
+
+  box-shadow:
+    0 0 0 3px var(--bg-surface),
+    0 0 0 5px var(--text-primary);
 }
 
+/* Colores de los cursos */
 .color-blue {
   background: #9ab9d8;
 }
@@ -150,47 +234,97 @@
   background: #737b91;
 }
 
+/* =========================================================
+   ACCIONES
+========================================================= */
+
 .form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+
   margin-top: 28px;
   padding-top: 22px;
-  border-top: 1px solid #edf0f4;
+
+  border-top: 1px solid var(--border-soft);
+
+  transition: border-color 0.25s ease;
 }
 
 .btn-guardar,
 .btn-secundario {
   min-height: 42px;
+
   padding: 0 19px;
+
   border-radius: 10px;
+
   font-family: inherit;
   font-size: 0.84rem;
   font-weight: 650;
+
   cursor: pointer;
-  transition: 0.2s ease;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn-guardar {
   border: none;
-  background: #343b4b;
+
+  background: var(--button);
   color: #ffffff;
 }
 
 .btn-guardar:hover {
-  background: #272d3a;
+  background: var(--button-hover);
+
   transform: translateY(-1px);
 }
 
 .btn-secundario {
-  border: 1px solid #e0e3e9;
-  background: #ffffff;
-  color: #626878;
+  border: 1px solid var(--border);
+
+  background: var(--bg-surface);
+  color: var(--text-secondary);
 }
 
 .btn-secundario:hover {
-  background: #f7f8fa;
+  background: var(--bg-surface-soft);
+  border-color: var(--border);
+  color: var(--text-primary);
 }
+
+/* =========================================================
+   MODO OSCURO — AJUSTES ESPECÍFICOS
+========================================================= */
+
+html[data-theme="dark"] .campo input::placeholder {
+  color: #929aaa;
+}
+
+html[data-theme="dark"] .campo input:focus,
+html[data-theme="dark"] .campo select:focus {
+  box-shadow:
+    0 0 0 3px rgba(170, 160, 199, 0.14);
+}
+
+html[data-theme="dark"] .btn-guardar {
+  color: #f7f7fa;
+}
+
+html[data-theme="dark"] .color-option.seleccionado {
+  box-shadow:
+    0 0 0 3px var(--bg-surface),
+    0 0 0 5px var(--text-primary);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media (max-width: 700px) {
   .curso-form {
