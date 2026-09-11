@@ -1,43 +1,43 @@
-const API_URL = "http://localhost:3001";
+import { apiFetch } from "./api";
 
 export const getAlertas = async () => {
-  const response = await fetch(`${API_URL}/alertas`);
-
-  if (!response.ok) {
-    throw new Error("No se pudieron obtener las alertas.");
-  }
-
-  return await response.json();
+  return await apiFetch("/alertas");
 };
 
-export const createAlerta = async (alerta) => {
-  const response = await fetch(`${API_URL}/alertas`, {
+export const getAlertaById = async (id) => {
+  return await apiFetch(`/alertas/${id}`);
+};
+
+export const createAlerta = async (
+  alerta
+) => {
+  return await apiFetch("/alertas", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(alerta)
+    body: JSON.stringify(alerta),
   });
-
-  if (!response.ok) {
-    throw new Error("No se pudo crear la alerta.");
-  }
-
-  return await response.json();
 };
 
-export const updateAlerta = async (id, alerta) => {
-  const response = await fetch(`${API_URL}/alertas/${id}`, {
+export const updateAlerta = async (
+  id,
+  alerta
+) => {
+  return await apiFetch(`/alertas/${id}`, {
     method: "PATCH",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(alerta)
+    body: JSON.stringify(alerta),
+  });
+};
+
+export const deleteAlerta = async (id) => {
+  await apiFetch(`/alertas/${id}`, {
+    method: "DELETE",
   });
 
-  if (!response.ok) {
-    throw new Error("No se pudo actualizar la alerta.");
-  }
-
-  return await response.json();
+  return true;
 };
+
+export const marcarAlertaComoLeida =
+  async (id) => {
+    return await updateAlerta(id, {
+      leida: true,
+    });
+  };

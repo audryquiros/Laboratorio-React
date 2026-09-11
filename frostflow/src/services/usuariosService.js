@@ -1,32 +1,30 @@
-const API_URL = "http://localhost:3001";
+import { apiFetch } from "./api";
 
 export const getUsuarios = async () => {
-  const response = await fetch(`${API_URL}/usuarios`);
-
-  if (!response.ok) {
-    throw new Error("No se pudieron obtener los usuarios.");
-  }
-
-  return await response.json();
+  return await apiFetch("/usuarios");
 };
 
-export const loginUsuario = async (email, password) => {
-  const response = await fetch(`${API_URL}/usuarios`);
+export const loginUsuario = async (
+  email,
+  password
+) => {
+  const usuarios =
+    await getUsuarios();
 
-  if (!response.ok) {
-    throw new Error("No se pudo realizar el inicio de sesión.");
-  }
-
-  const usuarios = await response.json();
-
-  const usuarioEncontrado = usuarios.find(
-    (usuario) =>
-      usuario.email.toLowerCase().trim() === email.toLowerCase().trim() &&
-      usuario.password === password
-  );
+  const usuarioEncontrado =
+    usuarios.find(
+      (usuario) =>
+        usuario.email
+          .toLowerCase()
+          .trim() ===
+          email.toLowerCase().trim() &&
+        usuario.password === password
+    );
 
   if (!usuarioEncontrado) {
-    throw new Error("Correo o contraseña incorrectos.");
+    throw new Error(
+      "Correo o contraseña incorrectos."
+    );
   }
 
   return {

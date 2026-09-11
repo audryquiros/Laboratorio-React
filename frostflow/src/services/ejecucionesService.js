@@ -1,27 +1,35 @@
-const API_URL = "http://localhost:3001";
+import { apiFetch } from "./api";
 
 export const getEjecuciones = async () => {
-  const response = await fetch(`${API_URL}/ejecuciones`);
-
-  if (!response.ok) {
-    throw new Error("No se pudieron obtener las ejecuciones.");
-  }
-
-  return await response.json();
+  return await apiFetch("/ejecuciones");
 };
 
-export const createEjecucion = async (ejecucion) => {
-  const response = await fetch(`${API_URL}/ejecuciones`, {
+export const getEjecucionById = async (
+  id
+) => {
+  return await apiFetch(
+    `/ejecuciones/${id}`
+  );
+};
+
+export const createEjecucion = async (
+  ejecucion
+) => {
+  return await apiFetch("/ejecuciones", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(ejecucion)
+    body: JSON.stringify(ejecucion),
   });
+};
 
-  if (!response.ok) {
-    throw new Error("No se pudo registrar la ejecución.");
-  }
-
-  return await response.json();
+export const updateEjecucion = async (
+  id,
+  ejecucion
+) => {
+  return await apiFetch(
+    `/ejecuciones/${id}`,
+    {
+      method: "PATCH",
+      body: JSON.stringify(ejecucion),
+    }
+  );
 };

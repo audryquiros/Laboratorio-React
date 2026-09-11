@@ -31,6 +31,7 @@
     color 0.25s ease;
 }
 
+
 /* =========================================================
    TÍTULO
 ========================================================= */
@@ -50,6 +51,7 @@
   transition: color 0.25s ease;
 }
 
+
 /* =========================================================
    ACCIONES
 ========================================================= */
@@ -67,7 +69,7 @@
 
   color: var(--text-muted);
 
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   text-transform: capitalize;
 
   white-space: nowrap;
@@ -80,6 +82,7 @@
 
   font-size: 0.85rem;
 }
+
 
 /* =========================================================
    HERRAMIENTAS
@@ -156,6 +159,7 @@
   background: var(--accent);
 }
 
+
 /* =========================================================
    DIVISOR
 ========================================================= */
@@ -170,6 +174,7 @@
 
   transition: background-color 0.25s ease;
 }
+
 
 /* =========================================================
    DROPDOWNS
@@ -210,6 +215,7 @@
   }
 }
 
+
 /* =========================================================
    BUSCADOR
 ========================================================= */
@@ -217,8 +223,6 @@
 .search-dropdown {
   width: 370px;
 }
-
-/* Cabecera */
 
 .search-dropdown .dropdown-header {
   padding: 16px 18px 13px;
@@ -243,7 +247,8 @@
 .dropdown-header span {
   color: var(--text-muted);
 
-  font-size: 0.61rem;
+  /* AUMENTADO */
+  font-size: 0.68rem;
   font-weight: 750;
 
   letter-spacing: 0.1em;
@@ -253,11 +258,13 @@
 .dropdown-header strong {
   color: var(--text-primary);
 
-  font-size: 0.86rem;
+  /* AUMENTADO */
+  font-size: 0.9rem;
   font-weight: 700;
 
   transition: color 0.25s ease;
 }
+
 
 /* =========================================================
    CAMPO DE BÚSQUEDA
@@ -319,7 +326,8 @@
 
   font-family: inherit;
 
-  font-size: 0.76rem;
+  /* AUMENTADO */
+  font-size: 0.8rem;
 
   transition: color 0.2s ease;
 }
@@ -362,6 +370,7 @@
   color: var(--text-primary);
 }
 
+
 /* =========================================================
    RESULTADOS
 ========================================================= */
@@ -374,6 +383,7 @@
   border-top: 1px solid transparent;
 
   scrollbar-width: thin;
+
   scrollbar-color:
     var(--border)
     transparent;
@@ -393,7 +403,10 @@
   background: var(--border);
 }
 
-/* Resultado individual */
+
+/* =========================================================
+   RESULTADO INDIVIDUAL
+========================================================= */
 
 .search-result {
   width: 100%;
@@ -431,7 +444,10 @@
   border-top-color: var(--border-soft);
 }
 
-/* Icono */
+
+/* =========================================================
+   ICONO RESULTADO
+========================================================= */
 
 .result-icon {
   width: 32px;
@@ -455,7 +471,10 @@
     color 0.25s ease;
 }
 
-/* Información */
+
+/* =========================================================
+   INFORMACIÓN RESULTADO
+========================================================= */
 
 .result-info {
   min-width: 0;
@@ -472,10 +491,11 @@
 
   color: var(--text-secondary);
 
-  font-size: 0.73rem;
+  /* AUMENTADO */
+  font-size: 0.76rem;
   font-weight: 700;
 
-  line-height: 1.25;
+  line-height: 1.3;
 
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -488,7 +508,8 @@
 
   color: var(--text-muted);
 
-  font-size: 0.61rem;
+  /* AUMENTADO */
+  font-size: 0.68rem;
 
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -496,7 +517,10 @@
   transition: color 0.25s ease;
 }
 
-/* Flecha */
+
+/* =========================================================
+   FLECHA
+========================================================= */
 
 .result-arrow {
   flex-shrink: 0;
@@ -519,6 +543,7 @@
 
   transform: translateX(0);
 }
+
 
 /* =========================================================
    ESTADO VACÍO
@@ -550,12 +575,14 @@
 
   color: var(--text-muted);
 
-  font-size: 0.67rem;
+  /* AUMENTADO */
+  font-size: 0.72rem;
 
   line-height: 1.5;
 
   text-align: center;
 }
+
 
 /* =========================================================
    NOTIFICACIONES
@@ -582,7 +609,7 @@
   background: var(--accent-soft);
   color: var(--accent);
 
-  font-size: 0.61rem;
+  font-size: 0.65rem;
   font-weight: 750;
 }
 
@@ -592,6 +619,7 @@
   overflow-y: auto;
 
   scrollbar-width: thin;
+
   scrollbar-color:
     var(--border)
     transparent;
@@ -643,6 +671,11 @@
   background: var(--bg-surface-soft);
 }
 
+
+/* =========================================================
+   INDICADOR NOTIFICACIÓN
+========================================================= */
+
 .notification-indicator {
   width: 31px;
   height: 31px;
@@ -674,6 +707,11 @@
   color: #986266;
 }
 
+
+/* =========================================================
+   INFORMACIÓN NOTIFICACIÓN
+========================================================= */
+
 .notification-info {
   min-width: 0;
 
@@ -689,7 +727,8 @@
 
   color: var(--text-secondary);
 
-  font-size: 0.7rem;
+  /* AUMENTADO */
+  font-size: 0.74rem;
   font-weight: 700;
 
   text-overflow: ellipsis;
@@ -701,7 +740,10 @@
 .notification-info small {
   color: var(--text-muted);
 
-  font-size: 0.61rem;
+  /* AUMENTADO */
+  font-size: 0.67rem;
+
+  line-height: 1.35;
 
   transition: color 0.25s ease;
 }
@@ -726,6 +768,11 @@
   transform: translateX(0);
 }
 
+
+/* =========================================================
+   FOOTER NOTIFICACIONES
+========================================================= */
+
 .notification-footer {
   width: 100%;
 
@@ -742,7 +789,8 @@
 
   font-family: inherit;
 
-  font-size: 0.67rem;
+  /* AUMENTADO */
+  font-size: 0.72rem;
   font-weight: 700;
 
   text-align: left;
@@ -757,6 +805,7 @@
 .notification-footer:hover {
   background: var(--bg-surface-muted);
 }
+
 
 /* =========================================================
    CERRAR SESIÓN
@@ -806,6 +855,7 @@ html[data-theme="dark"] .header-logout:hover {
   color: #d09299;
 }
 
+
 /* =========================================================
    MODO OSCURO
 ========================================================= */
@@ -837,6 +887,7 @@ html[data-theme="dark"]
   background: #36292d;
   color: #d09299;
 }
+
 
 /* =========================================================
    RESPONSIVE
