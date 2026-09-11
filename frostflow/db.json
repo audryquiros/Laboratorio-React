@@ -1,9 +1,61 @@
 {
+  "cursos": [
+    {
+      "id": "1",
+      "nombre": "Programación Web",
+      "codigo": "PW-301",
+      "profesor": "María González",
+      "creditos": 4,
+      "semestre": "III 2026",
+      "color": "blue",
+      "estado": "activo"
+    },
+    {
+      "id": "2",
+      "nombre": "Experiencia de Usuario",
+      "codigo": "UX-302",
+      "profesor": "Carlos Rodríguez",
+      "creditos": 4,
+      "semestre": "III 2026",
+      "color": "lavender",
+      "estado": "activo"
+    },
+    {
+      "id": "3",
+      "nombre": "Tecnología Multimedia",
+      "codigo": "TM-303",
+      "profesor": "Andrea Vargas",
+      "creditos": 4,
+      "semestre": "III 2026",
+      "color": "ice",
+      "estado": "activo"
+    },
+    {
+      "id": "4",
+      "nombre": "Metodología de la Investigación",
+      "codigo": "MI-304",
+      "profesor": "Daniel Herrera",
+      "creditos": 4,
+      "semestre": "III 2026",
+      "color": "steel",
+      "estado": "activo"
+    },
+    {
+      "id": "5",
+      "nombre": "Desarrollo Multimedia",
+      "codigo": "DM-305",
+      "profesor": "Laura Méndez",
+      "creditos": 4,
+      "semestre": "III 2026",
+      "color": "slate",
+      "estado": "activo"
+    }
+  ],
   "entregas": [
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Laboratorio de Automatización React",
-      "curso": "Programación Web",
+      "cursoId": 1,
       "descripcion": "Desarrollo de una aplicación React con automatización.",
       "fechaEntrega": "2026-09-11T23:59:00",
       "progreso": 78,
@@ -13,9 +65,21 @@
       "ultimaActualizacion": "2026-09-11T08:00:00"
     },
     {
-      "id": 2,
+      "id": "2",
+      "titulo": "Práctica de Hooks en React",
+      "cursoId": 1,
+      "descripcion": "Implementación de componentes utilizando useState y useEffect.",
+      "fechaEntrega": "2026-09-14T23:59:00",
+      "progreso": 60,
+      "temperatura": "urgente",
+      "riesgo": 65,
+      "estado": "en_progreso",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "id": "3",
       "titulo": "Proyecto de Experiencia de Usuario",
-      "curso": "Experiencia de Usuario",
+      "cursoId": 2,
       "descripcion": "Diseño y evaluación de una solución centrada en el usuario.",
       "fechaEntrega": "2026-09-13T23:59:00",
       "progreso": 64,
@@ -25,21 +89,21 @@
       "ultimaActualizacion": "2026-09-11T08:00:00"
     },
     {
-      "id": 3,
-      "titulo": "Informe de Investigación",
-      "curso": "Metodología de la Investigación",
-      "descripcion": "Documento final de investigación y análisis.",
-      "fechaEntrega": "2026-09-16T18:00:00",
-      "progreso": 45,
-      "temperatura": "proximo",
-      "riesgo": 48,
+      "id": "4",
+      "titulo": "Evaluación de Usabilidad",
+      "cursoId": 2,
+      "descripcion": "Evaluación de la experiencia de usuario mediante pruebas de usabilidad.",
+      "fechaEntrega": "2026-09-22T18:00:00",
+      "progreso": 35,
+      "temperatura": "estable",
+      "riesgo": 36,
       "estado": "en_progreso",
       "ultimaActualizacion": "2026-09-11T08:00:00"
     },
     {
-      "id": 4,
+      "id": "5",
       "titulo": "Presentación Multimedia",
-      "curso": "Tecnología Multimedia",
+      "cursoId": 3,
       "descripcion": "Preparación de presentación y material audiovisual.",
       "fechaEntrega": "2026-09-19T20:00:00",
       "progreso": 35,
@@ -49,9 +113,21 @@
       "ultimaActualizacion": "2026-09-11T08:00:00"
     },
     {
-      "id": 5,
+      "id": "6",
+      "titulo": "Informe de Investigación",
+      "cursoId": 4,
+      "descripcion": "Documento final de investigación y análisis.",
+      "fechaEntrega": "2026-09-16T18:00:00",
+      "progreso": 45,
+      "temperatura": "proximo",
+      "riesgo": 48,
+      "estado": "en_progreso",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "id": "7",
       "titulo": "Proyecto Final de Curso",
-      "curso": "Desarrollo Multimedia",
+      "cursoId": 5,
       "descripcion": "Entrega del proyecto final con documentación.",
       "fechaEntrega": "2026-09-25T23:59:00",
       "progreso": 20,
@@ -61,9 +137,9 @@
       "ultimaActualizacion": "2026-09-11T08:00:00"
     },
     {
-      "id": 6,
+      "id": "8",
       "titulo": "Práctica de Componentes React",
-      "curso": "Programación Web",
+      "cursoId": 1,
       "descripcion": "Práctica de componentes reutilizables y hooks.",
       "fechaEntrega": "2026-09-30T23:59:00",
       "progreso": 100,
@@ -71,16 +147,29 @@
       "riesgo": 0,
       "estado": "completada",
       "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "titulo": "Quiz 3",
+      "cursoId": 1,
+      "descripcion": "uhjnik",
+      "fechaEntrega": "2026-09-25T09:30",
+      "progreso": 0,
+      "estado": "en_progreso",
+      "temperatura": "estable",
+      "riesgo": 0,
+      "ultimaActualizacion": "2026-09-11T15:31:03.574Z",
+      "id": "95UeW8jdU9o"
     }
   ],
   "alertas": [],
   "ejecuciones": [],
   "configuracion": [
     {
-      "id": 1,
+      "id": "1",
       "automatizacionActiva": true,
       "intervalo": 10,
       "notificacionesActivas": true
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
