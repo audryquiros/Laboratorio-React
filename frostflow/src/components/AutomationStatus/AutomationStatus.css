@@ -1,0 +1,293 @@
+/* =========================================================
+   FROSTFLOW — AUTOMATION STATUS
+========================================================= */
+
+.automation-status {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  padding: 20px 22px;
+
+  background: var(--bg-surface);
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   INFORMACIÓN PRINCIPAL
+========================================================= */
+
+.automation-status-main {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.automation-status-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  font-size: 1rem;
+  font-weight: 800;
+
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.automation-status-content {
+  min-width: 0;
+}
+
+.automation-status-eyebrow {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--text-muted);
+
+  font-size: 0.62rem;
+  font-weight: 750;
+
+  text-transform: uppercase;
+  letter-spacing: 0.065em;
+}
+
+.automation-status-content h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 0.95rem;
+  font-weight: 750;
+
+  line-height: 1.3;
+}
+
+.automation-status-content p {
+  margin: 4px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   DETALLES
+========================================================= */
+
+.automation-status-details {
+  display: flex;
+  align-items: stretch;
+
+  flex-shrink: 0;
+
+  border-left: 1px solid var(--border-soft);
+}
+
+.automation-detail {
+  min-width: 105px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 4px;
+
+  padding: 0 18px;
+
+  border-right: 1px solid var(--border-soft);
+}
+
+.automation-detail:last-child {
+  padding-right: 0;
+
+  border-right: none;
+}
+
+.automation-detail span {
+  color: var(--text-muted);
+
+  font-size: 0.61rem;
+  font-weight: 650;
+
+  line-height: 1.3;
+}
+
+.automation-detail strong {
+  color: var(--text-primary);
+
+  font-size: 0.71rem;
+  font-weight: 750;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   ESTADO — INACTIVA
+========================================================= */
+
+.automation-status-inactiva .automation-status-icon {
+  background: var(--bg-surface-muted);
+  color: var(--text-muted);
+}
+
+
+/* =========================================================
+   ESTADO — EJECUTANDO
+========================================================= */
+
+.automation-status-ejecutando {
+  border-color: var(--accent);
+}
+
+.automation-status-ejecutando .automation-status-icon {
+  background: var(--accent-soft);
+  color: var(--accent);
+
+  animation: automation-spin 1.5s linear infinite;
+}
+
+
+/* =========================================================
+   ESTADO — ÉXITO
+========================================================= */
+
+.automation-status-exito .automation-status-icon {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+
+/* =========================================================
+   ESTADO — ERROR
+========================================================= */
+
+.automation-status-error {
+  border-color: #dec9cc;
+}
+
+.automation-status-error .automation-status-icon {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
+
+@keyframes automation-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+html[data-theme="dark"] .automation-status-error {
+  border-color: #4a373b;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .automation-status {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .automation-status-details {
+    width: 100%;
+
+    border-left: none;
+    border-top: 1px solid var(--border-soft);
+
+    padding-top: 16px;
+  }
+
+  .automation-detail {
+    flex: 1;
+
+    padding: 0 15px;
+  }
+
+  .automation-detail:first-child {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .automation-status {
+    padding: 18px;
+  }
+
+  .automation-status-main {
+    align-items: flex-start;
+  }
+
+  .automation-status-details {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .automation-detail {
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 0 0 12px;
+
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .automation-detail:last-child {
+    padding-bottom: 0;
+
+    border-bottom: none;
+  }
+}

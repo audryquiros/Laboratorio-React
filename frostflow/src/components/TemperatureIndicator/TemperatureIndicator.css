@@ -1,0 +1,265 @@
+/* =========================================================
+   FROSTFLOW — TEMPERATURE INDICATOR
+========================================================= */
+
+.temperature-indicator {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  width: fit-content;
+
+  padding: 7px 11px;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.temperature-icon {
+  width: 24px;
+  height: 24px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.temperature-content {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  gap: 2px;
+}
+
+.temperature-label {
+  font-size: 0.73rem;
+  font-weight: 750;
+
+  line-height: 1.2;
+}
+
+.temperature-description {
+  max-width: 230px;
+
+  font-size: 0.66rem;
+  line-height: 1.35;
+
+  color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   ESTABLE
+========================================================= */
+
+.temperature-estable {
+  background: var(--accent-soft);
+  border-color: var(--border-soft);
+
+  color: var(--accent);
+}
+
+.temperature-estable .temperature-icon {
+  background: var(--bg-surface);
+  border-radius: 6px;
+}
+
+
+/* =========================================================
+   PRÓXIMO
+========================================================= */
+
+.temperature-proximo {
+  background: #f0f0ed;
+  border-color: #deddd7;
+
+  color: #77745f;
+}
+
+.temperature-proximo .temperature-icon {
+  background: #faf9f5;
+  border-radius: 6px;
+}
+
+
+/* =========================================================
+   URGENTE
+========================================================= */
+
+.temperature-urgente {
+  background: #f3eee2;
+  border-color: #e5dcc6;
+
+  color: #90784d;
+}
+
+.temperature-urgente .temperature-icon {
+  background: #faf7ef;
+  border-radius: 6px;
+}
+
+
+/* =========================================================
+   CRÍTICO
+========================================================= */
+
+.temperature-critico {
+  background: #f5e7e5;
+  border-color: #e7d3d0;
+
+  color: #9a5d5d;
+}
+
+.temperature-critico .temperature-icon {
+  background: #fff9f8;
+  border-radius: 6px;
+}
+
+
+/* =========================================================
+   VENCIDO
+========================================================= */
+
+.temperature-vencido {
+  background: #f0e7e8;
+  border-color: #ded0d2;
+
+  color: #875d63;
+}
+
+.temperature-vencido .temperature-icon {
+  background: #faf5f5;
+  border-radius: 6px;
+}
+
+
+/* =========================================================
+   COMPLETADA
+========================================================= */
+
+.temperature-completada {
+  background: var(--success-bg);
+  border-color: #d2e4d9;
+
+  color: var(--success);
+}
+
+.temperature-completada .temperature-icon {
+  background: var(--bg-surface);
+  border-radius: 6px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+html[data-theme="dark"] .temperature-proximo {
+  background: #2c2d2a;
+  border-color: #41413c;
+
+  color: #b8b59c;
+}
+
+html[data-theme="dark"] .temperature-proximo .temperature-icon {
+  background: #363732;
+}
+
+html[data-theme="dark"] .temperature-urgente {
+  background: #393427;
+  border-color: #4a4332;
+
+  color: #cbb477;
+}
+
+html[data-theme="dark"] .temperature-urgente .temperature-icon {
+  background: #45402f;
+}
+
+html[data-theme="dark"] .temperature-critico {
+  background: #3b2c2e;
+  border-color: #4c383b;
+
+  color: #d09299;
+}
+
+html[data-theme="dark"] .temperature-critico .temperature-icon {
+  background: #473437;
+}
+
+html[data-theme="dark"] .temperature-vencido {
+  background: #352d2f;
+  border-color: #463b3e;
+
+  color: #c49a9f;
+}
+
+html[data-theme="dark"] .temperature-vencido .temperature-icon {
+  background: #403538;
+}
+
+
+/* =========================================================
+   MODO COMPACTO
+========================================================= */
+
+.temperature-compact {
+  gap: 6px;
+
+  padding: 5px 8px;
+
+  border-radius: 7px;
+}
+
+.temperature-compact .temperature-icon {
+  width: 19px;
+  height: 19px;
+
+  font-size: 0.7rem;
+}
+
+.temperature-compact .temperature-label {
+  font-size: 0.67rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+  .temperature-indicator {
+    padding: 6px 9px;
+  }
+
+  .temperature-description {
+    max-width: 180px;
+  }
+}

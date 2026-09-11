@@ -1,0 +1,388 @@
+/* =========================================================
+   FROSTFLOW — DELIVERY CARD
+========================================================= */
+
+.delivery-card {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 21px;
+
+  box-sizing: border-box;
+
+  background: var(--bg-surface);
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+.delivery-card:hover {
+  border-color: var(--border-soft);
+
+  box-shadow: var(--shadow-card);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.delivery-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.delivery-card-title {
+  min-width: 0;
+}
+
+.delivery-card-eyebrow {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--text-muted);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.delivery-card-title h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 1rem;
+  line-height: 1.35;
+
+  font-weight: 750;
+
+  letter-spacing: -0.015em;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.delivery-card-description {
+  margin: 13px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.76rem;
+  line-height: 1.55;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   FECHA
+========================================================= */
+
+.delivery-card-date {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 17px;
+
+  padding: 11px 12px;
+
+  background: var(--bg-surface-soft);
+
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+}
+
+.delivery-date-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: var(--accent-soft);
+  color: var(--accent);
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.delivery-card-date div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.delivery-date-label {
+  color: var(--text-muted);
+
+  font-size: 0.64rem;
+  font-weight: 650;
+}
+
+.delivery-card-date strong {
+  color: var(--text-primary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+.delivery-card-progress {
+  margin-top: 18px;
+}
+
+.delivery-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.delivery-progress-header span {
+  color: var(--text-secondary);
+
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+.delivery-progress-header strong {
+  color: var(--text-primary);
+
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.delivery-progress-track {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  background: var(--bg-surface-muted);
+
+  border-radius: 99px;
+}
+
+.delivery-progress-fill {
+  height: 100%;
+
+  background: var(--accent);
+
+  border-radius: inherit;
+
+  transition: width 0.35s ease;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.delivery-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  margin-top: 18px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid var(--border-soft);
+}
+
+
+/* =========================================================
+   RIESGO
+========================================================= */
+
+.delivery-risk {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.delivery-risk span {
+  color: var(--text-muted);
+
+  font-size: 0.62rem;
+  font-weight: 650;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.delivery-risk strong {
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.delivery-risk-bajo strong {
+  color: var(--success);
+}
+
+.delivery-risk-medio strong {
+  color: #927d50;
+}
+
+.delivery-risk-alto strong {
+  color: var(--danger);
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.delivery-card-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.delivery-action {
+  min-height: 31px;
+
+  padding: 6px 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--bg-surface);
+
+  color: var(--text-secondary);
+
+  font-family: inherit;
+
+  font-size: 0.66rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.delivery-action:hover {
+  background: var(--bg-surface-soft);
+
+  border-color: var(--accent);
+
+  color: var(--text-primary);
+}
+
+.delivery-action-complete {
+  background: var(--success-bg);
+
+  border-color: transparent;
+
+  color: var(--success);
+}
+
+.delivery-action-complete:hover {
+  background: var(--success-bg);
+
+  border-color: var(--success);
+
+  color: var(--success);
+}
+
+.delivery-action-delete:hover {
+  background: var(--danger-bg);
+
+  border-color: var(--danger);
+
+  color: var(--danger);
+}
+
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+html[data-theme="dark"] .delivery-action-complete {
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .delivery-action-delete:hover {
+  background: var(--danger-bg);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 650px) {
+  .delivery-card {
+    padding: 18px;
+  }
+
+  .delivery-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delivery-card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .delivery-card-actions {
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+}
