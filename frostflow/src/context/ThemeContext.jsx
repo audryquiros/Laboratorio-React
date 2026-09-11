@@ -1,32 +1,63 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 const ThemeContext = createContext(null);
 
 function ThemeProvider({ children }) {
   const [tema, setTema] = useState(() => {
-    return localStorage.getItem("frostflow_tema") || "light";
+    const temaGuardado = localStorage.getItem(
+      "frostflow_tema"
+    );
+
+    return temaGuardado === "dark"
+      ? "dark"
+      : "light";
   });
 
+  const modoOscuro = tema === "dark";
+
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", tema);
-    localStorage.setItem("frostflow_tema", tema);
+    document.documentElement.setAttribute(
+      "data-theme",
+      tema
+    );
+
+    localStorage.setItem(
+      "frostflow_tema",
+      tema
+    );
   }, [tema]);
 
-  const cambiarTema = (nuevoTema) => {
-    setTema(nuevoTema);
+  const cambiarTema = () => {
+    setTema((actual) =>
+      actual === "light"
+        ? "dark"
+        : "light"
+    );
   };
 
-  const alternarTema = () => {
-    setTema((actual) => (actual === "light" ? "dark" : "light"));
+  const establecerTema = (nuevoTema) => {
+    if (
+      nuevoTema !== "light" &&
+      nuevoTema !== "dark"
+    ) {
+      return;
+    }
+
+    setTema(nuevoTema);
   };
 
   return (
     <ThemeContext.Provider
       value={{
         tema,
+        modoOscuro,
         cambiarTema,
-        alternarTema,
-        esOscuro: tema === "dark",
+        establecerTema,
       }}
     >
       {children}

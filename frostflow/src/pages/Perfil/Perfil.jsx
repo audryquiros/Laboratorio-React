@@ -6,8 +6,8 @@ import { getEntregas } from "../../services/entregasService";
 import "./Perfil.css";
 
 function Perfil() {
-  const navigate = useNavigate();
   const { usuario, cerrarSesion } = useAuth();
+  const navigate = useNavigate();
 
   const [cursos, setCursos] = useState([]);
   const [entregas, setEntregas] = useState([]);
@@ -24,7 +24,7 @@ function Perfil() {
         setCursos(cursosData);
         setEntregas(entregasData);
       } catch (error) {
-        console.error("No se pudo cargar el resumen del perfil:", error);
+        console.error("No se pudo cargar el resumen del perfil.", error);
       } finally {
         setCargando(false);
       }
@@ -33,192 +33,188 @@ function Perfil() {
     cargarResumen();
   }, []);
 
-  const manejarCerrarSesion = () => {
-    cerrarSesion();
-    navigate("/login", { replace: true });
-  };
+  const nombre = usuario?.nombre || "Estudiante";
+  const email = usuario?.email || "estudiante@frostflow.com";
+  const inicial = nombre.charAt(0).toUpperCase();
 
   const cursosActivos = cursos.filter(
     (curso) => curso.estado === "activo"
-  ).length;
-
-  const entregasPendientes = entregas.filter(
-    (entrega) => entrega.estado !== "completada"
   ).length;
 
   const entregasCompletadas = entregas.filter(
     (entrega) => entrega.estado === "completada"
   ).length;
 
-  const porcentajeCompletado =
+  const entregasPendientes = entregas.filter(
+    (entrega) => entrega.estado !== "completada"
+  ).length;
+
+  const porcentaje =
     entregas.length > 0
-      ? Math.round((entregasCompletadas / entregas.length) * 100)
+      ? Math.round(
+          (entregasCompletadas / entregas.length) * 100
+        )
       : 0;
 
-  const inicial =
-    usuario?.nombre?.charAt(0).toUpperCase() || "A";
+  const manejarCerrarSesion = () => {
+    cerrarSesion();
+    navigate("/login", { replace: true });
+  };
 
   return (
     <main className="perfil-page">
-      <section className="perfil-intro">
+      <section className="perfil-header">
         <div>
-          <span className="page-eyebrow">Cuenta personal</span>
+          <span className="perfil-eyebrow">
+            Cuenta personal
+          </span>
 
-          <p className="page-description">
-            Administra tu información y consulta un resumen
-            de tu actividad académica.
+          <p className="perfil-description">
+            Consulta tu información y el estado general de tu actividad académica.
           </p>
         </div>
       </section>
 
-      <section className="perfil-layout">
+      <section className="perfil-grid">
         {/* PERFIL PRINCIPAL */}
-        <article className="perfil-card perfil-principal">
-          <div className="perfil-cover">
-            <div className="perfil-avatar">
-              {inicial}
-            </div>
+        <article className="perfil-card perfil-identidad">
+          <div className="perfil-avatar-grande">
+            {inicial}
           </div>
 
-          <div className="perfil-main-info">
-            <span className="perfil-label">
-              PERFIL
-            </span>
+          <div className="perfil-identidad-info">
+            <h2>{nombre}</h2>
 
-            <h2>
-              {usuario?.nombre || "Estudiante"}
-            </h2>
+            <p>{email}</p>
 
-            <p>
-              {usuario?.email ||
-                "estudiante@frostflow.com"}
-            </p>
-
-            <span className="perfil-status">
-              <i></i>
+            <span className="perfil-estado">
+              <span></span>
               Cuenta activa
             </span>
           </div>
+        </article>
 
-          <div className="perfil-details">
-            <div className="perfil-detail">
+        {/* RESUMEN ACADÉMICO */}
+        <article className="perfil-card perfil-resumen">
+          <div className="perfil-card-header">
+            <div>
+              <span className="perfil-section-eyebrow">
+                Actividad académica
+              </span>
+
+              <h2>Resumen</h2>
+            </div>
+
+            <div className="perfil-card-icon">
+              ◇
+            </div>
+          </div>
+
+          {cargando ? (
+            <div className="perfil-cargando">
+              <div className="perfil-spinner"></div>
+              <span>Cargando información...</span>
+            </div>
+          ) : (
+            <div className="perfil-estadisticas">
+              <div className="perfil-estadistica">
+                <span>Cursos activos</span>
+                <strong>{cursosActivos}</strong>
+              </div>
+
+              <div className="perfil-estadistica">
+                <span>Entregas pendientes</span>
+                <strong>{entregasPendientes}</strong>
+              </div>
+
+              <div className="perfil-estadistica">
+                <span>Completadas</span>
+                <strong>{entregasCompletadas}</strong>
+              </div>
+
+              <div className="perfil-estadistica">
+                <span>Progreso general</span>
+                <strong>{porcentaje}%</strong>
+              </div>
+            </div>
+          )}
+        </article>
+
+        {/* INFORMACIÓN */}
+        <article className="perfil-card">
+          <div className="perfil-card-header">
+            <div>
+              <span className="perfil-section-eyebrow">
+                Información
+              </span>
+
+              <h2>Datos personales</h2>
+            </div>
+
+            <div className="perfil-card-icon">
+              ◇
+            </div>
+          </div>
+
+          <div className="perfil-datos">
+            <div className="perfil-dato">
               <span>Nombre</span>
-              <strong>
-                {usuario?.nombre || "Estudiante"}
-              </strong>
+              <strong>{nombre}</strong>
             </div>
 
-            <div className="perfil-detail">
+            <div className="perfil-dato">
               <span>Correo electrónico</span>
-              <strong>
-                {usuario?.email ||
-                  "estudiante@frostflow.com"}
-              </strong>
+              <strong>{email}</strong>
             </div>
 
-            <div className="perfil-detail">
-              <span>Periodo académico</span>
-              <strong>III 2026</strong>
-            </div>
-
-            <div className="perfil-detail">
+            <div className="perfil-dato">
               <span>Tipo de cuenta</span>
               <strong>Cuenta personal</strong>
+            </div>
+
+            <div className="perfil-dato">
+              <span>Estado</span>
+              <strong className="dato-activo">
+                Activa
+              </strong>
             </div>
           </div>
         </article>
 
-        {/* COLUMNA DERECHA */}
-        <div className="perfil-side">
-          <article className="perfil-card resumen-academico">
-            <div className="perfil-card-header">
-              <div>
-                <span className="section-eyebrow">
-                  Actividad
-                </span>
-
-                <h2>Resumen académico</h2>
-              </div>
-
-              <span className="resumen-icon">
-                ✦
+        {/* SESIÓN */}
+        <article className="perfil-card perfil-sesion">
+          <div className="perfil-card-header">
+            <div>
+              <span className="perfil-section-eyebrow">
+                Seguridad
               </span>
+
+              <h2>Sesión</h2>
             </div>
 
-            {cargando ? (
-              <div className="perfil-loading">
-                <div className="perfil-spinner"></div>
-              </div>
-            ) : (
-              <div className="perfil-stats">
-                <div className="perfil-stat">
-                  <span>Cursos activos</span>
-                  <strong>{cursosActivos}</strong>
-                </div>
-
-                <div className="perfil-stat">
-                  <span>Entregas pendientes</span>
-                  <strong>
-                    {entregasPendientes}
-                  </strong>
-                </div>
-
-                <div className="perfil-stat">
-                  <span>Entregas completadas</span>
-                  <strong>
-                    {entregasCompletadas}
-                  </strong>
-                </div>
-
-                <div className="perfil-stat">
-                  <span>Avance general</span>
-                  <strong>
-                    {porcentajeCompletado}%
-                  </strong>
-                </div>
-              </div>
-            )}
-          </article>
-
-          {/* SESIÓN */}
-          <article className="perfil-card perfil-sesion">
-            <div className="perfil-card-header">
-              <div>
-                <span className="section-eyebrow">
-                  Cuenta
-                </span>
-
-                <h2>Sesión actual</h2>
-              </div>
-
-              <span className="sesion-icon">
-                ◉
-              </span>
+            <div className="perfil-card-icon">
+              ↗
             </div>
+          </div>
 
-            <div className="sesion-info">
-              <div className="sesion-indicador">
-                <span></span>
-              </div>
+          <div className="perfil-sesion-content">
+            <div>
+              <strong>Sesión actual</strong>
 
-              <div>
-                <strong>Sesión activa</strong>
-                <p>
-                  Estás conectado como{" "}
-                  {usuario?.nombre || "Estudiante"}.
-                </p>
-              </div>
+              <p>
+                Tu cuenta está actualmente conectada a FrostFlow.
+              </p>
             </div>
 
             <button
-              className="btn-cerrar-sesion"
+              className="perfil-btn-logout"
               onClick={manejarCerrarSesion}
             >
               <span>↪</span>
               Cerrar sesión
             </button>
-          </article>
-        </div>
+          </div>
+        </article>
       </section>
     </main>
   );

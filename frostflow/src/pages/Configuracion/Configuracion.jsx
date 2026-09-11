@@ -11,310 +11,240 @@ function Configuracion() {
 
   return (
     <main className="configuracion-page">
-
-      {/* ENCABEZADO */}
-
       <section className="configuracion-header">
         <div>
-          <span className="page-eyebrow">
-            Preferencias del sistema
+          <span className="configuracion-eyebrow">
+            Preferencias
           </span>
 
-          <p className="page-description">
-            Personaliza la apariencia de FrostFlow y adapta
-            tu espacio académico a tus preferencias.
+          <p className="configuracion-description">
+            Personaliza la experiencia de FrostFlow y consulta el estado de sus automatizaciones.
           </p>
         </div>
       </section>
 
-
-      {/* CONTENIDO */}
-
       <section className="configuracion-grid">
-
-        {/* =========================================
-            APARIENCIA
-        ========================================= */}
-
-        <article className="configuracion-card">
-
-          <div className="configuracion-card-header">
-
+        {/* APARIENCIA */}
+        <article className="config-card">
+          <div className="config-card-header">
             <div>
-              <span className="configuracion-eyebrow">
-                Apariencia
+              <span className="config-section-eyebrow">
+                Interfaz
               </span>
 
-              <h2>
-                Tema de la interfaz
-              </h2>
+              <h2>Apariencia</h2>
 
               <p>
-                Selecciona el modo visual que prefieras
-                para trabajar con FrostFlow.
+                Selecciona el tema visual de FrostFlow.
               </p>
             </div>
 
-            <div className="configuracion-icon">
-              {modoOscuro ? "☾" : "☀"}
+            <div className="config-icon">
+              ◐
             </div>
-
           </div>
 
-
-          {/* SWITCH */}
-
-          <div className="configuracion-option">
-
-            <div className="configuracion-option-icon">
-              {modoOscuro ? "☾" : "☀"}
-            </div>
-
-            <div className="configuracion-option-info">
-
-              <strong>
-                {modoOscuro
-                  ? "Modo oscuro"
-                  : "Modo claro"}
-              </strong>
-
-              <span>
-                {modoOscuro
-                  ? "Tema Arctic para ambientes oscuros."
-                  : "Tema claro con tonos suaves y limpios."}
-              </span>
-
-            </div>
-
+          <div className="tema-options">
             <button
               type="button"
-              className={`theme-switch ${
-                modoOscuro
-                  ? "theme-switch-active"
-                  : ""
-              }`}
-              onClick={cambiarTema}
-              aria-label={
-                modoOscuro
-                  ? "Cambiar a modo claro"
-                  : "Cambiar a modo oscuro"
-              }
-              aria-pressed={modoOscuro}
-            >
-              <span></span>
-            </button>
-
-          </div>
-
-
-          {/* PREVISUALIZACIONES */}
-
-          <div className="configuracion-preview-title">
-            Vista previa
-          </div>
-
-          <div className="configuracion-tema-preview">
-
-            {/* CLARO */}
-
-            <button
-              type="button"
-              className={`preview-card ${
+              className={`tema-option ${
                 tema === "light"
-                  ? "preview-card-active"
+                  ? "tema-option-activo"
                   : ""
               }`}
               onClick={() => establecerTema("light")}
             >
-
-              <div className="preview-light">
-
-                <div className="preview-light-sidebar">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-
-                <div className="preview-light-content">
-                  <span></span>
-                  <span></span>
-
-                  <div className="preview-light-card"></div>
-                </div>
-
+              <div className="tema-preview tema-preview-light">
+                <div></div>
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
 
-              <strong>
-                Claro
-              </strong>
+              <div className="tema-info">
+                <strong>Claro</strong>
+                <span>Interfaz clara</span>
+              </div>
 
               {tema === "light" && (
-                <span className="preview-selected">
+                <span className="tema-check">
                   ✓
                 </span>
               )}
-
             </button>
-
-
-            {/* OSCURO */}
 
             <button
               type="button"
-              className={`preview-card ${
+              className={`tema-option ${
                 tema === "dark"
-                  ? "preview-card-active"
+                  ? "tema-option-activo"
                   : ""
               }`}
               onClick={() => establecerTema("dark")}
             >
-
-              <div className="preview-dark">
-
-                <div className="preview-dark-sidebar">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-
-                <div className="preview-dark-content">
-                  <span></span>
-                  <span></span>
-
-                  <div className="preview-dark-card"></div>
-                </div>
-
+              <div className="tema-preview tema-preview-dark">
+                <div></div>
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
 
-              <strong>
-                Oscuro
-              </strong>
+              <div className="tema-info">
+                <strong>Oscuro</strong>
+                <span>Interfaz oscura</span>
+              </div>
 
               {tema === "dark" && (
-                <span className="preview-selected">
+                <span className="tema-check">
                   ✓
                 </span>
               )}
-
             </button>
-
           </div>
 
+          <div className="tema-actual">
+            <span>Preferencia actual</span>
+
+            <strong>
+              {modoOscuro
+                ? "Modo oscuro"
+                : "Modo claro"}
+            </strong>
+          </div>
+
+          <button
+            type="button"
+            className="tema-toggle"
+            onClick={cambiarTema}
+          >
+            Cambiar a{" "}
+            {modoOscuro
+              ? "modo claro"
+              : "modo oscuro"}
+          </button>
         </article>
 
-
-        {/* =========================================
-            ESTADO DEL SISTEMA
-        ========================================= */}
-
-        <article className="configuracion-card">
-
-          <div className="configuracion-card-header">
-
+        {/* AUTOMATIZACIÓN */}
+        <article className="config-card">
+          <div className="config-card-header">
             <div>
-              <span className="configuracion-eyebrow">
-                Preferencia actual
+              <span className="config-section-eyebrow">
+                FrostFlow Engine
+              </span>
+
+              <h2>Automatización</h2>
+
+              <p>
+                Estado actual de los procesos automáticos.
+              </p>
+            </div>
+
+            <div className="config-icon">
+              ✦
+            </div>
+          </div>
+
+          <div className="config-list">
+            <div className="config-row">
+              <div>
+                <strong>
+                  Análisis automático
+                </strong>
+
+                <span>
+                  Analiza periódicamente la carga académica.
+                </span>
+              </div>
+
+              <span className="config-status activo">
+                Activo
+              </span>
+            </div>
+
+            <div className="config-row">
+              <div>
+                <strong>
+                  Detección de riesgo
+                </strong>
+
+                <span>
+                  Identifica entregas próximas a vencer.
+                </span>
+              </div>
+
+              <span className="config-status activo">
+                Activo
+              </span>
+            </div>
+
+            <div className="config-row">
+              <div>
+                <strong>
+                  Alertas académicas
+                </strong>
+
+                <span>
+                  Genera alertas cuando aumenta el riesgo.
+                </span>
+              </div>
+
+              <span className="config-status activo">
+                Activo
+              </span>
+            </div>
+          </div>
+        </article>
+
+        {/* SISTEMA */}
+        <article className="config-card config-card-full">
+          <div className="config-card-header">
+            <div>
+              <span className="config-section-eyebrow">
+                Sistema
               </span>
 
               <h2>
-                Estado de la interfaz
+                Información de FrostFlow
               </h2>
 
               <p>
-                FrostFlow conserva automáticamente tu
-                preferencia para futuras sesiones.
+                Información general de la aplicación.
               </p>
             </div>
 
-            <div className="configuracion-icon">
-              ✓
+            <div className="config-icon">
+              ℹ
             </div>
-
           </div>
 
-
-          {/* ESTADO */}
-
-          <div className="configuracion-status">
-
-            <div className="configuracion-status-dot"></div>
-
+          <div className="sistema-info">
             <div>
-              <strong>
-                {modoOscuro
-                  ? "Modo oscuro activo"
-                  : "Modo claro activo"}
-              </strong>
-
-              <span>
-                Tema seleccionado:{" "}
-                {tema === "dark"
-                  ? "Oscuro"
-                  : "Claro"}
-              </span>
-            </div>
-
-          </div>
-
-
-          {/* INFORMACIÓN */}
-
-          <div className="configuracion-note">
-
-            <div className="configuracion-note-icon">
-              ✦
+              <span>Aplicación</span>
+              <strong>FrostFlow</strong>
             </div>
 
             <div>
-              <strong>
-                Preferencia guardada
-              </strong>
-
-              <p>
-                El tema seleccionado se almacena
-                automáticamente en este dispositivo.
-              </p>
+              <span>Versión</span>
+              <strong>1.0.0</strong>
             </div>
 
+            <div>
+              <span>Frontend</span>
+              <strong>React + Vite</strong>
+            </div>
+
+            <div>
+              <span>Datos</span>
+              <strong>JSON Server</strong>
+            </div>
+
+            <div>
+              <span>Automatización</span>
+              <strong>n8n</strong>
+            </div>
           </div>
-
-
-          {/* RESUMEN */}
-
-          <div className="configuracion-summary">
-
-            <div className="configuracion-summary-item">
-
-              <span>
-                Tema actual
-              </span>
-
-              <strong>
-                {modoOscuro
-                  ? "Oscuro"
-                  : "Claro"}
-              </strong>
-
-            </div>
-
-            <div className="configuracion-summary-item">
-
-              <span>
-                Estado
-              </span>
-
-              <strong className="summary-active">
-                Activo
-              </strong>
-
-            </div>
-
-          </div>
-
         </article>
-
       </section>
-
     </main>
   );
 }
