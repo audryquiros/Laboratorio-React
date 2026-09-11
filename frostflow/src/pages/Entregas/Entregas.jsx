@@ -14,8 +14,10 @@ function Entregas() {
   const [cursos, setCursos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
-  const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const [entregaEditar, setEntregaEditar] = useState(null);
+  const [mostrarFormulario, setMostrarFormulario] =
+    useState(false);
+  const [entregaEditar, setEntregaEditar] =
+    useState(null);
   const [filtro, setFiltro] = useState("todas");
 
   const cargarDatos = async () => {
@@ -23,10 +25,11 @@ function Entregas() {
       setCargando(true);
       setError("");
 
-      const [entregasData, cursosData] = await Promise.all([
-        getEntregas(),
-        getCursos(),
-      ]);
+      const [entregasData, cursosData] =
+        await Promise.all([
+          getEntregas(),
+          getCursos(),
+        ]);
 
       setEntregas(entregasData);
       setCursos(cursosData);
@@ -43,15 +46,31 @@ function Entregas() {
     cargarDatos();
   }, []);
 
+  const abrirFormulario = () => {
+    setEntregaEditar(null);
+    setMostrarFormulario(true);
+
+    setTimeout(() => {
+      document
+        .querySelector(".entrega-form-section")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    }, 100);
+  };
+
   const manejarGuardar = async (entrega) => {
     try {
       setError("");
 
       const datos = {
         ...entrega,
-        temperatura: entregaEditar?.temperatura || "estable",
+        temperatura:
+          entregaEditar?.temperatura || "estable",
         riesgo: entregaEditar?.riesgo || 0,
-        ultimaActualizacion: new Date().toISOString(),
+        ultimaActualizacion:
+          new Date().toISOString(),
       };
 
       if (entregaEditar) {
@@ -62,13 +81,16 @@ function Entregas() {
 
         setEntregas((actuales) =>
           actuales.map((item) =>
-            item.id === entregaEditar.id ? actualizada : item
+            item.id === entregaEditar.id
+              ? actualizada
+              : item
           )
         );
 
         setEntregaEditar(null);
       } else {
-        const nuevaEntrega = await createEntrega(datos);
+        const nuevaEntrega =
+          await createEntrega(datos);
 
         setEntregas((actuales) => [
           ...actuales,
@@ -82,19 +104,19 @@ function Entregas() {
     }
   };
 
-    const manejarEditar = (entrega) => {
+  const manejarEditar = (entrega) => {
     setEntregaEditar(entrega);
     setMostrarFormulario(true);
 
     setTimeout(() => {
-        document
+      document
         .querySelector(".entrega-form-section")
         ?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
+          behavior: "smooth",
+          block: "start",
         });
     }, 100);
-    };
+  };
 
   const manejarEliminar = async (id) => {
     const entrega = entregas.find(
@@ -111,21 +133,24 @@ function Entregas() {
       await deleteEntrega(id);
 
       setEntregas((actuales) =>
-        actuales.filter((item) => item.id !== id)
+        actuales.filter(
+          (item) => item.id !== id
+        )
       );
     } catch (err) {
       setError("No se pudo eliminar la entrega.");
     }
   };
 
-    const cancelarFormulario = () => {
+  const cancelarFormulario = () => {
     setMostrarFormulario(false);
     setEntregaEditar(null);
-    };
+  };
 
   const obtenerCurso = (cursoId) => {
     return cursos.find(
-      (curso) => Number(curso.id) === Number(cursoId)
+      (curso) =>
+        Number(curso.id) === Number(cursoId)
     );
   };
 
@@ -135,12 +160,16 @@ function Entregas() {
     }
 
     const fechaActual = new Date();
-    const fechaEntrega = new Date(entrega.fechaEntrega);
+    const fechaEntrega = new Date(
+      entrega.fechaEntrega
+    );
 
     const diferencia =
-      fechaEntrega.getTime() - fechaActual.getTime();
+      fechaEntrega.getTime() -
+      fechaActual.getTime();
 
-    const dias = diferencia / (1000 * 60 * 60 * 24);
+    const dias =
+      diferencia / (1000 * 60 * 60 * 24);
 
     if (dias < 0) return "vencido";
     if (dias <= 1) return "critico";
@@ -150,7 +179,9 @@ function Entregas() {
     return "estable";
   };
 
-  const obtenerNombreTemperatura = (temperatura) => {
+  const obtenerNombreTemperatura = (
+    temperatura
+  ) => {
     const nombres = {
       estable: "Estable",
       proximo: "Próximo",
@@ -160,10 +191,14 @@ function Entregas() {
       completada: "Completada",
     };
 
-    return nombres[temperatura] || "Estable";
+    return (
+      nombres[temperatura] || "Estable"
+    );
   };
 
-  const obtenerIconoTemperatura = (temperatura) => {
+  const obtenerIconoTemperatura = (
+    temperatura
+  ) => {
     const iconos = {
       estable: "❄",
       proximo: "◌",
@@ -176,74 +211,94 @@ function Entregas() {
     return iconos[temperatura] || "❄";
   };
 
-  const obtenerClaseTemperatura = (temperatura) => {
+  const obtenerClaseTemperatura = (
+    temperatura
+  ) => {
     return `temperatura-${temperatura}`;
   };
 
   const obtenerFecha = (fecha) => {
-    return new Date(fecha).toLocaleDateString("es-CR", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
+    return new Date(fecha).toLocaleDateString(
+      "es-CR",
+      {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }
+    );
   };
 
   const obtenerHora = (fecha) => {
-    return new Date(fecha).toLocaleTimeString("es-CR", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    return new Date(fecha).toLocaleTimeString(
+      "es-CR",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+      }
+    );
   };
 
-  const entregasFiltradas = entregas.filter((entrega) => {
-    if (filtro === "todas") return true;
+  const entregasFiltradas = entregas.filter(
+    (entrega) => {
+      if (filtro === "todas") return true;
 
-    if (filtro === "criticas") {
-      const temperatura = obtenerTemperatura(entrega);
+      if (filtro === "criticas") {
+        const temperatura =
+          obtenerTemperatura(entrega);
+
+        return (
+          temperatura === "critico" ||
+          temperatura === "vencido"
+        );
+      }
+
+      if (filtro === "proximas") {
+        const temperatura =
+          obtenerTemperatura(entrega);
+
+        return (
+          temperatura === "urgente" ||
+          temperatura === "proximo"
+        );
+      }
+
+      if (filtro === "completadas") {
+        return (
+          entrega.estado === "completada"
+        );
+      }
+
+      return true;
+    }
+  );
+
+  const totalCompletadas =
+    entregas.filter(
+      (entrega) =>
+        entrega.estado === "completada"
+    ).length;
+
+  const totalCriticas =
+    entregas.filter((entrega) => {
+      const temperatura =
+        obtenerTemperatura(entrega);
 
       return (
         temperatura === "critico" ||
         temperatura === "vencido"
       );
-    }
+    }).length;
 
-    if (filtro === "proximas") {
-      const temperatura = obtenerTemperatura(entrega);
+  const totalProximas =
+    entregas.filter((entrega) => {
+      const temperatura =
+        obtenerTemperatura(entrega);
 
       return (
         temperatura === "urgente" ||
         temperatura === "proximo"
       );
-    }
-
-    if (filtro === "completadas") {
-      return entrega.estado === "completada";
-    }
-
-    return true;
-  });
-
-  const totalCompletadas = entregas.filter(
-    (entrega) => entrega.estado === "completada"
-  ).length;
-
-  const totalCriticas = entregas.filter((entrega) => {
-    const temperatura = obtenerTemperatura(entrega);
-
-    return (
-      temperatura === "critico" ||
-      temperatura === "vencido"
-    );
-  }).length;
-
-  const totalProximas = entregas.filter((entrega) => {
-    const temperatura = obtenerTemperatura(entrega);
-
-    return (
-      temperatura === "urgente" ||
-      temperatura === "proximo"
-    );
-  }).length;
+    }).length;
 
   return (
     <main className="entregas-page">
@@ -253,29 +308,15 @@ function Entregas() {
             Seguimiento académico
           </span>
 
-          <h1>Entregas</h1>
-
-          <p>
-            Controla tus actividades, fechas límite y nivel de
-            urgencia.
+          <p className="page-description">
+            Controla tus actividades, fechas límite y
+            nivel de urgencia.
           </p>
         </div>
 
         <button
           className="btn-nueva-entrega"
-          onClick={() => {
-            setEntregaEditar(null);
-            setMostrarFormulario(true);
-
-            setTimeout(() => {
-                document
-                .querySelector(".entrega-form-section")
-                ?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                });
-            }, 100);
-            }}
+          onClick={abrirFormulario}
         >
           <span>+</span>
           Nueva entrega
@@ -285,9 +326,13 @@ function Entregas() {
       {error && (
         <div className="entregas-error">
           <span>!</span>
+
           <p>{error}</p>
 
-          <button onClick={() => setError("")}>
+          <button
+            onClick={() => setError("")}
+            aria-label="Cerrar mensaje"
+          >
             ×
           </button>
         </div>
@@ -339,7 +384,9 @@ function Entregas() {
           <div className="filtros-entregas">
             <button
               className={
-                filtro === "todas" ? "filtro-activo" : ""
+                filtro === "todas"
+                  ? "filtro-activo"
+                  : ""
               }
               onClick={() => setFiltro("todas")}
             >
@@ -348,18 +395,26 @@ function Entregas() {
 
             <button
               className={
-                filtro === "proximas" ? "filtro-activo" : ""
+                filtro === "proximas"
+                  ? "filtro-activo"
+                  : ""
               }
-              onClick={() => setFiltro("proximas")}
+              onClick={() =>
+                setFiltro("proximas")
+              }
             >
               Próximas
             </button>
 
             <button
               className={
-                filtro === "criticas" ? "filtro-activo" : ""
+                filtro === "criticas"
+                  ? "filtro-activo"
+                  : ""
               }
-              onClick={() => setFiltro("criticas")}
+              onClick={() =>
+                setFiltro("criticas")
+              }
             >
               Críticas
             </button>
@@ -370,7 +425,9 @@ function Entregas() {
                   ? "filtro-activo"
                   : ""
               }
-              onClick={() => setFiltro("completadas")}
+              onClick={() =>
+                setFiltro("completadas")
+              }
             >
               Completadas
             </button>
@@ -388,17 +445,24 @@ function Entregas() {
               □
             </div>
 
-            <h3>No hay entregas en esta categoría</h3>
+            <h3>
+              No hay entregas en esta categoría
+            </h3>
 
             <p>
-              Agrega una nueva entrega o cambia el filtro.
+              Agrega una nueva entrega o cambia el
+              filtro.
             </p>
           </div>
         ) : (
           <div className="entregas-lista">
             {entregasFiltradas.map((entrega) => {
-              const curso = obtenerCurso(entrega.cursoId);
-              const temperatura = obtenerTemperatura(entrega);
+              const curso = obtenerCurso(
+                entrega.cursoId
+              );
+
+              const temperatura =
+                obtenerTemperatura(entrega);
 
               return (
                 <article
@@ -406,11 +470,9 @@ function Entregas() {
                   key={entrega.id}
                 >
                   <div
-                    className={`entrega-temperatura ${
-                      obtenerClaseTemperatura(
-                        temperatura
-                      )
-                    }`}
+                    className={`entrega-temperatura ${obtenerClaseTemperatura(
+                      temperatura
+                    )}`}
                   >
                     <span>
                       {obtenerIconoTemperatura(
@@ -428,7 +490,8 @@ function Entregas() {
                   <div className="entrega-info">
                     <div className="entrega-identificacion">
                       <span className="entrega-curso">
-                        {curso?.codigo || "Sin curso"}
+                        {curso?.codigo ||
+                          "Sin curso"}
                       </span>
 
                       <span className="separador">
@@ -444,7 +507,9 @@ function Entregas() {
                     <h3>{entrega.titulo}</h3>
 
                     {entrega.descripcion && (
-                      <p>{entrega.descripcion}</p>
+                      <p>
+                        {entrega.descripcion}
+                      </p>
                     )}
                   </div>
 
@@ -467,6 +532,7 @@ function Entregas() {
                   <div className="entrega-progreso">
                     <div className="progreso-header">
                       <span>Progreso</span>
+
                       <strong>
                         {entrega.progreso || 0}%
                       </strong>
@@ -475,7 +541,9 @@ function Entregas() {
                     <div className="barra-progreso">
                       <div
                         style={{
-                          width: `${entrega.progreso || 0}%`,
+                          width: `${
+                            entrega.progreso || 0
+                          }%`,
                         }}
                       ></div>
                     </div>
@@ -494,7 +562,9 @@ function Entregas() {
                     <button
                       className="accion-eliminar"
                       onClick={() =>
-                        manejarEliminar(entrega.id)
+                        manejarEliminar(
+                          entrega.id
+                        )
                       }
                     >
                       Eliminar

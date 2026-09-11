@@ -42,23 +42,46 @@ function Cursos() {
     cargarDatos();
   }, []);
 
+  const abrirFormulario = () => {
+    setCursoEditar(null);
+    setMostrarFormulario(true);
+
+    setTimeout(() => {
+      document
+        .querySelector(".formulario-section")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    }, 100);
+  };
+
   const manejarGuardar = async (curso) => {
     try {
       setError("");
 
       if (cursoEditar) {
-        const actualizado = await updateCurso(cursoEditar.id, curso);
+        const actualizado = await updateCurso(
+          cursoEditar.id,
+          curso
+        );
 
         setCursos((actuales) =>
           actuales.map((item) =>
-            item.id === cursoEditar.id ? actualizado : item
+            item.id === cursoEditar.id
+              ? actualizado
+              : item
           )
         );
 
         setCursoEditar(null);
       } else {
         const nuevoCurso = await createCurso(curso);
-        setCursos((actuales) => [...actuales, nuevoCurso]);
+
+        setCursos((actuales) => [
+          ...actuales,
+          nuevoCurso,
+        ]);
       }
 
       setMostrarFormulario(false);
@@ -67,25 +90,28 @@ function Cursos() {
     }
   };
 
-const manejarEditar = (curso) => {
-  setCursoEditar(curso);
-  setMostrarFormulario(true);
+  const manejarEditar = (curso) => {
+    setCursoEditar(curso);
+    setMostrarFormulario(true);
 
-  setTimeout(() => {
-    document
-      .querySelector(".formulario-section")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-  }, 100);
-};
+    setTimeout(() => {
+      document
+        .querySelector(".formulario-section")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    }, 100);
+  };
 
   const manejarEliminar = async (id) => {
-    const curso = cursos.find((item) => item.id === id);
+    const curso = cursos.find(
+      (item) => item.id === id
+    );
 
     const entregasRelacionadas = entregas.filter(
-      (entrega) => Number(entrega.cursoId) === Number(id)
+      (entrega) =>
+        Number(entrega.cursoId) === Number(id)
     );
 
     if (entregasRelacionadas.length > 0) {
@@ -105,30 +131,37 @@ const manejarEditar = (curso) => {
       await deleteCurso(id);
 
       setCursos((actuales) =>
-        actuales.filter((item) => item.id !== id)
+        actuales.filter(
+          (item) => item.id !== id
+        )
       );
     } catch (err) {
       setError("No se pudo eliminar el curso.");
     }
   };
 
-    const cancelarFormulario = () => {
+  const cancelarFormulario = () => {
     setMostrarFormulario(false);
     setCursoEditar(null);
-    };
+  };
 
   const contarEntregas = (cursoId) => {
     return entregas.filter(
-      (entrega) => Number(entrega.cursoId) === Number(cursoId)
+      (entrega) =>
+        Number(entrega.cursoId) === Number(cursoId)
     ).length;
   };
 
   const obtenerProximaEntrega = (cursoId) => {
     const relacionadas = entregas
-      .filter((entrega) => Number(entrega.cursoId) === Number(cursoId))
+      .filter(
+        (entrega) =>
+          Number(entrega.cursoId) === Number(cursoId)
+      )
       .sort(
         (a, b) =>
-          new Date(a.fechaEntrega) - new Date(b.fechaEntrega)
+          new Date(a.fechaEntrega) -
+          new Date(b.fechaEntrega)
       );
 
     return relacionadas[0] || null;
@@ -150,30 +183,19 @@ const manejarEditar = (curso) => {
     <main className="cursos-page">
       <section className="cursos-header">
         <div>
-          <span className="page-eyebrow">Gestión académica</span>
+          <span className="page-eyebrow">
+            Gestión académica
+          </span>
 
-          <h1>Cursos</h1>
-
-          <p>
-            Organiza tus materias y conecta cada entrega con su curso.
+          <p className="page-description">
+            Organiza tus materias y conecta cada entrega
+            con su curso.
           </p>
         </div>
 
         <button
           className="btn-nuevo-curso"
-          onClick={() => {
-            setCursoEditar(null);
-            setMostrarFormulario(true);
-
-            setTimeout(() => {
-                document
-                .querySelector(".formulario-section")
-                ?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                });
-            }, 100);
-            }}
+          onClick={abrirFormulario}
         >
           <span>+</span>
           Nuevo curso
@@ -183,9 +205,15 @@ const manejarEditar = (curso) => {
       {error && (
         <div className="mensaje-error">
           <span>!</span>
+
           <p>{error}</p>
 
-          <button onClick={() => setError("")}>×</button>
+          <button
+            onClick={() => setError("")}
+            aria-label="Cerrar mensaje"
+          >
+            ×
+          </button>
         </div>
       )}
 
@@ -201,19 +229,32 @@ const manejarEditar = (curso) => {
 
       <section className="resumen-cursos">
         <div className="resumen-item">
-          <span className="resumen-label">Cursos activos</span>
+          <span className="resumen-label">
+            Cursos activos
+          </span>
+
           <strong>
-            {cursos.filter((curso) => curso.estado === "activo").length}
+            {
+              cursos.filter(
+                (curso) => curso.estado === "activo"
+              ).length
+            }
           </strong>
         </div>
 
         <div className="resumen-item">
-          <span className="resumen-label">Total de cursos</span>
+          <span className="resumen-label">
+            Total de cursos
+          </span>
+
           <strong>{cursos.length}</strong>
         </div>
 
         <div className="resumen-item">
-          <span className="resumen-label">Entregas vinculadas</span>
+          <span className="resumen-label">
+            Entregas vinculadas
+          </span>
+
           <strong>{entregas.length}</strong>
         </div>
       </section>
@@ -221,7 +262,10 @@ const manejarEditar = (curso) => {
       <section className="cursos-section">
         <div className="section-title">
           <div>
-            <span className="section-eyebrow">Tu semestre</span>
+            <span className="section-eyebrow">
+              Tu semestre
+            </span>
+
             <h2>Mis cursos</h2>
           </div>
 
@@ -238,14 +282,17 @@ const manejarEditar = (curso) => {
         ) : cursos.length === 0 ? (
           <div className="estado-vacio">
             <div className="vacio-icon">∅</div>
+
             <h3>Aún no tienes cursos</h3>
+
             <p>
-              Agrega tu primer curso para comenzar a organizar tus entregas.
+              Agrega tu primer curso para comenzar a
+              organizar tus entregas.
             </p>
 
             <button
               className="btn-nuevo-curso"
-              onClick={() => setMostrarFormulario(true)}
+              onClick={abrirFormulario}
             >
               <span>+</span>
               Agregar curso
@@ -254,11 +301,17 @@ const manejarEditar = (curso) => {
         ) : (
           <div className="cursos-grid">
             {cursos.map((curso) => {
-              const cantidadEntregas = contarEntregas(curso.id);
-              const proximaEntrega = obtenerProximaEntrega(curso.id);
+              const cantidadEntregas =
+                contarEntregas(curso.id);
+
+              const proximaEntrega =
+                obtenerProximaEntrega(curso.id);
 
               return (
-                <article className="curso-card" key={curso.id}>
+                <article
+                  className="curso-card"
+                  key={curso.id}
+                >
                   <div
                     className={`curso-accent ${obtenerClaseColor(
                       curso.color
@@ -286,24 +339,31 @@ const manejarEditar = (curso) => {
                     <h3>{curso.nombre}</h3>
 
                     <p className="curso-profesor">
-                      {curso.profesor || "Profesor no registrado"}
+                      {curso.profesor ||
+                        "Profesor no registrado"}
                     </p>
 
                     <div className="curso-meta">
                       <div>
                         <span>Créditos</span>
-                        <strong>{curso.creditos}</strong>
+                        <strong>
+                          {curso.creditos}
+                        </strong>
                       </div>
 
                       <div>
                         <span>Semestre</span>
-                        <strong>{curso.semestre}</strong>
+                        <strong>
+                          {curso.semestre}
+                        </strong>
                       </div>
                     </div>
 
                     <div className="curso-entregas">
                       <div>
-                        <span className="entregas-icon">□</span>
+                        <span className="entregas-icon">
+                          □
+                        </span>
 
                         <div>
                           <strong>
@@ -324,10 +384,13 @@ const manejarEditar = (curso) => {
                           <strong>
                             {new Date(
                               proximaEntrega.fechaEntrega
-                            ).toLocaleDateString("es-CR", {
-                              day: "2-digit",
-                              month: "short",
-                            })}
+                            ).toLocaleDateString(
+                              "es-CR",
+                              {
+                                day: "2-digit",
+                                month: "short",
+                              }
+                            )}
                           </strong>
                         </div>
                       )}
@@ -336,14 +399,18 @@ const manejarEditar = (curso) => {
                     <div className="curso-actions">
                       <button
                         className="btn-editar"
-                        onClick={() => manejarEditar(curso)}
+                        onClick={() =>
+                          manejarEditar(curso)
+                        }
                       >
                         Editar
                       </button>
 
                       <button
                         className="btn-eliminar"
-                        onClick={() => manejarEliminar(curso.id)}
+                        onClick={() =>
+                          manejarEliminar(curso.id)
+                        }
                       >
                         Eliminar
                       </button>

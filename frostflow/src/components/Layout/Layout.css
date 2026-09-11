@@ -1,0 +1,21 @@
+.app-layout {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+.app-main {
+  min-height: 100vh;
+  margin-left: 245px;
+}
+
+.app-content {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 76px;
+}
+
+@media (max-width: 850px) {
+  .app-main {
+    margin-left: 72px;
+  }
+}

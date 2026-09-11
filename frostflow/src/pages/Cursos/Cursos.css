@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+/* =========================
+   ENCABEZADO
+========================= */
+
 .cursos-header {
   display: flex;
   align-items: flex-end;
@@ -18,7 +22,7 @@
   display: block;
   margin-bottom: 8px;
   color: #8b91a3;
-  font-size: 0.7rem;
+  font-size: 0.74rem;
   font-weight: 750;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -35,25 +39,37 @@
 .cursos-header p {
   margin: 9px 0 0;
   color: #858b9b;
-  font-size: 0.92rem;
+  font-size: 0.96rem;
 }
+
+/* =========================
+   BOTÓN NUEVO
+========================= */
 
 .btn-nuevo-curso {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
+
   min-height: 44px;
+
   padding: 0 18px;
+
   border: none;
   border-radius: 11px;
+
   background: #343b4b;
   color: #ffffff;
+
   font-family: inherit;
-  font-size: 0.83rem;
+  font-size: 0.87rem;
   font-weight: 650;
+
   cursor: pointer;
+
   box-shadow: 0 7px 16px rgba(52, 59, 75, 0.12);
+
   transition: 0.2s ease;
 }
 
@@ -67,18 +83,29 @@
   transform: translateY(-1px);
 }
 
+/* =========================
+   FORMULARIO
+========================= */
+
 .formulario-section {
   margin-bottom: 28px;
 }
+
+/* =========================
+   ERROR
+========================= */
 
 .mensaje-error {
   display: flex;
   align-items: center;
   gap: 12px;
+
   margin-bottom: 24px;
   padding: 13px 16px;
+
   border: 1px solid #efd8d8;
   border-radius: 12px;
+
   background: #fff8f8;
   color: #8e5555;
 }
@@ -86,19 +113,25 @@
 .mensaje-error > span {
   width: 23px;
   height: 23px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 50%;
+
   background: #edd0d0;
-  font-size: 0.75rem;
+
+  font-size: 0.78rem;
   font-weight: 800;
 }
 
 .mensaje-error p {
   flex: 1;
+
   margin: 0;
-  font-size: 0.83rem;
+
+  font-size: 0.87rem;
 }
 
 .mensaje-error button {
@@ -109,73 +142,111 @@
   cursor: pointer;
 }
 
+/* =========================
+   RESUMEN
+========================= */
+
 .resumen-cursos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 14px;
+
   margin-bottom: 38px;
 }
 
 .resumen-item {
   min-height: 86px;
+
   box-sizing: border-box;
+
   padding: 17px 20px;
+
   border: 1px solid #e7e9ee;
   border-radius: 16px;
+
   background: #ffffff;
 }
 
 .resumen-label {
   display: block;
+
   margin-bottom: 7px;
+
   color: #969baa;
-  font-size: 0.73rem;
+
+  font-size: 0.77rem;
 }
 
 .resumen-item strong {
   color: #303543;
+
   font-size: 1.45rem;
   font-weight: 700;
 }
+
+/* =========================
+   TÍTULO DE SECCIÓN
+========================= */
 
 .section-title {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
   margin-bottom: 18px;
 }
 
 .section-title h2 {
   margin: 0;
+
   color: #303543;
-  font-size: 1.25rem;
+
+  font-size: 1.3rem;
+
   letter-spacing: -0.02em;
 }
 
 .contador-cursos {
   color: #a0a5b2;
-  font-size: 0.76rem;
+
+  font-size: 0.8rem;
 }
+
+/* =========================
+   GRID DE CURSOS
+========================= */
 
 .cursos-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   gap: 18px;
 }
 
 .curso-card {
   position: relative;
+
   overflow: hidden;
+
   border: 1px solid #e5e8ed;
   border-radius: 19px;
+
   background: #ffffff;
-  box-shadow: 0 7px 24px rgba(45, 54, 72, 0.045);
+
+  box-shadow:
+    0 7px 24px rgba(45, 54, 72, 0.045);
+
   transition: 0.2s ease;
 }
 
 .curso-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(45, 54, 72, 0.08);
+
+  box-shadow:
+    0 12px 30px rgba(45, 54, 72, 0.08);
 }
 
 .curso-accent {
@@ -211,13 +282,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 10px;
 }
 
 .curso-codigo {
   color: #999fac;
-  font-size: 0.7rem;
+
+  font-size: 0.74rem;
   font-weight: 750;
+
   letter-spacing: 0.1em;
 }
 
@@ -225,16 +299,21 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
+
   padding: 5px 8px;
+
   border-radius: 20px;
-  font-size: 0.64rem;
+
+  font-size: 0.68rem;
   font-weight: 700;
+
   text-transform: capitalize;
 }
 
 .estado-curso > span {
   width: 5px;
   height: 5px;
+
   border-radius: 50%;
 }
 
@@ -256,26 +335,42 @@
   background: #9ba0aa;
 }
 
+/* =========================
+   INFORMACIÓN DEL CURSO
+========================= */
+
 .curso-card h3 {
   margin: 17px 0 5px;
+
   color: #2e3441;
-  font-size: 1.05rem;
+
+  font-size: 1.1rem;
   line-height: 1.35;
 }
 
 .curso-profesor {
   min-height: 18px;
+
   margin: 0;
+
   color: #8d93a2;
-  font-size: 0.77rem;
+
+  font-size: 0.81rem;
 }
+
+/* =========================
+   META
+========================= */
 
 .curso-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   gap: 10px;
+
   margin-top: 21px;
   padding: 14px 0;
+
   border-top: 1px solid #eff1f4;
   border-bottom: 1px solid #eff1f4;
 }
@@ -283,56 +378,74 @@
 .curso-meta div {
   display: flex;
   flex-direction: column;
+
   gap: 4px;
 }
 
 .curso-meta span {
   color: #a0a5b0;
-  font-size: 0.67rem;
+
+  font-size: 0.71rem;
 }
 
 .curso-meta strong {
   color: #454b59;
-  font-size: 0.76rem;
+
+  font-size: 0.8rem;
   font-weight: 650;
 }
+
+/* =========================
+   ENTREGAS
+========================= */
 
 .curso-entregas {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 12px;
+
   padding: 15px 0;
 }
 
 .curso-entregas > div:first-child {
   display: flex;
   align-items: center;
+
   gap: 9px;
 }
 
 .entregas-icon {
   width: 29px;
   height: 29px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 8px;
+
   background: #f2f3f7;
   color: #858c9c;
+
   font-size: 0.9rem;
 }
 
 .curso-entregas strong {
   display: block;
+
   color: #555b69;
-  font-size: 0.74rem;
+
+  font-size: 0.78rem;
 }
 
 .curso-entregas div span {
   display: block;
+
   color: #a3a7b2;
-  font-size: 0.64rem;
+
+  font-size: 0.68rem;
 }
 
 .proxima-entrega {
@@ -341,29 +454,43 @@
 
 .proxima-entrega strong {
   color: #6c7290 !important;
-  font-size: 0.72rem !important;
+
+  font-size: 0.76rem !important;
 }
+
+/* =========================
+   ACCIONES
+========================= */
 
 .curso-actions {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 8px;
+
   margin-top: 3px;
 }
 
 .btn-editar,
 .btn-eliminar {
   min-height: 35px;
+
   border-radius: 9px;
+
   font-family: inherit;
-  font-size: 0.73rem;
+
+  font-size: 0.77rem;
   font-weight: 650;
+
   cursor: pointer;
+
   transition: 0.2s ease;
 }
 
 .btn-editar {
   border: 1px solid #e0e3ea;
+
   background: #ffffff;
   color: #636a79;
 }
@@ -374,6 +501,7 @@
 
 .btn-eliminar {
   border: 1px solid #f0dddd;
+
   background: #fffafa;
   color: #a16d6d;
 }
@@ -382,51 +510,72 @@
   background: #fdf0f0;
 }
 
+/* =========================
+   ESTADO VACÍO
+========================= */
+
 .estado-vacio {
   min-height: 280px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   padding: 35px;
+
   border: 1px dashed #dfe3ea;
   border-radius: 18px;
+
   background: #ffffff;
+
   text-align: center;
 }
 
 .estado-vacio h3 {
   margin: 13px 0 5px;
+
   color: #4a5060;
-  font-size: 1rem;
+
+  font-size: 1.05rem;
 }
 
 .estado-vacio p {
   max-width: 360px;
+
   margin: 0 0 20px;
+
   color: #9a9fac;
-  font-size: 0.78rem;
+
+  font-size: 0.82rem;
   line-height: 1.5;
 }
 
 .vacio-icon {
   width: 48px;
   height: 48px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 15px;
+
   background: #f0f1f5;
   color: #9ca2af;
+
   font-size: 1.4rem;
 }
 
 .spinner {
   width: 26px;
   height: 26px;
+
   border: 3px solid #e4e6ec;
   border-top-color: #888fa0;
+
   border-radius: 50%;
+
   animation: girar 0.8s linear infinite;
 }
 
@@ -440,9 +589,14 @@
   }
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 1050px) {
   .cursos-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 }
 
