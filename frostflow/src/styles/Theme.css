@@ -1,0 +1,85 @@
+/* =========================================================
+   FROSTFLOW — TEMA GLOBAL
+========================================================= */
+
+:root {
+  --bg-page: #f3f5f8;
+  --bg-surface: #ffffff;
+  --bg-surface-soft: #f8f9fb;
+  --bg-surface-muted: #edf0f4;
+
+  --border: #d8dde6;
+  --border-soft: #e1e5eb;
+
+  --text-primary: #252b37;
+  --text-secondary: #626b7b;
+  --text-muted: #7d8595;
+
+  --accent: #8177a4;
+  --accent-soft: #ece9f5;
+
+  --button: #343b4b;
+  --button-hover: #292f3c;
+
+  --danger: #986266;
+  --danger-bg: #fff8f8;
+
+  --success: #5d8069;
+  --success-bg: #e5f1ea;
+
+  --shadow-card: 0 7px 24px rgba(45, 54, 72, 0.055);
+  --shadow-soft: 0 4px 14px rgba(48, 57, 72, 0.035);
+}
+
+html[data-theme="dark"] {
+  --bg-page: #10141d;
+  --bg-surface: #1b212c;
+  --bg-surface-soft: #202632;
+  --bg-surface-muted: #292f39;
+
+  --border: #343c4a;
+  --border-soft: #3b4350;
+
+  --text-primary: #eef1f5;
+  --text-secondary: #aeb4c0;
+  --text-muted: #929aaa;
+
+  --accent: #aaa0c7;
+  --accent-soft: #302b40;
+
+  --button: #343b4b;
+  --button-hover: #41495a;
+
+  --danger: #d09299;
+  --danger-bg: #2b2024;
+
+  --success: #92c0a2;
+  --success-bg: #27372e;
+
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.14);
+  --shadow-soft: none;
+}
+
+
+/* =========================================================
+   TRANSICIÓN GLOBAL DEL TEMA
+========================================================= */
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+button,
+input,
+select,
+textarea {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}

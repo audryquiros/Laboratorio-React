@@ -1,3 +1,7 @@
+/* =========================================================
+   FROSTFLOW — ENTREGAS
+========================================================= */
+
 .entregas-page {
   min-height: 100vh;
 
@@ -5,12 +9,13 @@
 
   box-sizing: border-box;
 
-  background: #f7f8fa;
+  background: #f3f5f8;
 }
 
-/* =========================
+
+/* =========================================================
    ENCABEZADO
-========================= */
+========================================================= */
 
 .entregas-header {
   display: flex;
@@ -28,9 +33,9 @@
 
   margin-bottom: 8px;
 
-  color: #8b91a3;
+  color: #777f91;
 
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 750;
 
   letter-spacing: 0.13em;
@@ -41,9 +46,10 @@
 .entregas-header h1 {
   margin: 0;
 
-  color: #252a36;
+  color: #202632;
 
   font-size: clamp(2rem, 3vw, 2.65rem);
+
   font-weight: 750;
 
   letter-spacing: -0.04em;
@@ -52,17 +58,21 @@
 .entregas-header p {
   margin: 9px 0 0;
 
-  color: #858b9b;
+  color: #626b7b;
 
-  font-size: 0.96rem;
+  font-size: 0.92rem;
+
+  line-height: 1.5;
 }
 
-/* =========================
-   BOTÓN NUEVA ENTREGA
-========================= */
+
+/* =========================================================
+   BOTÓN
+========================================================= */
 
 .btn-nueva-entrega {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -72,21 +82,23 @@
 
   padding: 0 18px;
 
-  border: none;
+  border: 1px solid #303747;
+
   border-radius: 11px;
 
   background: #343b4b;
+
   color: #ffffff;
 
   font-family: inherit;
 
-  font-size: 0.87rem;
+  font-size: 0.83rem;
   font-weight: 650;
 
   cursor: pointer;
 
   box-shadow:
-    0 7px 16px rgba(52, 59, 75, 0.12);
+    0 7px 16px rgba(52, 59, 75, 0.16);
 
   transition: 0.2s ease;
 }
@@ -103,20 +115,23 @@
   font-weight: 400;
 }
 
-/* =========================
+
+/* =========================================================
    FORMULARIO
-========================= */
+========================================================= */
 
 .entrega-form-section {
   margin-bottom: 28px;
 }
 
-/* =========================
+
+/* =========================================================
    ERROR
-========================= */
+========================================================= */
 
 .entregas-error {
   display: flex;
+
   align-items: center;
 
   gap: 12px;
@@ -125,12 +140,13 @@
 
   padding: 13px 16px;
 
-  border: 1px solid #efd8d8;
+  border: 1px solid #e5caca;
+
   border-radius: 12px;
 
-  background: #fff8f8;
+  background: #fff5f5;
 
-  color: #8e5555;
+  color: #874f53;
 }
 
 .entregas-error > span {
@@ -138,14 +154,16 @@
   height: 23px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border-radius: 50%;
 
-  background: #edd0d0;
+  background: #efd5d5;
 
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+
   font-weight: 800;
 }
 
@@ -154,7 +172,7 @@
 
   margin: 0;
 
-  font-size: 0.87rem;
+  font-size: 0.83rem;
 }
 
 .entregas-error button {
@@ -162,22 +180,22 @@
 
   background: transparent;
 
-  color: #987070;
+  color: #8d5f63;
 
   font-size: 1.1rem;
 
   cursor: pointer;
 }
 
-/* =========================
+
+/* =========================================================
    RESUMEN
-========================= */
+========================================================= */
 
 .entregas-resumen {
   display: grid;
 
-  grid-template-columns:
-    repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   gap: 14px;
 
@@ -187,14 +205,29 @@
 .resumen-entrega {
   min-height: 86px;
 
-  padding: 17px 20px;
-
   box-sizing: border-box;
 
-  border: 1px solid #e7e9ee;
+  padding: 17px 20px;
+
+  border: 1px solid #d8dde6;
+
   border-radius: 16px;
 
   background: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(48, 57, 72, 0.035);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resumen-entrega:hover {
+  border-color: #cbd1dc;
+
+  box-shadow:
+    0 7px 18px rgba(48, 57, 72, 0.055);
 }
 
 .resumen-entrega span {
@@ -202,20 +235,21 @@
 
   margin-bottom: 7px;
 
-  color: #969baa;
+  color: #7d8595;
 
-  font-size: 0.77rem;
+  font-size: 0.73rem;
 }
 
 .resumen-entrega strong {
-  color: #303543;
+  color: #252b37;
 
   font-size: 1.45rem;
 }
 
-/* =========================
+
+/* =========================================================
    LISTA
-========================= */
+========================================================= */
 
 .entregas-list-section {
   width: 100%;
@@ -223,7 +257,9 @@
 
 .entregas-list-header {
   display: flex;
+
   align-items: flex-end;
+
   justify-content: space-between;
 
   gap: 20px;
@@ -234,14 +270,15 @@
 .entregas-list-header h2 {
   margin: 0;
 
-  color: #303543;
+  color: #252b37;
 
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
-/* =========================
+
+/* =========================================================
    FILTROS
-========================= */
+========================================================= */
 
 .filtros-entregas {
   display: flex;
@@ -250,10 +287,14 @@
 
   padding: 4px;
 
-  border: 1px solid #e6e8ed;
+  border: 1px solid #d5dae3;
+
   border-radius: 10px;
 
   background: #ffffff;
+
+  box-shadow:
+    0 3px 10px rgba(48, 57, 72, 0.035);
 }
 
 .filtros-entregas button {
@@ -262,35 +303,40 @@
   padding: 0 11px;
 
   border: none;
+
   border-radius: 7px;
 
   background: transparent;
 
-  color: #9297a4;
+  color: #777f90;
 
   font-family: inherit;
 
-  font-size: 0.74rem;
+  font-size: 0.7rem;
+
   font-weight: 650;
 
   cursor: pointer;
 }
 
 .filtros-entregas button:hover {
-  color: #5e6472;
+  color: #4d5564;
 }
 
 .filtros-entregas .filtro-activo {
   background: #343b4b;
+
   color: #ffffff;
 }
 
-/* =========================
+
+/* =========================================================
    LISTA DE ENTREGAS
-========================= */
+========================================================= */
 
 .entregas-lista {
   display: flex;
+
   flex-direction: column;
 
   gap: 11px;
@@ -316,34 +362,41 @@
 
   box-sizing: border-box;
 
-  border: 1px solid #e6e8ed;
+  border: 1px solid #d7dce5;
+
   border-radius: 17px;
 
   background: #ffffff;
 
   box-shadow:
-    0 5px 18px rgba(45, 54, 72, 0.035);
+    0 5px 18px rgba(45, 54, 72, 0.045);
 
-  transition: 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .entrega-card:hover {
-  border-color: #dce0e7;
+  border-color: #c9cfda;
 
   box-shadow:
-    0 8px 25px rgba(45, 54, 72, 0.065);
+    0 8px 25px rgba(45, 54, 72, 0.075);
 }
 
-/* =========================
+
+/* =========================================================
    TEMPERATURA
-========================= */
+========================================================= */
 
 .entrega-temperatura {
   width: 54px;
   height: 72px;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
@@ -357,7 +410,7 @@
 }
 
 .entrega-temperatura small {
-  font-size: 0.62rem;
+  font-size: 0.57rem;
 
   font-weight: 750;
 
@@ -367,38 +420,45 @@
 }
 
 .temperatura-estable {
-  background: #eef4f6;
-  color: #688997;
+  background: #e6f0f3;
+
+  color: #5f8290;
 }
 
 .temperatura-proximo {
-  background: #f0eef7;
-  color: #8274a3;
+  background: #ece9f5;
+
+  color: #766992;
 }
 
 .temperatura-urgente {
-  background: #f7f1e9;
-  color: #9b8161;
+  background: #f4ecdf;
+
+  color: #91734c;
 }
 
 .temperatura-critico {
-  background: #f8eded;
-  color: #a36e6e;
+  background: #f5e5e6;
+
+  color: #975d64;
 }
 
 .temperatura-vencido {
-  background: #eeeef0;
-  color: #666b77;
+  background: #e7e9ed;
+
+  color: #5e6572;
 }
 
 .temperatura-completada {
-  background: #edf5f0;
-  color: #668873;
+  background: #e5f1ea;
+
+  color: #5d8069;
 }
 
-/* =========================
+
+/* =========================================================
    INFORMACIÓN
-========================= */
+========================================================= */
 
 .entrega-info {
   min-width: 0;
@@ -406,6 +466,7 @@
 
 .entrega-identificacion {
   display: flex;
+
   align-items: center;
 
   gap: 7px;
@@ -418,26 +479,27 @@
 }
 
 .entrega-curso {
-  color: #7c719f;
+  color: #70658f;
 
-  font-size: 0.71rem;
+  font-size: 0.66rem;
+
   font-weight: 750;
 
   letter-spacing: 0.08em;
 }
 
 .separador {
-  color: #c1c4cb;
+  color: #b7bdc7;
 
-  font-size: 0.7rem;
+  font-size: 0.65rem;
 }
 
 .entrega-curso-nombre {
   overflow: hidden;
 
-  color: #9a9eaa;
+  color: #7d8595;
 
-  font-size: 0.7rem;
+  font-size: 0.65rem;
 
   text-overflow: ellipsis;
 }
@@ -447,9 +509,10 @@
 
   overflow: hidden;
 
-  color: #363c49;
+  color: #252b37;
 
-  font-size: 0.96rem;
+  font-size: 0.91rem;
+
   font-weight: 700;
 
   text-overflow: ellipsis;
@@ -464,9 +527,9 @@
 
   overflow: hidden;
 
-  color: #999eaa;
+  color: #737c8c;
 
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 
   line-height: 1.4;
 
@@ -475,39 +538,43 @@
   white-space: nowrap;
 }
 
-/* =========================
+
+/* =========================================================
    FECHA
-========================= */
+========================================================= */
 
 .entrega-fecha {
   display: flex;
+
   flex-direction: column;
 
   gap: 4px;
 }
 
 .entrega-fecha span {
-  color: #a1a5af;
+  color: #7f8795;
 
-  font-size: 0.68rem;
+  font-size: 0.63rem;
 }
 
 .entrega-fecha strong {
-  color: #515766;
+  color: #48515f;
 
-  font-size: 0.8rem;
+  font-size: 0.76rem;
+
   font-weight: 700;
 }
 
 .entrega-fecha small {
-  color: #9297a4;
+  color: #737c8b;
 
-  font-size: 0.7rem;
+  font-size: 0.65rem;
 }
 
-/* =========================
+
+/* =========================================================
    PROGRESO
-========================= */
+========================================================= */
 
 .entrega-progreso {
   min-width: 0;
@@ -524,15 +591,15 @@
 }
 
 .progreso-header span {
-  color: #999eaa;
+  color: #7f8795;
 
-  font-size: 0.7rem;
+  font-size: 0.65rem;
 }
 
 .progreso-header strong {
-  color: #626878;
+  color: #596170;
 
-  font-size: 0.71rem;
+  font-size: 0.66rem;
 }
 
 .barra-progreso {
@@ -542,7 +609,7 @@
 
   border-radius: 10px;
 
-  background: #eef0f3;
+  background: #e3e6eb;
 }
 
 .barra-progreso div {
@@ -550,17 +617,19 @@
 
   border-radius: inherit;
 
-  background: #9690b5;
+  background: #8f89ad;
 
   transition: width 0.3s ease;
 }
 
-/* =========================
+
+/* =========================================================
    ACCIONES
-========================= */
+========================================================= */
 
 .entrega-acciones {
   display: flex;
+
   flex-direction: column;
 
   gap: 6px;
@@ -574,47 +643,55 @@
 
   font-family: inherit;
 
-  font-size: 0.73rem;
+  font-size: 0.68rem;
+
   font-weight: 650;
 
   cursor: pointer;
 }
 
 .accion-editar {
-  border: 1px solid #e0e3e9;
+  border: 1px solid #d1d6df;
 
-  background: #ffffff;
-  color: #646a79;
+  background: #f8f9fb;
+
+  color: #555e6d;
 }
 
 .accion-editar:hover {
-  background: #f6f7f9;
+  background: #eef1f5;
 }
 
 .accion-eliminar {
-  border: 1px solid #f0dddd;
+  border: 1px solid #ead3d5;
 
-  background: #fffafa;
-  color: #a16d6d;
+  background: #fff8f8;
+
+  color: #986266;
 }
 
 .accion-eliminar:hover {
-  background: #fdf0f0;
+  background: #fbeeee;
 }
 
-/* =========================
+
+/* =========================================================
    ESTADO VACÍO
-========================= */
+========================================================= */
 
 .entregas-estado {
   min-height: 280px;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   justify-content: center;
 
-  border: 1px dashed #dfe3ea;
+  border: 1px dashed #cfd5df;
+
   border-radius: 18px;
 
   background: #ffffff;
@@ -625,17 +702,17 @@
 .entregas-estado h3 {
   margin: 13px 0 5px;
 
-  color: #4a5060;
+  color: #454d5b;
 
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .entregas-estado p {
   margin: 5px 0;
 
-  color: #9a9fac;
+  color: #747d8d;
 
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 }
 
 .entregas-vacio-icon {
@@ -643,26 +720,28 @@
   height: 48px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border-radius: 15px;
 
-  background: #f0f1f5;
-  color: #9ca2af;
+  background: #e9edf2;
+
+  color: #7d8695;
 }
 
 .entregas-spinner {
   width: 26px;
   height: 26px;
 
-  border: 3px solid #e4e6ec;
-  border-top-color: #888fa0;
+  border: 3px solid #dce1e8;
+
+  border-top-color: #81799d;
 
   border-radius: 50%;
 
-  animation:
-    girar-entregas 0.8s linear infinite;
+  animation: girar-entregas 0.8s linear infinite;
 }
 
 @keyframes girar-entregas {
@@ -671,9 +750,280 @@
   }
 }
 
-/* =========================
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+html[data-theme="dark"] .entregas-page {
+  background: #10141d;
+}
+
+html[data-theme="dark"] .page-eyebrow,
+html[data-theme="dark"] .section-eyebrow {
+  color: #aaa0c7;
+}
+
+html[data-theme="dark"] .entregas-header h1 {
+  color: #f0f2f6;
+}
+
+html[data-theme="dark"] .entregas-header p {
+  color: #aeb4c0;
+}
+
+html[data-theme="dark"] .btn-nueva-entrega {
+  border-color: #3e4655;
+
+  background: #343b4b;
+}
+
+html[data-theme="dark"] .btn-nueva-entrega:hover {
+  background: #41495a;
+}
+
+
+/* RESUMEN */
+
+html[data-theme="dark"] .resumen-entrega {
+  border-color: #343c4a;
+
+  background: #202632;
+
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .resumen-entrega:hover {
+  border-color: #414a59;
+}
+
+html[data-theme="dark"] .resumen-entrega span {
+  color: #929aaa;
+}
+
+html[data-theme="dark"] .resumen-entrega strong {
+  color: #eef1f5;
+}
+
+
+/* LISTA */
+
+html[data-theme="dark"] .entregas-list-header h2 {
+  color: #eef1f5;
+}
+
+
+/* FILTROS */
+
+html[data-theme="dark"] .filtros-entregas {
+  border-color: #343c4a;
+
+  background: #202632;
+
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .filtros-entregas button {
+  color: #9ca4b2;
+}
+
+html[data-theme="dark"] .filtros-entregas button:hover {
+  color: #e0e3e9;
+}
+
+html[data-theme="dark"] .filtros-entregas .filtro-activo {
+  background: #343b4b;
+
+  color: #ffffff;
+}
+
+
+/* ENTREGAS */
+
+html[data-theme="dark"] .entrega-card {
+  border-color: #343c4a;
+
+  background: #1b212c;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+html[data-theme="dark"] .entrega-card:hover {
+  border-color: #414a59;
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+
+/* TEMPERATURAS */
+
+html[data-theme="dark"] .temperatura-estable {
+  background: #26353a;
+  color: #9cc1ca;
+}
+
+html[data-theme="dark"] .temperatura-proximo {
+  background: #302b40;
+  color: #b2a5d0;
+}
+
+html[data-theme="dark"] .temperatura-urgente {
+  background: #3a3328;
+  color: #c5aa7d;
+}
+
+html[data-theme="dark"] .temperatura-critico {
+  background: #3c292d;
+  color: #d59a9f;
+}
+
+html[data-theme="dark"] .temperatura-vencido {
+  background: #2b2f36;
+  color: #a5aab4;
+}
+
+html[data-theme="dark"] .temperatura-completada {
+  background: #27372e;
+  color: #92c0a2;
+}
+
+
+/* INFORMACIÓN */
+
+html[data-theme="dark"] .entrega-curso {
+  color: #b2a5d0;
+}
+
+html[data-theme="dark"] .separador {
+  color: #5f6673;
+}
+
+html[data-theme="dark"] .entrega-curso-nombre {
+  color: #959eac;
+}
+
+html[data-theme="dark"] .entrega-info h3 {
+  color: #eef1f5;
+}
+
+html[data-theme="dark"] .entrega-info p {
+  color: #9ca4b2;
+}
+
+
+/* FECHA */
+
+html[data-theme="dark"] .entrega-fecha span {
+  color: #8f98a7;
+}
+
+html[data-theme="dark"] .entrega-fecha strong {
+  color: #dce0e7;
+}
+
+html[data-theme="dark"] .entrega-fecha small {
+  color: #949cab;
+}
+
+
+/* PROGRESO */
+
+html[data-theme="dark"] .progreso-header span {
+  color: #949cab;
+}
+
+html[data-theme="dark"] .progreso-header strong {
+  color: #c7ccd5;
+}
+
+html[data-theme="dark"] .barra-progreso {
+  background: #353c48;
+}
+
+html[data-theme="dark"] .barra-progreso div {
+  background: #9b91b8;
+}
+
+
+/* BOTONES */
+
+html[data-theme="dark"] .accion-editar {
+  border-color: #39414e;
+
+  background: #242a35;
+
+  color: #d2d6df;
+}
+
+html[data-theme="dark"] .accion-editar:hover {
+  background: #2d3440;
+}
+
+html[data-theme="dark"] .accion-eliminar {
+  border-color: #50383e;
+
+  background: #2b2024;
+
+  color: #d09299;
+}
+
+html[data-theme="dark"] .accion-eliminar:hover {
+  background: #36272c;
+}
+
+
+/* ESTADO VACÍO */
+
+html[data-theme="dark"] .entregas-estado {
+  border-color: #39414d;
+
+  background: #1b212c;
+}
+
+html[data-theme="dark"] .entregas-estado h3 {
+  color: #e8ebf0;
+}
+
+html[data-theme="dark"] .entregas-estado p {
+  color: #959daa;
+}
+
+html[data-theme="dark"] .entregas-vacio-icon {
+  background: #292f39;
+  color: #969eae;
+}
+
+html[data-theme="dark"] .entregas-spinner {
+  border-color: #343b47;
+
+  border-top-color: #9a90b6;
+}
+
+
+/* ERROR */
+
+html[data-theme="dark"] .entregas-error {
+  border-color: #50383d;
+
+  background: #2a2024;
+
+  color: #d29a9f;
+}
+
+html[data-theme="dark"] .entregas-error > span {
+  background: #3b292e;
+}
+
+html[data-theme="dark"] .entregas-error button {
+  color: #bd858c;
+}
+
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media (max-width: 1200px) {
   .entrega-card {

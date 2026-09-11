@@ -1,13 +1,18 @@
+/* =========================================================
+   FROSTFLOW — CURSOS
+========================================================= */
+
 .cursos-page {
   min-height: 100vh;
   padding: 38px 42px 60px;
-  background: #f7f8fa;
   box-sizing: border-box;
+  background: #f3f5f8;
 }
 
-/* =========================
+
+/* =========================================================
    ENCABEZADO
-========================= */
+========================================================= */
 
 .cursos-header {
   display: flex;
@@ -21,8 +26,8 @@
 .section-eyebrow {
   display: block;
   margin-bottom: 8px;
-  color: #8b91a3;
-  font-size: 0.74rem;
+  color: #777f91;
+  font-size: 0.7rem;
   font-weight: 750;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -30,7 +35,7 @@
 
 .cursos-header h1 {
   margin: 0;
-  color: #252a36;
+  color: #202632;
   font-size: clamp(2rem, 3vw, 2.65rem);
   font-weight: 750;
   letter-spacing: -0.04em;
@@ -38,37 +43,38 @@
 
 .cursos-header p {
   margin: 9px 0 0;
-  color: #858b9b;
-  font-size: 0.96rem;
+  color: #626b7b;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
-/* =========================
+
+/* =========================================================
    BOTÓN NUEVO
-========================= */
+========================================================= */
 
 .btn-nuevo-curso {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-
   min-height: 44px;
-
   padding: 0 18px;
 
-  border: none;
+  border: 1px solid #303747;
   border-radius: 11px;
 
   background: #343b4b;
   color: #ffffff;
 
   font-family: inherit;
-  font-size: 0.87rem;
+  font-size: 0.83rem;
   font-weight: 650;
 
   cursor: pointer;
 
-  box-shadow: 0 7px 16px rgba(52, 59, 75, 0.12);
+  box-shadow:
+    0 7px 16px rgba(52, 59, 75, 0.16);
 
   transition: 0.2s ease;
 }
@@ -83,17 +89,19 @@
   transform: translateY(-1px);
 }
 
-/* =========================
+
+/* =========================================================
    FORMULARIO
-========================= */
+========================================================= */
 
 .formulario-section {
   margin-bottom: 28px;
 }
 
-/* =========================
+
+/* =========================================================
    ERROR
-========================= */
+========================================================= */
 
 .mensaje-error {
   display: flex;
@@ -103,11 +111,11 @@
   margin-bottom: 24px;
   padding: 13px 16px;
 
-  border: 1px solid #efd8d8;
+  border: 1px solid #e5caca;
   border-radius: 12px;
 
-  background: #fff8f8;
-  color: #8e5555;
+  background: #fff5f5;
+  color: #874f53;
 }
 
 .mensaje-error > span {
@@ -120,36 +128,34 @@
 
   border-radius: 50%;
 
-  background: #edd0d0;
+  background: #efd5d5;
 
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 800;
 }
 
 .mensaje-error p {
   flex: 1;
-
   margin: 0;
-
-  font-size: 0.87rem;
+  font-size: 0.83rem;
 }
 
 .mensaje-error button {
   border: none;
   background: transparent;
-  color: #987070;
+  color: #8d5f63;
   font-size: 1.1rem;
   cursor: pointer;
 }
 
-/* =========================
+
+/* =========================================================
    RESUMEN
-========================= */
+========================================================= */
 
 .resumen-cursos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   gap: 14px;
 
   margin-bottom: 38px;
@@ -157,15 +163,28 @@
 
 .resumen-item {
   min-height: 86px;
-
   box-sizing: border-box;
 
   padding: 17px 20px;
 
-  border: 1px solid #e7e9ee;
+  border: 1px solid #d8dde6;
   border-radius: 16px;
 
   background: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(48, 57, 72, 0.035);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resumen-item:hover {
+  border-color: #cbd1dc;
+
+  box-shadow:
+    0 7px 18px rgba(48, 57, 72, 0.055);
 }
 
 .resumen-label {
@@ -173,21 +192,22 @@
 
   margin-bottom: 7px;
 
-  color: #969baa;
+  color: #7d8595;
 
-  font-size: 0.77rem;
+  font-size: 0.73rem;
 }
 
 .resumen-item strong {
-  color: #303543;
+  color: #252b37;
 
   font-size: 1.45rem;
   font-weight: 700;
 }
 
-/* =========================
-   TÍTULO DE SECCIÓN
-========================= */
+
+/* =========================================================
+   SECCIÓN
+========================================================= */
 
 .section-title {
   display: flex;
@@ -200,79 +220,97 @@
 .section-title h2 {
   margin: 0;
 
-  color: #303543;
+  color: #252b37;
 
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 
   letter-spacing: -0.02em;
 }
 
 .contador-cursos {
-  color: #a0a5b2;
-
-  font-size: 0.8rem;
+  color: #7f8796;
+  font-size: 0.76rem;
 }
 
-/* =========================
+
+/* =========================================================
    GRID DE CURSOS
-========================= */
+========================================================= */
 
 .cursos-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   gap: 18px;
 }
 
+
+/* =========================================================
+   CARD
+========================================================= */
+
 .curso-card {
   position: relative;
-
   overflow: hidden;
 
-  border: 1px solid #e5e8ed;
+  border: 1px solid #d7dce5;
   border-radius: 19px;
 
   background: #ffffff;
 
   box-shadow:
-    0 7px 24px rgba(45, 54, 72, 0.045);
+    0 7px 24px rgba(45, 54, 72, 0.055);
 
-  transition: 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .curso-card:hover {
   transform: translateY(-3px);
 
+  border-color: #c8ced9;
+
   box-shadow:
-    0 12px 30px rgba(45, 54, 72, 0.08);
+    0 12px 30px rgba(45, 54, 72, 0.09);
 }
 
+
+/* =========================================================
+   ACENTOS
+========================================================= */
+
 .curso-accent {
-  height: 5px;
   width: 100%;
+  height: 5px;
 }
 
 .curso-blue {
-  background: #9ab9d8;
+  background: #91b3d5;
 }
 
 .curso-lavender {
-  background: #b7a8dc;
+  background: #b2a1da;
 }
 
 .curso-ice {
-  background: #a8d0d6;
+  background: #9fcbd2;
 }
 
 .curso-steel {
-  background: #8999b4;
+  background: #8495b1;
 }
 
 .curso-slate {
-  background: #737b91;
+  background: #70798e;
 }
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
 
 .curso-card-content {
   padding: 20px;
@@ -282,18 +320,39 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 10px;
 }
 
 .curso-codigo {
-  color: #999fac;
-
-  font-size: 0.74rem;
+  color: #737c8d;
+  font-size: 0.7rem;
   font-weight: 750;
-
   letter-spacing: 0.1em;
 }
+
+.curso-card h3 {
+  margin: 17px 0 5px;
+
+  color: #252b37;
+
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.curso-profesor {
+  min-height: 18px;
+
+  margin: 0;
+
+  color: #6f7888;
+
+  font-size: 0.77rem;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
 
 .estado-curso {
   display: inline-flex;
@@ -304,7 +363,7 @@
 
   border-radius: 20px;
 
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 700;
 
   text-transform: capitalize;
@@ -313,57 +372,35 @@
 .estado-curso > span {
   width: 5px;
   height: 5px;
-
   border-radius: 50%;
 }
 
 .estado-activo {
-  background: #eef7f2;
-  color: #56826a;
+  background: #e8f3ed;
+  color: #4d795f;
 }
 
 .estado-activo > span {
-  background: #73a888;
+  background: #68a27e;
 }
 
 .estado-inactivo {
-  background: #f1f2f5;
-  color: #858b98;
+  background: #eceef2;
+  color: #747b88;
 }
 
 .estado-inactivo > span {
-  background: #9ba0aa;
+  background: #8d95a2;
 }
 
-/* =========================
-   INFORMACIÓN DEL CURSO
-========================= */
 
-.curso-card h3 {
-  margin: 17px 0 5px;
-
-  color: #2e3441;
-
-  font-size: 1.1rem;
-  line-height: 1.35;
-}
-
-.curso-profesor {
-  min-height: 18px;
-
-  margin: 0;
-
-  color: #8d93a2;
-
-  font-size: 0.81rem;
-}
-
-/* =========================
+/* =========================================================
    META
-========================= */
+========================================================= */
 
 .curso-meta {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
 
   gap: 10px;
@@ -371,33 +408,31 @@
   margin-top: 21px;
   padding: 14px 0;
 
-  border-top: 1px solid #eff1f4;
-  border-bottom: 1px solid #eff1f4;
+  border-top: 1px solid #dfe3e9;
+  border-bottom: 1px solid #dfe3e9;
 }
 
 .curso-meta div {
   display: flex;
   flex-direction: column;
-
   gap: 4px;
 }
 
 .curso-meta span {
-  color: #a0a5b0;
-
-  font-size: 0.71rem;
+  color: #7d8595;
+  font-size: 0.67rem;
 }
 
 .curso-meta strong {
-  color: #454b59;
-
-  font-size: 0.8rem;
+  color: #464e5d;
+  font-size: 0.76rem;
   font-weight: 650;
 }
 
-/* =========================
+
+/* =========================================================
    ENTREGAS
-========================= */
+========================================================= */
 
 .curso-entregas {
   display: flex;
@@ -412,7 +447,6 @@
 .curso-entregas > div:first-child {
   display: flex;
   align-items: center;
-
   gap: 9px;
 }
 
@@ -426,8 +460,8 @@
 
   border-radius: 8px;
 
-  background: #f2f3f7;
-  color: #858c9c;
+  background: #edf0f4;
+  color: #727b8b;
 
   font-size: 0.9rem;
 }
@@ -435,17 +469,17 @@
 .curso-entregas strong {
   display: block;
 
-  color: #555b69;
+  color: #4c5564;
 
-  font-size: 0.78rem;
+  font-size: 0.74rem;
 }
 
 .curso-entregas div span {
   display: block;
 
-  color: #a3a7b2;
+  color: #7d8594;
 
-  font-size: 0.68rem;
+  font-size: 0.64rem;
 }
 
 .proxima-entrega {
@@ -453,14 +487,14 @@
 }
 
 .proxima-entrega strong {
-  color: #6c7290 !important;
-
-  font-size: 0.76rem !important;
+  color: #6d668c !important;
+  font-size: 0.72rem !important;
 }
 
-/* =========================
+
+/* =========================================================
    ACCIONES
-========================= */
+========================================================= */
 
 .curso-actions {
   display: grid;
@@ -479,8 +513,7 @@
   border-radius: 9px;
 
   font-family: inherit;
-
-  font-size: 0.77rem;
+  font-size: 0.73rem;
   font-weight: 650;
 
   cursor: pointer;
@@ -489,30 +522,33 @@
 }
 
 .btn-editar {
-  border: 1px solid #e0e3ea;
+  border: 1px solid #d1d6df;
 
-  background: #ffffff;
-  color: #636a79;
+  background: #f8f9fb;
+
+  color: #555e6d;
 }
 
 .btn-editar:hover {
-  background: #f6f7f9;
+  background: #eef1f5;
 }
 
 .btn-eliminar {
-  border: 1px solid #f0dddd;
+  border: 1px solid #ead3d5;
 
-  background: #fffafa;
-  color: #a16d6d;
+  background: #fff8f8;
+
+  color: #986266;
 }
 
 .btn-eliminar:hover {
-  background: #fdf0f0;
+  background: #fbeeee;
 }
 
-/* =========================
+
+/* =========================================================
    ESTADO VACÍO
-========================= */
+========================================================= */
 
 .estado-vacio {
   min-height: 280px;
@@ -524,7 +560,7 @@
 
   padding: 35px;
 
-  border: 1px dashed #dfe3ea;
+  border: 1px dashed #cfd5df;
   border-radius: 18px;
 
   background: #ffffff;
@@ -535,9 +571,9 @@
 .estado-vacio h3 {
   margin: 13px 0 5px;
 
-  color: #4a5060;
+  color: #454d5b;
 
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .estado-vacio p {
@@ -545,9 +581,9 @@
 
   margin: 0 0 20px;
 
-  color: #9a9fac;
+  color: #747d8d;
 
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   line-height: 1.5;
 }
 
@@ -561,8 +597,8 @@
 
   border-radius: 15px;
 
-  background: #f0f1f5;
-  color: #9ca2af;
+  background: #e9edf2;
+  color: #7d8695;
 
   font-size: 1.4rem;
 }
@@ -571,8 +607,8 @@
   width: 26px;
   height: 26px;
 
-  border: 3px solid #e4e6ec;
-  border-top-color: #888fa0;
+  border: 3px solid #dce1e8;
+  border-top-color: #81799d;
 
   border-radius: 50%;
 
@@ -589,14 +625,225 @@
   }
 }
 
-/* =========================
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+html[data-theme="dark"] .cursos-page {
+  background: #10141d;
+}
+
+html[data-theme="dark"] .page-eyebrow,
+html[data-theme="dark"] .section-eyebrow {
+  color: #aaa0c7;
+}
+
+html[data-theme="dark"] .cursos-header h1 {
+  color: #f0f2f6;
+}
+
+html[data-theme="dark"] .cursos-header p {
+  color: #aeb4c0;
+}
+
+html[data-theme="dark"] .btn-nuevo-curso {
+  border-color: #3e4655;
+  background: #343b4b;
+}
+
+html[data-theme="dark"] .btn-nuevo-curso:hover {
+  background: #41495a;
+}
+
+
+/* RESUMEN */
+
+html[data-theme="dark"] .resumen-item {
+  border-color: #343c4a;
+  background: #202632;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .resumen-item:hover {
+  border-color: #414a59;
+}
+
+html[data-theme="dark"] .resumen-label {
+  color: #929aaa;
+}
+
+html[data-theme="dark"] .resumen-item strong {
+  color: #eef1f5;
+}
+
+
+/* SECCIÓN */
+
+html[data-theme="dark"] .section-title h2 {
+  color: #eef1f5;
+}
+
+html[data-theme="dark"] .contador-cursos {
+  color: #9199a8;
+}
+
+
+/* CURSOS */
+
+html[data-theme="dark"] .curso-card {
+  border-color: #343c4a;
+  background: #1b212c;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+html[data-theme="dark"] .curso-card:hover {
+  border-color: #414a59;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .curso-codigo {
+  color: #9ca5b5;
+}
+
+html[data-theme="dark"] .curso-card h3 {
+  color: #f0f2f6;
+}
+
+html[data-theme="dark"] .curso-profesor {
+  color: #a3aab7;
+}
+
+
+/* ESTADOS */
+
+html[data-theme="dark"] .estado-activo {
+  background: #26372f;
+  color: #91c4a5;
+}
+
+html[data-theme="dark"] .estado-activo > span {
+  background: #79b38f;
+}
+
+html[data-theme="dark"] .estado-inactivo {
+  background: #292e37;
+  color: #a3a9b4;
+}
+
+html[data-theme="dark"] .estado-inactivo > span {
+  background: #858d9a;
+}
+
+
+/* META */
+
+html[data-theme="dark"] .curso-meta {
+  border-color: #343c49;
+}
+
+html[data-theme="dark"] .curso-meta span {
+  color: #8e97a6;
+}
+
+html[data-theme="dark"] .curso-meta strong {
+  color: #d9dde5;
+}
+
+
+/* ENTREGAS */
+
+html[data-theme="dark"] .entregas-icon {
+  background: #2b303b;
+  color: #a2aabb;
+}
+
+html[data-theme="dark"] .curso-entregas strong {
+  color: #d8dce4;
+}
+
+html[data-theme="dark"] .curso-entregas div span {
+  color: #8f97a6;
+}
+
+html[data-theme="dark"] .proxima-entrega strong {
+  color: #b5a9d3 !important;
+}
+
+
+/* BOTONES */
+
+html[data-theme="dark"] .btn-editar {
+  border-color: #39414e;
+  background: #242a35;
+  color: #d2d6df;
+}
+
+html[data-theme="dark"] .btn-editar:hover {
+  background: #2d3440;
+}
+
+html[data-theme="dark"] .btn-eliminar {
+  border-color: #50383e;
+  background: #2b2024;
+  color: #d09299;
+}
+
+html[data-theme="dark"] .btn-eliminar:hover {
+  background: #36272c;
+}
+
+
+/* VACÍO */
+
+html[data-theme="dark"] .estado-vacio {
+  border-color: #39414d;
+  background: #1b212c;
+}
+
+html[data-theme="dark"] .estado-vacio h3 {
+  color: #e8ebf0;
+}
+
+html[data-theme="dark"] .estado-vacio p {
+  color: #959daa;
+}
+
+html[data-theme="dark"] .vacio-icon {
+  background: #292f39;
+  color: #969eae;
+}
+
+html[data-theme="dark"] .spinner {
+  border-color: #343b47;
+  border-top-color: #9a90b6;
+}
+
+
+/* ERROR */
+
+html[data-theme="dark"] .mensaje-error {
+  border-color: #50383d;
+  background: #2a2024;
+  color: #d29a9f;
+}
+
+html[data-theme="dark"] .mensaje-error > span {
+  background: #3b292e;
+}
+
+html[data-theme="dark"] .mensaje-error button {
+  color: #bd858c;
+}
+
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media (max-width: 1050px) {
   .cursos-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

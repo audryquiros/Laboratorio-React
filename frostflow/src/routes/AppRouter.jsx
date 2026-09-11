@@ -12,6 +12,7 @@ import Login from "../pages/Login/Login";
 import Cursos from "../pages/Cursos/Cursos";
 import Entregas from "../pages/Entregas/Entregas";
 import Perfil from "../pages/Perfil/Perfil";
+import Configuracion from "../pages/Configuracion/Configuracion";
 
 function Placeholder({ titulo }) {
   return (
@@ -84,11 +85,9 @@ function AppRouter() {
                     }
                   />
 
-                  <Route
+                    <Route
                     path="/configuracion"
-                    element={
-                      <Placeholder titulo="Configuración" />
-                    }
+                    element={<Configuracion />}
                   />
 
                   <Route
