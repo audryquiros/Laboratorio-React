@@ -8,7 +8,8 @@
       "creditos": 4,
       "semestre": "III 2026",
       "color": "blue",
-      "estado": "activo"
+      "estado": "culminado",
+      "calificacion": 2.2
     },
     {
       "id": "2",
@@ -18,7 +19,8 @@
       "creditos": 4,
       "semestre": "III 2026",
       "color": "lavender",
-      "estado": "activo"
+      "estado": "culminado",
+      "calificacion": 9.7
     },
     {
       "id": "3",
@@ -49,6 +51,512 @@
       "semestre": "III 2026",
       "color": "slate",
       "estado": "activo"
+    },
+    {
+      "nombre": "PRODUCCIÓN DE JUEGOS",
+      "codigo": "TM0100",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "mHwoy6S3CHI"
+    },
+    {
+      "nombre": "AMBIENTES Y EFECTOS ARTIFICIALES",
+      "codigo": "TM0102",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "rULz-RS0Mhc"
+    },
+    {
+      "nombre": "DISEÑO INTERACTIVO Y PROTOTIPOS",
+      "codigo": "TM0104",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "hdA3kCSuOz4"
+    },
+    {
+      "nombre": "DESARROLLO DE JUEGOS CON PARTICIPANTES",
+      "codigo": "TM0105",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "WGDu7SBEKv4"
+    },
+    {
+      "nombre": "MÉTODOS DE INVESTIGACIÓN APLICADOS A LA",
+      "codigo": "TM0113",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "LAG96qi6KhM"
+    },
+    {
+      "nombre": "ANIMACIÓN 3D AVANZADA",
+      "codigo": "TM1003",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "GoG-1_h83pI"
+    },
+    {
+      "nombre": "GESTIÓN Y COMERCIALIZACIÓN MULTIMEDIA",
+      "codigo": "TM0106",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "O29cNyBJs3A"
+    },
+    {
+      "nombre": "PRODUCCIÓN DE VIDEOJUEGOS CASUALES",
+      "codigo": "TM0107",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "JS0HaZRKvuE"
+    },
+    {
+      "nombre": "RENDERIZADO E ILUMINACIÓN",
+      "codigo": "TM0108",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "fettEpQilZ8"
+    },
+    {
+      "nombre": "RIGGING",
+      "codigo": "TM0109",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "9KXVQROreqY"
+    },
+    {
+      "nombre": "POSTPRODUCCIÓN",
+      "codigo": "TM0110",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "8ghPgTBcYq0"
+    },
+    {
+      "nombre": "DISEÑO CENTRADO EN USUARIOS",
+      "codigo": "TM0111",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "wvSXxwDNU6M"
+    },
+    {
+      "nombre": "VISUALIZACIÓN DE LA INFORMACIÓN",
+      "codigo": "TM0112",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "ZEmb5h9JpjM"
+    },
+    {
+      "nombre": "EVALUACIÓN DE LA USABILIDAD",
+      "codigo": "TM0114",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "MA-Mxe6Kep8"
+    },
+    {
+      "nombre": "SOCIAL MEDIA Y MERCADEO DIGITAL",
+      "codigo": "TM0115",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "21axaDSz2Sw"
+    },
+    {
+      "nombre": "ANALÍTICA Y EXPERIMENTACIÓN",
+      "codigo": "TM0116",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "qpEh2HVwfm8"
+    },
+    {
+      "nombre": "INVESTIGACIÓN DIRIRGIDA I",
+      "codigo": "TM9500",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "MHaUbWsl-t8"
+    },
+    {
+      "nombre": "INVESTIGACIÓN DIRIGIDA II",
+      "codigo": "TM9501",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "OYCWu3Jr35k"
+    },
+    {
+      "nombre": "INVESTIGACIÓN DIRIRIGIDA III",
+      "codigo": "TM9502",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "-0Stjbrqa24"
+    },
+    {
+      "nombre": "SEMINARIO DE GRADUACIÓN I",
+      "codigo": "TM9600",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "g4opFojU6As"
+    },
+    {
+      "nombre": "SEMINARIO DE GRADUACIÓN II",
+      "codigo": "TM9601",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "tVih18je3A8"
+    },
+    {
+      "nombre": "SEMINARIO DE GRADUACIÓN III",
+      "codigo": "TM9602",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "0ZC-u6CrSE8"
+    },
+    {
+      "nombre": "PRÁCTICA DIRIGIDA I",
+      "codigo": "TM9700",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "XcUj9qrHMYM"
+    },
+    {
+      "nombre": "PRÁCTICA DIRIGIDA II",
+      "codigo": "TM9701",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "MX-VNPCom8w"
+    },
+    {
+      "nombre": "PRÁCTICA DIRIGIDA III",
+      "codigo": "TM9702",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "cr4X0vTuigA"
+    },
+    {
+      "nombre": "PROYECTO DE GRADUACIÓN I",
+      "codigo": "TM9800",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "klbFeUyumBg"
+    },
+    {
+      "nombre": "PROYECTO DE GRADUACIÓN II",
+      "codigo": "TM9801",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "BJ1QRqAYJNk"
+    },
+    {
+      "nombre": "PROYECTO DE GRADUACIÓN III",
+      "codigo": "TM9802",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "3_U-N5q_ya4"
+    },
+    {
+      "nombre": "MANEJO DE BASES DE DATOS",
+      "codigo": "TM6101",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "4UkGgKU4ROE"
+    },
+    {
+      "nombre": "PROGRAMACIÓN AVANZADA CON ASP.NET",
+      "codigo": "TM6102",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "GUKWrzHV6LE"
+    },
+    {
+      "nombre": "INTRODUCCIÓN AL DESARROLLO DE",
+      "codigo": "TM6103",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "8M9GUpySq8U"
+    },
+    {
+      "nombre": "ADMINISTRACIÓN DE SERVIDORES",
+      "codigo": "TM6104",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "tI8Tgk4j5U0"
+    },
+    {
+      "nombre": "DESARROLLO PARA DISPOSITIVOS MÓVILES",
+      "codigo": "TM7103",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "4i5zzQLZZVI"
+    },
+    {
+      "nombre": "PROGRAMACIÓN EN DRUPAL",
+      "codigo": "TM7101",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "l3Qgs1o4_i8"
+    },
+    {
+      "nombre": "PROGRAMACIÓN EN RUBY ON RAILS",
+      "codigo": "TM7102",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "mCDoOLQxUcQ"
+    },
+    {
+      "nombre": "INTRODUCCIÓN A LA EXPERIENCIA DE USUARIO",
+      "codigo": "TM8300",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "moltcfNJRmg"
+    },
+    {
+      "nombre": "DISEÑO DE JUEGOS",
+      "codigo": "TM8400",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "pb-D2-UR-uY"
+    },
+    {
+      "nombre": "ANIMACIÓN 3D",
+      "codigo": "TM8500",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "xQDA4yh5VzQ"
+    },
+    {
+      "nombre": "CREACIÓN DE HISTORIAS TRANSMEDIA",
+      "codigo": "TM8600",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "D4kmYB31r8Q"
+    },
+    {
+      "nombre": "LENGUAJE VISUAL DE LA IMAGEN EN",
+      "codigo": "TM8700",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "ri52xQQCSk8"
+    },
+    {
+      "nombre": "IMPLICACIONES LEGALES EN LOS VIDEOJUEGOS",
+      "codigo": "TM8800",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "QcYLktbGUqk"
+    },
+    {
+      "nombre": "ADMINISTRACIÓN DE PROYECTOS EN",
+      "codigo": "TM8900",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "lavender",
+      "calificacion": null,
+      "id": "7pctVP5i6vs"
+    },
+    {
+      "nombre": "DISEÑO DE PERSONAJES",
+      "codigo": "TM0101",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "ice",
+      "calificacion": null,
+      "id": "KuPUYLgUq3g"
+    },
+    {
+      "nombre": "NARRATIVA Y GUIÓN PARA MEDIOS",
+      "codigo": "TM0103",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "steel",
+      "calificacion": null,
+      "id": "gbL_GXj1c0A"
+    },
+    {
+      "nombre": "ANIMACIÓN 2D",
+      "codigo": "TM6105",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "slate",
+      "calificacion": null,
+      "id": "_1ngI2G0ZZ8"
+    },
+    {
+      "nombre": "MODELADO BÁSICO",
+      "codigo": "TM8401",
+      "profesor": "",
+      "creditos": 4,
+      "semestre": "Optativo",
+      "estado": "pendiente",
+      "color": "blue",
+      "calificacion": null,
+      "id": "K1ZrBmtjDG4"
     }
   ],
   "entregas": [
@@ -57,12 +565,12 @@
       "titulo": "Laboratorio de Automatización React",
       "cursoId": 1,
       "descripcion": "Desarrollo de una aplicación React con automatización.",
-      "fechaEntrega": "2026-09-11T23:59:00",
+      "fechaEntrega": "2026-09-11T23:59",
       "progreso": 78,
-      "temperatura": "critico",
-      "riesgo": 87,
-      "estado": "en_progreso",
-      "ultimaActualizacion": "2026-09-11T08:00:00"
+      "temperatura": "completada",
+      "riesgo": 0,
+      "estado": "completada",
+      "ultimaActualizacion": "2026-09-11T19:01:56.639Z"
     },
     {
       "id": "2",
@@ -152,12 +660,12 @@
       "titulo": "Quiz 3",
       "cursoId": 1,
       "descripcion": "uhjnik",
-      "fechaEntrega": "2026-09-25T09:30",
+      "fechaEntrega": "2026-09-13T09:30",
       "progreso": 0,
       "estado": "en_progreso",
-      "temperatura": "estable",
-      "riesgo": 0,
-      "ultimaActualizacion": "2026-09-11T15:31:03.574Z",
+      "temperatura": "urgente",
+      "riesgo": 80,
+      "ultimaActualizacion": "2026-09-11T17:15:00.875Z",
       "id": "95UeW8jdU9o"
     }
   ],
@@ -173,7 +681,7 @@
   ],
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Audry Quiros",
       "email": "estudiante@frostflow.com",
       "password": "123456"

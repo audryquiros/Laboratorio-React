@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { useAuth } from "../../context/AuthContext";
 import { getCursos } from "../../services/cursosService";
 import { getEntregas } from "../../services/entregasService";
+
 import "./Perfil.css";
 
 function Perfil() {
@@ -16,15 +18,19 @@ function Perfil() {
   useEffect(() => {
     const cargarResumen = async () => {
       try {
-        const [cursosData, entregasData] = await Promise.all([
-          getCursos(),
-          getEntregas(),
-        ]);
+        const [cursosData, entregasData] =
+          await Promise.all([
+            getCursos(),
+            getEntregas(),
+          ]);
 
         setCursos(cursosData);
         setEntregas(entregasData);
       } catch (error) {
-        console.error("No se pudo cargar el resumen del perfil.", error);
+        console.error(
+          "No se pudo cargar el resumen del perfil:",
+          error
+        );
       } finally {
         setCargando(false);
       }
@@ -33,36 +39,55 @@ function Perfil() {
     cargarResumen();
   }, []);
 
-  const nombre = usuario?.nombre || "Estudiante";
-  const email = usuario?.email || "estudiante@frostflow.com";
-  const inicial = nombre.charAt(0).toUpperCase();
+  const nombre =
+    usuario?.nombre || "Estudiante";
+
+  const email =
+    usuario?.email ||
+    "estudiante@frostflow.com";
+
+  const inicial =
+    nombre.charAt(0).toUpperCase();
 
   const cursosActivos = cursos.filter(
     (curso) => curso.estado === "activo"
   ).length;
 
-  const entregasCompletadas = entregas.filter(
-    (entrega) => entrega.estado === "completada"
-  ).length;
+  const entregasCompletadas =
+    entregas.filter(
+      (entrega) =>
+        entrega.estado === "completada"
+    ).length;
 
-  const entregasPendientes = entregas.filter(
-    (entrega) => entrega.estado !== "completada"
-  ).length;
+  const entregasPendientes =
+    entregas.filter(
+      (entrega) =>
+        entrega.estado !== "completada"
+    ).length;
 
   const porcentaje =
     entregas.length > 0
       ? Math.round(
-          (entregasCompletadas / entregas.length) * 100
+          (entregasCompletadas /
+            entregas.length) *
+            100
         )
       : 0;
 
   const manejarCerrarSesion = () => {
     cerrarSesion();
-    navigate("/login", { replace: true });
+
+    navigate("/login", {
+      replace: true,
+    });
   };
 
   return (
     <main className="perfil-page">
+      {/* =====================================================
+          INTRODUCCIÓN
+      ===================================================== */}
+
       <section className="perfil-header">
         <div>
           <span className="perfil-eyebrow">
@@ -70,14 +95,18 @@ function Perfil() {
           </span>
 
           <p className="perfil-description">
-            Consulta tu información y el estado general de tu actividad académica.
+            Consulta tu información y el estado
+            general de tu actividad académica.
           </p>
         </div>
       </section>
 
-      <section className="perfil-grid">
-        {/* PERFIL PRINCIPAL */}
-        <article className="perfil-card perfil-identidad">
+      {/* =====================================================
+          IDENTIDAD
+      ===================================================== */}
+
+      <section className="perfil-identidad-card">
+        <div className="perfil-identidad-principal">
           <div className="perfil-avatar-grande">
             {inicial}
           </div>
@@ -92,9 +121,25 @@ function Perfil() {
               Cuenta activa
             </span>
           </div>
-        </article>
+        </div>
 
+        <button
+          type="button"
+          className="perfil-btn-logout"
+          onClick={manejarCerrarSesion}
+        >
+          <span>↪</span>
+          Cerrar sesión
+        </button>
+      </section>
+
+      {/* =====================================================
+          INFORMACIÓN DEL PERFIL
+      ===================================================== */}
+
+      <section className="perfil-grid">
         {/* RESUMEN ACADÉMICO */}
+
         <article className="perfil-card perfil-resumen">
           <div className="perfil-card-header">
             <div>
@@ -113,35 +158,59 @@ function Perfil() {
           {cargando ? (
             <div className="perfil-cargando">
               <div className="perfil-spinner"></div>
-              <span>Cargando información...</span>
+
+              <span>
+                Cargando información...
+              </span>
             </div>
           ) : (
             <div className="perfil-estadisticas">
               <div className="perfil-estadistica">
-                <span>Cursos activos</span>
-                <strong>{cursosActivos}</strong>
+                <span>
+                  Cursos activos
+                </span>
+
+                <strong>
+                  {cursosActivos}
+                </strong>
               </div>
 
               <div className="perfil-estadistica">
-                <span>Entregas pendientes</span>
-                <strong>{entregasPendientes}</strong>
+                <span>
+                  Entregas pendientes
+                </span>
+
+                <strong>
+                  {entregasPendientes}
+                </strong>
               </div>
 
               <div className="perfil-estadistica">
-                <span>Completadas</span>
-                <strong>{entregasCompletadas}</strong>
+                <span>
+                  Completadas
+                </span>
+
+                <strong>
+                  {entregasCompletadas}
+                </strong>
               </div>
 
               <div className="perfil-estadistica">
-                <span>Progreso general</span>
-                <strong>{porcentaje}%</strong>
+                <span>
+                  Progreso general
+                </span>
+
+                <strong>
+                  {porcentaje}%
+                </strong>
               </div>
             </div>
           )}
         </article>
 
-        {/* INFORMACIÓN */}
-        <article className="perfil-card">
+        {/* DATOS PERSONALES */}
+
+        <article className="perfil-card perfil-datos-card">
           <div className="perfil-card-header">
             <div>
               <span className="perfil-section-eyebrow">
@@ -159,60 +228,35 @@ function Perfil() {
           <div className="perfil-datos">
             <div className="perfil-dato">
               <span>Nombre</span>
+
               <strong>{nombre}</strong>
             </div>
 
             <div className="perfil-dato">
-              <span>Correo electrónico</span>
+              <span>
+                Correo electrónico
+              </span>
+
               <strong>{email}</strong>
             </div>
 
             <div className="perfil-dato">
-              <span>Tipo de cuenta</span>
-              <strong>Cuenta personal</strong>
+              <span>
+                Periodo académico
+              </span>
+
+              <strong>III 2026</strong>
             </div>
 
             <div className="perfil-dato">
-              <span>Estado</span>
-              <strong className="dato-activo">
-                Activa
-              </strong>
-            </div>
-          </div>
-        </article>
-
-        {/* SESIÓN */}
-        <article className="perfil-card perfil-sesion">
-          <div className="perfil-card-header">
-            <div>
-              <span className="perfil-section-eyebrow">
-                Seguridad
+              <span>
+                Tipo de cuenta
               </span>
 
-              <h2>Sesión</h2>
+              <strong>
+                Cuenta personal
+              </strong>
             </div>
-
-            <div className="perfil-card-icon">
-              ↗
-            </div>
-          </div>
-
-          <div className="perfil-sesion-content">
-            <div>
-              <strong>Sesión actual</strong>
-
-              <p>
-                Tu cuenta está actualmente conectada a FrostFlow.
-              </p>
-            </div>
-
-            <button
-              className="perfil-btn-logout"
-              onClick={manejarCerrarSesion}
-            >
-              <span>↪</span>
-              Cerrar sesión
-            </button>
           </div>
         </article>
       </section>

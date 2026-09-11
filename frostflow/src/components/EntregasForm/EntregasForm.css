@@ -283,6 +283,167 @@
 }
 
 /* =========================================================
+   FECHA Y HORA LÍMITE
+========================================================= */
+
+.entrega-form input[type="datetime-local"] {
+  width: 100%;
+  height: 56px;
+
+  box-sizing: border-box;
+
+  padding: 0 15px;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  outline: none;
+
+  background: var(--bg-surface);
+  color: var(--text-primary);
+
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 550;
+
+  color-scheme: light;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.entrega-form input[type="datetime-local"]:hover {
+  border-color: var(--accent);
+}
+
+.entrega-form input[type="datetime-local"]:focus {
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 3px rgba(129, 119, 164, 0.1);
+}
+
+/* Texto interno del campo */
+
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit {
+  color: var(--text-primary);
+}
+
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-text {
+  color: var(--text-muted);
+}
+
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
+  color: var(--text-primary);
+}
+
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-month-field:focus,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-day-field:focus,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-year-field:focus,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-hour-field:focus,
+.entrega-form input[type="datetime-local"]::-webkit-datetime-edit-minute-field:focus {
+  color: var(--accent);
+
+  background: var(--accent-soft);
+
+  border-radius: 4px;
+}
+
+/* Icono del calendario */
+
+.entrega-form input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  width: 18px;
+  height: 18px;
+
+  margin-left: 8px;
+
+  opacity: 0.65;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.entrega-form input[type="datetime-local"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   TEMA OSCURO
+========================================================= */
+
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"] {
+  background: var(--bg-surface);
+
+  color: var(--text-primary);
+
+  color-scheme: dark;
+}
+
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-datetime-edit {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-datetime-edit-text {
+  color: var(--text-muted);
+}
+
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  opacity: 0.75;
+
+  filter: invert(1);
+}
+
+html[data-theme="dark"]
+.entrega-form
+input[type="datetime-local"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+/* =========================================================
    MODO OSCURO
 ========================================================= */
 

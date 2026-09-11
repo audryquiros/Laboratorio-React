@@ -1,0 +1,849 @@
+/* =========================================================
+   FROSTFLOW — PLAN DE ESTUDIOS IMPORTER
+========================================================= */
+
+.plan-importer-overlay {
+  position: fixed;
+  z-index: 300;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(12, 16, 24, 0.5);
+
+  backdrop-filter: blur(5px);
+
+  overflow-y: auto;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.plan-importer-modal {
+  width: min(620px, 100%);
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border);
+  border-radius: 17px;
+
+  background: var(--bg-surface);
+
+  color: var(--text-primary);
+
+  box-shadow:
+    0 25px 65px rgba(
+      20,
+      26,
+      38,
+      0.2
+    );
+
+  animation:
+    planImporterEntrada
+    0.18s ease;
+}
+
+@keyframes planImporterEntrada {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+.plan-importer-modal-review {
+  width: min(950px, 100%);
+  max-height: calc(100vh - 50px);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.plan-importer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 25px 26px 20px;
+
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.plan-importer-header > div {
+  min-width: 0;
+}
+
+.plan-importer-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--accent);
+
+  font-size: 0.61rem;
+  font-weight: 750;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.plan-importer-header h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.28rem;
+  font-weight: 600;
+
+  line-height: 1.25;
+}
+
+.plan-importer-header p {
+  max-width: 570px;
+
+  margin: 7px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 0.69rem;
+
+  line-height: 1.55;
+}
+
+.plan-importer-close {
+  width: 31px;
+  height: 31px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: var(--bg-surface-soft);
+  color: var(--text-muted);
+
+  font-size: 1.05rem;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.plan-importer-close:hover {
+  background: var(--bg-surface-muted);
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.plan-importer-body {
+  padding: 24px 26px;
+}
+
+/* =========================================================
+   DROPZONE
+========================================================= */
+
+.plan-dropzone {
+  min-height: 240px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+
+  background: var(--bg-surface-soft);
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.plan-dropzone:hover {
+  border-color: var(--accent);
+
+  background: var(--accent-soft);
+}
+
+.plan-dropzone-active {
+  border-color: var(--accent);
+
+  background: var(--accent-soft);
+
+  transform: scale(1.005);
+}
+
+.plan-dropzone-selected {
+  border-style: solid;
+
+  border-color: var(--accent);
+
+  background: var(--accent-soft);
+}
+
+.plan-upload-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 14px;
+
+  background: var(--bg-surface);
+  color: var(--accent);
+
+  font-size: 1.35rem;
+  font-weight: 700;
+
+  box-shadow: var(--shadow-soft);
+}
+
+.plan-dropzone strong {
+  max-width: 460px;
+
+  overflow: hidden;
+
+  color: var(--text-primary);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plan-dropzone span {
+  margin-top: 7px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.68rem;
+}
+
+.plan-dropzone small {
+  margin-top: 12px;
+
+  color: var(--text-muted);
+
+  font-size: 0.58rem;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.plan-importer-error {
+  min-height: 43px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 15px;
+
+  padding: 8px 11px;
+
+  border: 1px solid #e3cfd2;
+  border-radius: 9px;
+
+  background: var(--danger-bg);
+
+  color: var(--danger);
+}
+
+.plan-importer-error > span {
+  width: 23px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: rgba(
+    152,
+    98,
+    102,
+    0.1
+  );
+
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.plan-importer-error p {
+  margin: 0;
+
+  font-size: 0.63rem;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   TOOLBAR REVISIÓN
+========================================================= */
+
+.plan-review-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 13px 26px;
+
+  border-bottom: 1px solid var(--border-soft);
+
+  background: var(--bg-surface-soft);
+}
+
+.plan-review-toolbar > div:first-child {
+  display: flex;
+  align-items: baseline;
+
+  gap: 5px;
+}
+
+.plan-review-toolbar strong {
+  color: var(--text-primary);
+
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.plan-review-toolbar span {
+  color: var(--text-muted);
+
+  font-size: 0.62rem;
+}
+
+.plan-review-selection {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.plan-review-selection button {
+  min-height: 29px;
+
+  padding: 0 9px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  background: var(--bg-surface);
+
+  color: var(--text-secondary);
+
+  font-family: inherit;
+
+  font-size: 0.58rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.plan-review-selection button:hover {
+  border-color: var(--accent);
+
+  color: var(--accent);
+}
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.plan-cursos-lista {
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 16px 26px;
+
+  overflow-y: auto;
+}
+
+/* =========================================================
+   CURSO DETECTADO
+========================================================= */
+
+.plan-curso-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    28px minmax(0, 1fr) 28px;
+
+  gap: 10px;
+
+  padding: 15px;
+
+  margin-bottom: 10px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: var(--bg-surface);
+
+  opacity: 0.65;
+
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.plan-curso-item:last-child {
+  margin-bottom: 0;
+}
+
+.plan-curso-seleccionado {
+  opacity: 1;
+
+  border-color: var(--border-soft);
+
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================================================
+   CHECK
+========================================================= */
+
+.plan-curso-check {
+  padding-top: 21px;
+}
+
+.plan-check {
+  width: 21px;
+  height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--border);
+
+  border-radius: 6px;
+
+  background: var(--bg-surface-soft);
+
+  color: transparent;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.plan-check.active {
+  border-color: var(--accent);
+
+  background: var(--accent);
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.plan-curso-fields {
+  display: grid;
+
+  grid-template-columns:
+    1.4fr
+    0.7fr
+    0.5fr
+    0.75fr
+    1fr
+    0.8fr;
+
+  gap: 10px;
+}
+
+.plan-campo {
+  min-width: 0;
+}
+
+.plan-campo-nombre {
+  grid-column: span 2;
+}
+
+.plan-campo-profesor {
+  grid-column: span 2;
+}
+
+.plan-campo label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--text-muted);
+
+  font-size: 0.54rem;
+  font-weight: 750;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+.plan-campo input,
+.plan-campo select {
+  width: 100%;
+  height: 35px;
+
+  box-sizing: border-box;
+
+  padding: 0 9px;
+
+  border: 1px solid var(--border-soft);
+
+  border-radius: 7px;
+
+  outline: none;
+
+  background: var(--bg-surface-soft);
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+
+  font-size: 0.63rem;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.plan-campo input:focus,
+.plan-campo select:focus {
+  border-color: var(--accent);
+
+  background: var(--bg-surface);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      129,
+      119,
+      164,
+      0.1
+    );
+}
+
+.plan-campo input::placeholder {
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   ELIMINAR
+========================================================= */
+
+.plan-curso-remove {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+}
+
+.plan-curso-remove:hover {
+  background: var(--danger-bg);
+
+  color: var(--danger);
+}
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.plan-importer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  padding: 16px 26px;
+
+  border-top: 1px solid var(--border-soft);
+
+  background: var(--bg-surface);
+}
+
+.plan-btn-secondary,
+.plan-btn-primary {
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+
+  font-size: 0.63rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.plan-btn-secondary {
+  border: 1px solid var(--border);
+
+  background: var(--bg-surface);
+
+  color: var(--text-secondary);
+}
+
+.plan-btn-secondary:hover:not(:disabled) {
+  background: var(--bg-surface-soft);
+
+  color: var(--text-primary);
+}
+
+.plan-btn-primary {
+  border: 1px solid var(--button);
+
+  background: var(--button);
+
+  color: #ffffff;
+}
+
+.plan-btn-primary:hover:not(:disabled) {
+  border-color: var(--button-hover);
+
+  background: var(--button-hover);
+}
+
+.plan-btn-primary:disabled,
+.plan-btn-secondary:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+html[data-theme="dark"]
+.plan-importer-overlay {
+  background: rgba(
+    5,
+    8,
+    13,
+    0.7
+  );
+}
+
+html[data-theme="dark"]
+.plan-importer-error {
+  border-color: #50383e;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .plan-importer-modal-review {
+    max-height: calc(100vh - 30px);
+  }
+
+  .plan-curso-fields {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .plan-campo-nombre,
+  .plan-campo-profesor {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 650px) {
+  .plan-importer-overlay {
+    align-items: flex-start;
+
+    padding: 15px;
+  }
+
+  .plan-importer-modal,
+  .plan-importer-modal-review {
+    max-height: calc(100vh - 30px);
+  }
+
+  .plan-importer-header {
+    padding: 20px;
+  }
+
+  .plan-importer-body {
+    padding: 18px 20px;
+  }
+
+  .plan-review-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 12px 20px;
+  }
+
+  .plan-cursos-lista {
+    padding: 14px 20px;
+  }
+
+  .plan-curso-item {
+    grid-template-columns:
+      26px minmax(0, 1fr) 25px;
+  }
+
+  .plan-curso-fields {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .plan-campo-nombre,
+  .plan-campo-profesor {
+    grid-column: span 2;
+  }
+
+  .plan-importer-actions {
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .plan-importer-overlay {
+    padding: 0;
+  }
+
+  .plan-importer-modal,
+  .plan-importer-modal-review {
+    width: 100%;
+    max-height: 100vh;
+
+    min-height: 100vh;
+
+    border-radius: 0;
+  }
+
+  .plan-dropzone {
+    min-height: 210px;
+
+    padding: 20px;
+  }
+
+  .plan-curso-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-campo-nombre,
+  .plan-campo-profesor {
+    grid-column: span 1;
+  }
+
+  .plan-importer-actions {
+    flex-direction: column-reverse;
+  }
+
+  .plan-btn-secondary,
+  .plan-btn-primary {
+    width: 100%;
+  }
+}

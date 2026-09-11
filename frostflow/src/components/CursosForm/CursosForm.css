@@ -1,12 +1,25 @@
 /* =========================================================
    FROSTFLOW — FORMULARIO DE CURSOS
+   Diseño editorial / académico / minimalista
+========================================================= */
+
+
+/* =========================================================
+   FORMULARIO PRINCIPAL
 ========================================================= */
 
 .curso-form {
-  background: var(--bg-surface);
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 26px 28px;
+
   border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 30px;
+
+  border-radius: 16px;
+
+  background: var(--bg-surface);
+
   box-shadow: var(--shadow-card);
 
   transition:
@@ -15,253 +28,325 @@
     box-shadow 0.25s ease;
 }
 
+
 /* =========================================================
    HEADER
 ========================================================= */
 
-.form-header {
+.curso-form-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 28px;
+
+  gap: 25px;
+
+  padding-bottom: 22px;
+
+  margin-bottom: 24px;
+
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.form-eyebrow {
+.curso-form-header > div:first-child {
+  min-width: 0;
+}
+
+.curso-form-eyebrow {
   display: block;
+
   margin-bottom: 7px;
 
   color: var(--accent);
 
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.76rem;
 
-  transition: color 0.25s ease;
+  font-weight: 750;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
 }
 
-.form-header h2 {
+.curso-form-header h2 {
   margin: 0;
 
   color: var(--text-primary);
 
-  font-size: 1.45rem;
-  font-weight: 700;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  transition: color 0.25s ease;
+  font-size: 1.5rem;
+
+  line-height: 1.25;
+
+  font-weight: 600;
 }
 
-.form-header p {
-  margin: 7px 0 0;
+.curso-form-header p {
+  margin: 8px 0 0;
 
-  color: var(--text-muted);
+  color: var(--text-secondary);
 
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+
   line-height: 1.5;
-
-  transition: color 0.25s ease;
 }
 
-.form-icon {
-  width: 44px;
-  height: 44px;
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.curso-form-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  flex-shrink: 0;
+  border: 1px solid var(--border-soft);
 
-  border-radius: 13px;
+  border-radius: 10px;
 
   background: var(--accent-soft);
+
   color: var(--accent);
 
-  font-size: 1.35rem;
-  font-weight: 500;
+  font-size: 1.15rem;
 
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease;
+  font-weight: 500;
 }
+
 
 /* =========================================================
-   GRID
+   GRID DE CAMPOS
 ========================================================= */
 
-.form-grid {
+.curso-form-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px 18px;
 }
 
-.campo {
+
+/* =========================================================
+   CAMPO
+========================================================= */
+
+.curso-campo {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 8px;
+
+  gap: 7px;
 }
 
-.campo-grande {
-  grid-column: span 1;
+.curso-campo.campo-ancho {
+  grid-column: 1 / -1;
 }
 
-.campo label {
+.curso-campo label {
+  display: block;
+
   color: var(--text-secondary);
 
-  font-size: 0.8rem;
-  font-weight: 650;
+  font-size: 0.78rem;
 
-  transition: color 0.25s ease;
+  font-weight: 700;
 }
 
+
 /* =========================================================
-   INPUTS
+   INPUTS Y SELECTS
 ========================================================= */
 
-.campo input,
-.campo select {
+.curso-campo input,
+.curso-campo select {
   width: 100%;
+
+  height: 43px;
+
   box-sizing: border-box;
 
-  min-height: 45px;
-
-  padding: 0 14px;
+  padding: 0 13px;
 
   border: 1px solid var(--border-soft);
-  border-radius: 11px;
+
+  border-radius: 9px;
 
   outline: none;
 
   background: var(--bg-surface-soft);
+
   color: var(--text-primary);
 
   font-family: inherit;
-  font-size: 0.88rem;
+
+  font-size: 0.82rem;
 
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    color 0.2s ease;
 }
 
-.campo input::placeholder {
+.curso-campo input::placeholder {
   color: var(--text-muted);
-  opacity: 0.7;
 }
 
-.campo input:hover,
-.campo select:hover {
+.curso-campo input:hover,
+.curso-campo select:hover {
   border-color: var(--border);
 }
 
-.campo input:focus,
-.campo select:focus {
+.curso-campo input:focus,
+.curso-campo select:focus {
   border-color: var(--accent);
 
   background: var(--bg-surface);
 
   box-shadow:
-    0 0 0 3px rgba(129, 119, 164, 0.12);
+    0 0 0 3px rgba(
+      129,
+      119,
+      164,
+      0.1
+    );
 }
+
 
 /* =========================================================
-   OPCIONES DE COLOR
+   SELECT
 ========================================================= */
 
-.colores-cursos {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.curso-campo select {
+  cursor: pointer;
 
-  min-height: 45px;
+  appearance: auto;
 }
 
-.color-option {
-  width: 31px;
-  height: 31px;
 
-  border: 2px solid transparent;
-  border-radius: 50%;
+/* =========================================================
+   INPUT NUMBER
+========================================================= */
+
+.curso-campo input[type="number"] {
+  appearance: textfield;
+}
+
+.curso-campo input[type="number"]::-webkit-inner-spin-button,
+.curso-campo input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   AVISO DE CULMINACIÓN
+========================================================= */
+
+.curso-form-nota {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-top: 22px;
+
+  padding: 14px 15px;
+
+  border: 1px solid var(--border-soft);
+
+  border-radius: 11px;
+
+  background: var(--bg-surface-soft);
+}
+
+.curso-form-nota > span {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  cursor: pointer;
+  border-radius: 8px;
 
-  color: #ffffff;
+  background: var(--success-bg);
 
-  font-size: 0.75rem;
+  color: var(--success);
 
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  font-size: 0.78rem;
+
+  font-weight: 800;
 }
 
-.color-option:hover {
-  transform: scale(1.08);
+.curso-form-nota strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.78rem;
+
+  font-weight: 750;
 }
 
-.color-option.seleccionado {
-  border-color: var(--text-primary);
+.curso-form-nota p {
+  margin: 0;
 
-  box-shadow:
-    0 0 0 3px var(--bg-surface),
-    0 0 0 5px var(--text-primary);
+  color: var(--text-muted);
+
+  font-size: 0.72rem;
+
+  line-height: 1.5;
 }
 
-/* Colores de los cursos */
-.color-blue {
-  background: #9ab9d8;
-}
-
-.color-lavender {
-  background: #b7a8dc;
-}
-
-.color-ice {
-  background: #a8d0d6;
-}
-
-.color-steel {
-  background: #8999b4;
-}
-
-.color-slate {
-  background: #737b91;
-}
 
 /* =========================================================
    ACCIONES
 ========================================================= */
 
-.form-actions {
+.curso-form-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
 
-  margin-top: 28px;
-  padding-top: 22px;
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 25px;
+
+  padding-top: 20px;
 
   border-top: 1px solid var(--border-soft);
-
-  transition: border-color 0.25s ease;
 }
 
-.btn-guardar,
-.btn-secundario {
-  min-height: 42px;
+.curso-form-actions button {
+  min-height: 40px;
 
-  padding: 0 19px;
+  padding: 0 16px;
 
-  border-radius: 10px;
+  border-radius: 9px;
 
   font-family: inherit;
-  font-size: 0.84rem;
-  font-weight: 650;
+
+  font-size: 0.76rem;
+
+  font-weight: 700;
 
   cursor: pointer;
 
@@ -272,80 +357,145 @@
     transform 0.2s ease;
 }
 
-.btn-guardar {
-  border: none;
 
-  background: var(--button);
-  color: #ffffff;
+/* =========================================================
+   CANCELAR
+========================================================= */
+
+.curso-btn-cancelar {
+  border: 1px solid var(--border);
+
+  background: var(--bg-surface);
+
+  color: var(--text-secondary);
 }
 
-.btn-guardar:hover {
+.curso-btn-cancelar:hover {
+  background: var(--bg-surface-soft);
+
+  color: var(--text-primary);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   GUARDAR
+========================================================= */
+
+.curso-btn-guardar {
+  border: 1px solid var(--button);
+
+  background: var(--button);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 12px rgba(
+      52,
+      59,
+      75,
+      0.13
+    );
+}
+
+.curso-btn-guardar:hover {
   background: var(--button-hover);
 
   transform: translateY(-1px);
 }
 
-.btn-secundario {
-  border: 1px solid var(--border);
-
-  background: var(--bg-surface);
-  color: var(--text-secondary);
-}
-
-.btn-secundario:hover {
-  background: var(--bg-surface-soft);
-  border-color: var(--border);
-  color: var(--text-primary);
-}
 
 /* =========================================================
-   MODO OSCURO — AJUSTES ESPECÍFICOS
+   MODO OSCURO
 ========================================================= */
 
-html[data-theme="dark"] .campo input::placeholder {
-  color: #929aaa;
+html[data-theme="dark"]
+.curso-form-nota {
+  background: var(--bg-surface-soft);
+
+  border-color: var(--border);
 }
 
-html[data-theme="dark"] .campo input:focus,
-html[data-theme="dark"] .campo select:focus {
+html[data-theme="dark"]
+.curso-btn-guardar {
   box-shadow:
-    0 0 0 3px rgba(170, 160, 199, 0.14);
+    0 5px 15px rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
 }
 
-html[data-theme="dark"] .btn-guardar {
-  color: #f7f7fa;
-}
-
-html[data-theme="dark"] .color-option.seleccionado {
-  box-shadow:
-    0 0 0 3px var(--bg-surface),
-    0 0 0 5px var(--text-primary);
-}
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .curso-form {
-    padding: 22px;
-    border-radius: 18px;
+    padding: 23px 21px;
   }
 
-  .form-grid {
+  .curso-form-grid {
     grid-template-columns: 1fr;
   }
 
-  .campo-grande {
-    grid-column: span 1;
+  .curso-campo.campo-ancho {
+    grid-column: auto;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .curso-form {
+    padding: 20px 17px;
   }
 
-  .form-actions {
+  .curso-form-header {
+    gap: 15px;
+  }
+
+  .curso-form-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .curso-form-header p {
+    font-size: 0.78rem;
+  }
+
+  .curso-form-icon {
+    width: 37px;
+    height: 37px;
+
+    font-size: 1rem;
+  }
+
+  .curso-form-actions {
     flex-direction: column-reverse;
   }
 
-  .btn-guardar,
-  .btn-secundario {
+  .curso-form-actions button {
     width: 100%;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .curso-form {
+    padding: 18px 14px;
+  }
+
+  .curso-form-header {
+    align-items: flex-start;
+  }
+
+  .curso-form-eyebrow {
+    font-size: 0.68rem;
+  }
+
+  .curso-form-header h2 {
+    font-size: 1.2rem;
   }
 }

@@ -1,0 +1,334 @@
+/* =========================================================
+   FROSTFLOW — AYUDA DE ESTADOS
+========================================================= */
+
+.ayuda-estados {
+  position: relative;
+  z-index: 20;
+}
+
+/* =========================================================
+   BOTÓN ?
+========================================================= */
+
+.ayuda-estados-boton {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ayuda-estados-boton:hover,
+.ayuda-estados-boton-activo {
+  border-color: var(--accent);
+
+  background: var(--accent-soft);
+  color: var(--accent);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.ayuda-estados-panel {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 365px;
+
+  box-sizing: border-box;
+
+  padding: 22px;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: var(--bg-surface);
+
+  box-shadow: var(--shadow-card);
+
+  animation: ayuda-aparecer 0.18s ease;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ayuda-estados-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.ayuda-estados-header span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--accent);
+
+  font-size: 0.62rem;
+  font-weight: 750;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ayuda-estados-header h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.ayuda-estados-cerrar {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: var(--bg-surface-soft);
+  color: var(--text-muted);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+}
+
+.ayuda-estados-cerrar:hover {
+  background: var(--bg-surface-muted);
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.ayuda-estados-intro {
+  margin: 14px 0 17px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.ayuda-estados-lista {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.ayuda-estado {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 9px;
+
+  border-radius: 10px;
+
+  transition:
+    background-color 0.2s ease;
+}
+
+.ayuda-estado:hover {
+  background: var(--bg-surface-soft);
+}
+
+/* =========================================================
+   ICONOS
+========================================================= */
+
+.ayuda-estado-icono {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  font-size: 0.9rem;
+}
+
+.ayuda-estado-icono span {
+  line-height: 1;
+}
+
+/* =========================================================
+   COLORES
+========================================================= */
+
+.ayuda-estado-estable {
+  background: #e8eef5;
+  color: #64778d;
+}
+
+.ayuda-estado-proximo {
+  background: #efedf5;
+  color: #8177a4;
+}
+
+.ayuda-estado-urgente {
+  background: #f0e9dc;
+  color: #9a7847;
+}
+
+.ayuda-estado-critico {
+  background: #f1e1e3;
+  color: #986266;
+}
+
+.ayuda-estado-vencido {
+  background: #f1e1e3;
+  color: #986266;
+}
+
+.ayuda-estado-completada {
+  background: #e5f1ea;
+  color: #5d8069;
+}
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.ayuda-estado-info {
+  min-width: 0;
+}
+
+.ayuda-estado-info strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: var(--text-primary);
+
+  font-size: 0.73rem;
+  font-weight: 750;
+}
+
+.ayuda-estado-info p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   MODO OSCURO
+========================================================= */
+
+html[data-theme="dark"] .ayuda-estado-estable {
+  background: #293442;
+  color: #a9bbce;
+}
+
+html[data-theme="dark"] .ayuda-estado-proximo {
+  background: #302b40;
+  color: #aaa0c7;
+}
+
+html[data-theme="dark"] .ayuda-estado-urgente {
+  background: #40382c;
+  color: #d8b477;
+}
+
+html[data-theme="dark"] .ayuda-estado-critico,
+html[data-theme="dark"] .ayuda-estado-vencido {
+  background: #3b292e;
+  color: #d09299;
+}
+
+html[data-theme="dark"] .ayuda-estado-completada {
+  background: #27372e;
+  color: #92c0a2;
+}
+
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
+
+@keyframes ayuda-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+  .ayuda-estados-panel {
+    position: fixed;
+
+    top: auto;
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+
+    width: auto;
+
+    max-height: calc(100vh - 24px);
+
+    overflow-y: auto;
+  }
+}

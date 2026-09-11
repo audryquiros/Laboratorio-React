@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+
+import DateTimePicker from "../DateTimePicker/DateTimePicker";
+
 import "./EntregasForm.css";
 
 const entregaInicial = {
@@ -16,38 +19,69 @@ function EntregasForm({
   onGuardar,
   onCancelar,
 }) {
-  const [formulario, setFormulario] = useState(entregaInicial);
+  const [formulario, setFormulario] =
+    useState(entregaInicial);
 
   useEffect(() => {
     if (entregaEditar) {
-      const fecha = entregaEditar.fechaEntrega
-        ? entregaEditar.fechaEntrega.slice(0, 16)
-        : "";
+      const fecha =
+        entregaEditar.fechaEntrega
+          ? entregaEditar.fechaEntrega.slice(
+              0,
+              16
+            )
+          : "";
 
       setFormulario({
-        titulo: entregaEditar.titulo || "",
-        cursoId: entregaEditar.cursoId || "",
-        descripcion: entregaEditar.descripcion || "",
+        titulo:
+          entregaEditar.titulo || "",
+
+        cursoId:
+          entregaEditar.cursoId || "",
+
+        descripcion:
+          entregaEditar.descripcion || "",
+
         fechaEntrega: fecha,
-        progreso: entregaEditar.progreso ?? 0,
-        estado: entregaEditar.estado || "en_progreso",
+
+        progreso:
+          entregaEditar.progreso ?? 0,
+
+        estado:
+          entregaEditar.estado ||
+          "en_progreso",
       });
     } else {
-      setFormulario(entregaInicial);
+      setFormulario(
+        entregaInicial
+      );
     }
   }, [entregaEditar]);
 
   const manejarCambio = (e) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value,
+    } = e.target;
 
     setFormulario((actual) => ({
       ...actual,
+
       [name]:
         name === "progreso"
           ? Number(value)
           : name === "cursoId"
           ? Number(value)
           : value,
+    }));
+  };
+
+  const manejarFecha = (
+    nuevaFecha
+  ) => {
+    setFormulario((actual) => ({
+      ...actual,
+      fechaEntrega: nuevaFecha,
     }));
   };
 
@@ -64,24 +98,43 @@ function EntregasForm({
 
     const datosEntrega = {
       ...formulario,
-      cursoId: Number(formulario.cursoId),
-      progreso: Number(formulario.progreso),
-      fechaEntrega: formulario.fechaEntrega,
+
+      cursoId: Number(
+        formulario.cursoId
+      ),
+
+      progreso: Number(
+        formulario.progreso
+      ),
+
+      fechaEntrega:
+        formulario.fechaEntrega,
     };
 
     onGuardar(datosEntrega);
 
     if (!entregaEditar) {
-      setFormulario(entregaInicial);
+      setFormulario(
+        entregaInicial
+      );
     }
   };
 
   return (
-    <form className="entrega-form" onSubmit={manejarSubmit}>
+    <form
+      className="entrega-form"
+      onSubmit={manejarSubmit}
+    >
+      {/* =================================================
+          HEADER
+      ================================================= */}
+
       <div className="entrega-form-header">
         <div>
           <span className="entrega-form-eyebrow">
-            {entregaEditar ? "Editar entrega" : "Nueva entrega"}
+            {entregaEditar
+              ? "Editar entrega"
+              : "Nueva entrega"}
           </span>
 
           <h2>
@@ -91,79 +144,127 @@ function EntregasForm({
           </h2>
 
           <p>
-            Vincula la actividad con un curso y establece su fecha límite.
+            Vincula la actividad con un
+            curso y establece su fecha
+            límite.
           </p>
         </div>
 
         <div className="entrega-form-icon">
-          {entregaEditar ? "✎" : "□"}
+          {entregaEditar
+            ? "✎"
+            : "□"}
         </div>
       </div>
 
+      {/* =================================================
+          CAMPOS
+      ================================================= */}
+
       <div className="entrega-form-grid">
+        {/* TÍTULO */}
+
         <div className="entrega-campo entrega-campo-ancho">
-          <label htmlFor="titulo">Título de la entrega</label>
+          <label htmlFor="titulo">
+            Título de la entrega
+          </label>
 
           <input
             id="titulo"
             name="titulo"
             type="text"
-            value={formulario.titulo}
-            onChange={manejarCambio}
+            value={
+              formulario.titulo
+            }
+            onChange={
+              manejarCambio
+            }
             placeholder="Ej. Proyecto final"
             required
           />
         </div>
 
+        {/* CURSO */}
+
         <div className="entrega-campo">
-          <label htmlFor="cursoId">Curso</label>
+          <label htmlFor="cursoId">
+            Curso
+          </label>
 
           <select
             id="cursoId"
             name="cursoId"
-            value={formulario.cursoId}
-            onChange={manejarCambio}
+            value={
+              formulario.cursoId
+            }
+            onChange={
+              manejarCambio
+            }
             required
           >
-            <option value="">Seleccionar curso</option>
+            <option value="">
+              Seleccionar curso
+            </option>
 
-            {cursos.map((curso) => (
-              <option key={curso.id} value={curso.id}>
-                {curso.codigo} — {curso.nombre}
-              </option>
-            ))}
+            {cursos.map(
+              (curso) => (
+                <option
+                  key={curso.id}
+                  value={curso.id}
+                >
+                  {curso.codigo} —{" "}
+                  {curso.nombre}
+                </option>
+              )
+            )}
           </select>
         </div>
 
+        {/* DESCRIPCIÓN */}
+
         <div className="entrega-campo entrega-campo-ancho">
-          <label htmlFor="descripcion">Descripción</label>
+          <label htmlFor="descripcion">
+            Descripción
+          </label>
 
           <textarea
             id="descripcion"
             name="descripcion"
-            value={formulario.descripcion}
-            onChange={manejarCambio}
+            value={
+              formulario.descripcion
+            }
+            onChange={
+              manejarCambio
+            }
             placeholder="Describe brevemente qué debes realizar..."
             rows="4"
           />
         </div>
 
-        <div className="entrega-campo">
-          <label htmlFor="fechaEntrega">Fecha y hora límite</label>
+        {/* FECHA */}
 
-          <input
+        <div className="entrega-campo">
+          <label htmlFor="fechaEntrega">
+            Fecha y hora límite
+          </label>
+
+          <DateTimePicker
             id="fechaEntrega"
-            name="fechaEntrega"
-            type="datetime-local"
-            value={formulario.fechaEntrega}
-            onChange={manejarCambio}
-            required
+            value={
+              formulario.fechaEntrega
+            }
+            onChange={
+              manejarFecha
+            }
           />
         </div>
 
+        {/* PROGRESO */}
+
         <div className="entrega-campo">
           <label htmlFor="progreso">
-            Progreso — {formulario.progreso}%
+            Progreso —{" "}
+            {formulario.progreso}%
           </label>
 
           <div className="progreso-control">
@@ -174,50 +275,69 @@ function EntregasForm({
               min="0"
               max="100"
               step="5"
-              value={formulario.progreso}
-              onChange={manejarCambio}
+              value={
+                formulario.progreso
+              }
+              onChange={
+                manejarCambio
+              }
             />
 
-            <span>{formulario.progreso}%</span>
+            <span>
+              {formulario.progreso}%
+            </span>
           </div>
         </div>
 
+        {/* ESTADO */}
+
         <div className="entrega-campo">
-          <label htmlFor="estado">Estado</label>
+          <label htmlFor="estado">
+            Estado
+          </label>
 
           <select
             id="estado"
             name="estado"
-            value={formulario.estado}
-            onChange={manejarCambio}
+            value={
+              formulario.estado
+            }
+            onChange={
+              manejarCambio
+            }
           >
-            <option value="en_progreso">En progreso</option>
-            <option value="pendiente">Pendiente</option>
-            <option value="completada">Completada</option>
+            <option value="en_progreso">
+              En progreso
+            </option>
+
+            <option value="pendiente">
+              Pendiente
+            </option>
+
+            <option value="completada">
+              Completada
+            </option>
           </select>
         </div>
       </div>
 
+      {/* =================================================
+          ACCIONES
+      ================================================= */}
+
       <div className="entrega-form-actions">
-        {entregaEditar && (
-          <button
-            type="button"
-            className="entrega-btn-secundario"
-            onClick={onCancelar}
-          >
-            Cancelar
-          </button>
-        )}
+        <button
+          type="button"
+          className="entrega-btn-secundario"
+          onClick={onCancelar}
+        >
+          Cancelar
+        </button>
 
         <button
-            type="button"
-            className="entrega-btn-secundario"
-            onClick={onCancelar}
-            >
-            Cancelar
-            </button>
-
-        <button type="submit" className="entrega-btn-guardar">
+          type="submit"
+          className="entrega-btn-guardar"
+        >
           {entregaEditar
             ? "Guardar cambios"
             : "Agregar entrega"}
