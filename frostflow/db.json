@@ -1,0 +1,86 @@
+{
+  "entregas": [
+    {
+      "id": 1,
+      "titulo": "Laboratorio de Automatización React",
+      "curso": "Programación Web",
+      "descripcion": "Desarrollo de una aplicación React con automatización.",
+      "fechaEntrega": "2026-09-11T23:59:00",
+      "progreso": 78,
+      "temperatura": "critico",
+      "riesgo": 87,
+      "estado": "en_progreso",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "id": 2,
+      "titulo": "Proyecto de Experiencia de Usuario",
+      "curso": "Experiencia de Usuario",
+      "descripcion": "Diseño y evaluación de una solución centrada en el usuario.",
+      "fechaEntrega": "2026-09-13T23:59:00",
+      "progreso": 64,
+      "temperatura": "urgente",
+      "riesgo": 62,
+      "estado": "en_progreso",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "id": 3,
+      "titulo": "Informe de Investigación",
+      "curso": "Metodología de la Investigación",
+      "descripcion": "Documento final de investigación y análisis.",
+      "fechaEntrega": "2026-09-16T18:00:00",
+      "progreso": 45,
+      "temperatura": "proximo",
+      "riesgo": 48,
+      "estado": "en_progreso",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "id": 4,
+      "titulo": "Presentación Multimedia",
+      "curso": "Tecnología Multimedia",
+      "descripcion": "Preparación de presentación y material audiovisual.",
+      "fechaEntrega": "2026-09-19T20:00:00",
+      "progreso": 35,
+      "temperatura": "estable",
+      "riesgo": 31,
+      "estado": "en_progreso",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "id": 5,
+      "titulo": "Proyecto Final de Curso",
+      "curso": "Desarrollo Multimedia",
+      "descripcion": "Entrega del proyecto final con documentación.",
+      "fechaEntrega": "2026-09-25T23:59:00",
+      "progreso": 20,
+      "temperatura": "estable",
+      "riesgo": 28,
+      "estado": "en_progreso",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    },
+    {
+      "id": 6,
+      "titulo": "Práctica de Componentes React",
+      "curso": "Programación Web",
+      "descripcion": "Práctica de componentes reutilizables y hooks.",
+      "fechaEntrega": "2026-09-30T23:59:00",
+      "progreso": 100,
+      "temperatura": "estable",
+      "riesgo": 0,
+      "estado": "completada",
+      "ultimaActualizacion": "2026-09-11T08:00:00"
+    }
+  ],
+  "alertas": [],
+  "ejecuciones": [],
+  "configuracion": [
+    {
+      "id": 1,
+      "automatizacionActiva": true,
+      "intervalo": 10,
+      "notificacionesActivas": true
+    }
+  ]
+}
