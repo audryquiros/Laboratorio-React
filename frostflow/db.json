@@ -680,12 +680,22 @@
       "entregasActualizadas": 5,
       "duracion": 120,
       "mensaje": "Se analizaron 9 entregas y se actualizaron 5."
+    },
+    {
+      "id": "RTrJ3jglpMk",
+      "fechaEjecucion": "2026-09-11T20:41:47.279Z",
+      "estado": "exito",
+      "origen": "manual",
+      "entregasAnalizadas": 9,
+      "entregasActualizadas": 0,
+      "duracion": 15,
+      "mensaje": "Se analizaron 9 entregas. No se requirieron cambios."
     }
   ],
   "configuracion": [
     {
       "id": "1",
-      "automatizacionActiva": true,
+      "automatizacionActiva": false,
       "intervalo": 10,
       "notificacionesActivas": true
     }
